@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameMarket</title>
+    <link rel="shortcut icon" href="imgs/Favicon.png">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+
+    <nav id="navbar">
+        <a href="index.html">
+            <img src="imgs/Logo.png" alt="Logo GameMarket">
+        </a>
+        <ul>
+            <li>
+                <a href="pages/productos.html">Productos</a>
+            </li>
+            <li>
+                <a href="pages/ofertas.html">Ofertas</a>
+            </li>
+            <li>
+                <a href="pages/nosotros.html">Nosotros</a>
+            </li>
+            <li>
+                <a href="pages/contacto.html">Contacto</a>
+            </li>
+        </ul>
+    </nav>
+
+    <header id="header">
+        <img src="imgs/PortadaStarWars.jpg" alt="Foto de portada del sitio" class="header__img">
+    </header>
+
+    <main id="mainPrincipal">
+        <h1>Novedades</h1>
+        <div class="articulos" id="novedades">
+            <figure class="producto">
+                <img src="imgs/Imgs_Productos/fifa 22_img.jpg" alt="">
+                <div class="infoProducto">
+                    <figcaption>Fifa 22</figcaption>
+                    <p>$9.000</p>
+                </div>
+            </figure>
+            <figure class="producto">
+                <img src="imgs/Imgs_Productos/cod_img.jpg" alt="">
+                <div class="infoProducto">
+                    <figcaption>Call of Duty: Vanguard</figcaption>
+                    <p>$11.000</p>
+                </div>
+            </figure>
+            <figure class="producto">
+                <img src="imgs/Imgs_Productos/The_last_of_us_img.jpg" alt="">
+                <div class="infoProducto">
+                    <figcaption>The Last of Us</figcaption>
+                    <p>$5.500</p>
+                </div>
+            </figure>
+            <figure class="producto">
+                <img src="imgs/Imgs_Productos/Fifa_16_img.jpg" alt="">
+                <div class="infoProducto">
+                    <figcaption>Fifa 16</figcaption>
+                    <p>$1.999</p>
+                </div>
+            </figure>
+            <figure class="producto">
+                <img src="imgs/Imgs_Productos/ACValhalla_img.jpg" alt="">
+                <div class="infoProducto">
+                    <figcaption>Assassins Creed Valhalla</figcaption>
+                    <p>$14.000</p>
+                </div>
+            </figure>
+        </div>
+
+        <h2 id="tituloCategorias">Categorias</h2>
+        <div id="categorias">
+            <div class="tarjetaCategoria" id="tarjetaAccion">
+                <h4>Acción</h4>
+            </div>
+            <div class="tarjetaCategoria" id="tarjetaAventura">
+                <h4>Aventura</h4>
+            </div>
+            <div class="tarjetaCategoria" id="tarjetaDeporte">
+                <h4>Deportes</h4>
+            </div>
+
+            <div class="tarjetaCategoria" id="tarjetaArcade">
+                <h4>Arcade</h4>
+            </div>
+            <div class="tarjetaCategoria" id="tarjetaRol">
+                <h4>Juegos de Rol</h4>
+            </div>
+            <div class="tarjetaCategoria" id="tarjetaDisparos">
+                <h4>Juegos de Disparos</h4>
+            </div>
+        </div>
+
+    </main>
+
+    <footer id="footer">
+        <div id="redes">
+            <h5 class="pie__titulo">Seguinos en nuestras redes</h5>
+            <div id="redesLinks">
+                <a href="https://instagram.com">
+                    <img src="imgs/instagram_logo.png" alt="acceso a instagram" class="pie__img">
+                </a>
+                <a href="https://twitter.com">
+                    <img src="imgs/twitter_logo.png" alt="acceso a twitter" class="pie__img">
+                </a>
+                <a href="https://facebook.com">
+                    <img src="imgs/facebook_logo.png" alt="acceso a Facebook" class="pie__img">
+                </a>
+            </div>
+        </div>
+
+        <div id="newsletter">
+            <h2>Newsletter</h2>
+            <form action="envio.php">
+                <label for="name">Nombre y Apellido</label>
+                <input type="text" id="name" placeholder="Nombre y Apellido">
+                <label for="correo">Email</label>
+                <input type="email" id="correo" placeholder="Dirección de Email">
+                <div class="botones">
+                    <input type="reset" value="cancelar">
+                    <input type="submit" value="guardar">
+                </div>
+            </form>
+        </div>
+
+        <div id="mapa">
+            <h2>Locales</h2>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3291.3619963528076!2d-58.711234285145125!3d-34.41755898050814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bca193e135e71f%3A0x25a5237b19a21168!2sAv.%20Benav%C3%ADdez%20907%2C%20Benavidez%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1655324624106!5m2!1ses!2sar"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </footer>
+
+</body>
+
+</html>

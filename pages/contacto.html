@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameMarket</title>
+    <link rel="shortcut icon" href="../imgs/Favicon.png">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+    <nav>
+        <a href="../index.html">
+            <img src="../imgs/Logo.png" alt="Logo GameMarket">
+        </a>
+        <ul>
+            <li>
+                <a href="productos.html">Productos</a>
+            </li>
+            <li>
+                <a href="ofertas.html">Ofertas</a>
+            </li>
+            <li>
+                <a href="nosotros.html">Nosotros</a>
+            </li>
+            <li>
+                <a href="contacto.html">Contacto</a>
+            </li>
+        </ul>
+    </nav>
+
+    <header>
+        <img src="../imgs/portada_contacto.jpg" alt="Foto de portada del sitio" class="header__img"
+            id="imgHeaderContacto">
+    </header>
+
+    <main id="mainContacto">
+
+        <h1>Contacto</h1>
+        <div id="mediosContacto">
+            <div class="contacto" id="Whatsapp">
+                <div class="infoContacto">
+                    <img src="../imgs/whatsapp_logo.png" class="icono" alt="logo Whatsapp">
+                    <p class="contactoTitulo">Whatsapp</p>
+                    <p class="contactoDescripcion">Brindamos atención personalizada</p>
+                </div>
+                <button>Whastapp</button>
+            </div>
+
+            <div class="contacto" id="emailContacto">
+                <div class="infoContacto">
+                    <img src="../imgs/email_logo.png" class="icono" alt="logo email">
+                    <p class="contactoTitulo">Correo Electrónico</p>
+                    <p class="contactoDescripcion">Correo disponible las 24hs</p>
+                </div>
+                <button>Email</button>
+            </div>
+
+            <div class="contacto" id="preguntasFrecuentes">
+                <div class="infoContacto">
+                    <img src="../imgs/Faq_icono.png" class="icono" alt="logo preguntas frecuentes">
+                    <p class="contactoTitulo">Preguntas Frecuentes</p>
+                    <p class="contactoDescripcion">Resolvemos tus dudas</p>
+                </div>
+                <button>FAQ</button>
+            </div>
+
+        </div>
+    </main>
+
+    <footer id="footer">
+        <div id="redes">
+            <h5 class="pie__titulo">Seguinos en nuestras redes</h5>
+            <div id="redesLinks">
+                <a href="https://instagram.com">
+                    <img src="../imgs/instagram_logo.png" alt="acceso a instagram" class="pie__img">
+                </a>
+                <a href="https://twitter.com">
+                    <img src="../imgs/twitter_logo.png" alt="acceso a twitter" class="pie__img">
+                </a>
+                <a href="https://facebook.com">
+                    <img src="../imgs/facebook_logo.png" alt="acceso a Facebook" class="pie__img">
+                </a>
+            </div>
+        </div>
+
+        <div id="newsletter">
+            <h2>Newsletter</h2>
+            <form action="envio.php">
+                <label for="name">Nombre y Apellido</label>
+                <input type="text" id="name" placeholder="Nombre y Apellido">
+                <label for="correo">Email</label>
+                <input type="email" id="correo" placeholder="Dirección de Email">
+                <div class="botones">
+                    <input type="reset" value="cancelar">
+                    <input type="submit" value="guardar">
+                </div>
+            </form>
+        </div>
+
+        <div id="mapa">
+            <h2>Locales</h2>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3291.3619963528076!2d-58.711234285145125!3d-34.41755898050814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bca193e135e71f%3A0x25a5237b19a21168!2sAv.%20Benav%C3%ADdez%20907%2C%20Benavidez%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1655324624106!5m2!1ses!2sar"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </footer>
+
+</body>
+
+</html>

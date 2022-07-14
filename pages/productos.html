@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameMarket</title>
+    <link rel="shortcut icon" href="../imgs/Favicon.png">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+    <nav id="navbar">
+        <a href="../index.html">
+            <img src="../imgs/Logo.png" alt="Logo GameMarket">
+        </a>
+        <ul>
+            <li>
+                <a href="productos.html">Productos</a>
+            </li>
+            <li>
+                <a href="ofertas.html">Ofertas</a>
+            </li>
+            <li>
+                <a href="nosotros.html">Nosotros</a>
+            </li>
+            <li>
+                <a href="contacto.html">Contacto</a>
+            </li>
+        </ul>
+    </nav>
+
+    <header>
+        <img src="../imgs/portada_general.jpg" alt="Foto de portada del sitio" width="1080px" height="500px"
+            class="header__img">
+    </header>
+
+    <div id="contenedorProductos">
+        <nav id="filtros">
+            <h3>Filtros</h3>
+            <b class="textLeft">Género</b>
+            <ul>
+                <li>Acción</li>
+                <li>Aventura</li>
+                <li>Deportes</li>
+                <li>Musicales</li>
+                <li>Juegos de Rol</li>
+                <li>Casuales</li>
+                <li>Ingenio</li>
+                <li>Simulación</li>
+                <li>Juegos de Disparos</li>
+            </ul>
+        </nav>
+
+        <main>
+            <h1>Productos</h1>
+            <div class="articulos" id="productos">
+                <figure class="producto">
+                    <img src="../imgs/Imgs_Productos/fifa 22_img.jpg" alt="">
+                    <div class="infoProducto">
+                        <figcaption>Fifa 22</figcaption>
+                        <p>$9.000</p>
+                    </div>
+                </figure>
+                <figure class="producto">
+                    <img src="../imgs/Imgs_Productos/cod_img.jpg" alt="">
+                    <div class="infoProducto">
+                        <figcaption>Call of Duty: Vanguard</figcaption>
+                        <p>$11.000</p>
+                    </div>
+                </figure>
+                <figure class="producto">
+                    <img src="../imgs/Imgs_Productos/The_last_of_us_img.jpg" alt="">
+                    <div class="infoProducto">
+                        <figcaption>The Last of Us</figcaption>
+                        <p>$5.500</p>
+                    </div>
+                </figure>
+                <figure class="producto">
+                    <img src="../imgs/Imgs_Productos/Fifa_16_img.jpg" alt="">
+                    <div class="infoProducto">
+                        <figcaption>Fifa 16</figcaption>
+                        <p>$1.999</p>
+                    </div>
+                </figure>
+
+                <figure class="producto">
+                    <img src="../imgs/Imgs_Productos/horizon_img.jpg" alt="">
+                    <div class="infoProducto">
+                        <figcaption>Horizon Forbidden West</figcaption>
+                        <p>$13.500</p>
+                    </div>
+                </figure>
+                <figure class="producto">
+                    <img src="../imgs/Imgs_Productos/uncharted_4_img.jpg" alt="">
+                    <div class="infoProducto">
+                        <figcaption>Uncharted 4</figcaption>
+                        <p>$5.999</p>
+                    </div>
+                </figure>
+                <figure class="producto">
+                    <img src="../imgs/Imgs_Productos/Gow_img.jpg" alt="">
+                    <div class="infoProducto">
+                        <figcaption>God of War</figcaption>
+                        <p>$1.499</p>
+                    </div>
+                </figure>
+                <figure class="producto">
+                    <img src="../imgs/Imgs_Productos/crash_img.png" alt="">
+                    <div class="infoProducto">
+                        <figcaption>Crash Bandicoot</figcaption>
+                        <p>$3.500</p>
+                    </div>
+                </figure>
+            </div>
+        </main>
+    </div>
+    <footer id="footer">
+        <div id="redes">
+            <h5 class="pie__titulo">Seguinos en nuestras redes</h5>
+            <div id="redesLinks">
+                <a href="https://instagram.com">
+                    <img src="../imgs/instagram_logo.png" alt="acceso a instagram" class="pie__img">
+                </a>
+                <a href="https://twitter.com">
+                    <img src="../imgs/twitter_logo.png" alt="acceso a twitter" class="pie__img">
+                </a>
+                <a href="https://facebook.com">
+                    <img src="../imgs/facebook_logo.png" alt="acceso a Facebook" class="pie__img">
+                </a>
+            </div>
+        </div>
+
+        <div id="newsletter">
+            <h2>Newsletter</h2>
+            <form action="envio.php">
+                <label for="name">Nombre y Apellido</label>
+                <input type="text" id="name" placeholder="Nombre y Apellido">
+                <label for="correo">Email</label>
+                <input type="email" id="correo" placeholder="Dirección de Email">
+                <div class="botones">
+                    <input type="reset" value="cancelar">
+                    <input type="submit" value="guardar">
+                </div>
+            </form>
+        </div>
+
+        <div id="mapa">
+            <h2>Locales</h2>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3291.3619963528076!2d-58.711234285145125!3d-34.41755898050814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bca193e135e71f%3A0x25a5237b19a21168!2sAv.%20Benav%C3%ADdez%20907%2C%20Benavidez%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1655324624106!5m2!1ses!2sar"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </footer>
+</body>
+
+</html>
