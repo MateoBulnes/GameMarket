@@ -196,6 +196,27 @@ main h1 {
     transition: all 0.35s;
 }
 
+@keyframes animacionCategorias {
+    0% {
+        margin-left: 30px;
+    }
+
+    50% {
+        margin-left: 40px;
+    }
+
+    100% {
+        margin-left: 45px;
+    }
+}
+
+#categorias .tarjetaCategoria:hover>h4 {
+    animation-name: animacionCategorias;
+    animation-timing-function: linear;
+    animation-duration: 0.75s;
+    margin-left: 45px;
+}
+
 #categorias .tarjetaCategoria h4 {
     font-size: 30px;
     color: white;
