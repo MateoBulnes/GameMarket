@@ -45,34 +45,30 @@ article {
 }
 
 /*NavBar*/
-nav {
+#navbar {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     background-color: rgb(221, 230, 243);
-    width: 100%;
-    position: sticky;
-    top: 0;
-    left: 0;
+
 }
 
-#navbar {
-    z-index: 1;
-}
-
-nav img {
+#navbar img {
     width: 30%;
-    height: 100%;
     margin: 10px 0 10px 20px;
 
 }
 
-nav a {
+#logoNavbar {
+    width: 50%;
+}
+
+#navbar a {
     display: flex;
     align-items: center;
 }
 
-nav ul {
+#navbar ul {
     display: flex;
     flex-direction: row;
     align-items: flex-end;
@@ -80,16 +76,15 @@ nav ul {
     margin-right: 30px;
 }
 
-nav ul li {
+#navbar ul li {
     list-style: none;
     margin: 6px;
 }
 
-nav ul li a {
+#navbar ul li a {
     text-decoration: none;
-    font-size: 2rem;
     color: black;
-    margin: 0 10px 0 10px;
+    margin: 30px 10px 0 10px;
     background-image: linear-gradient(currentColor, currentColor);
     background-position: 0% 100%;
     background-repeat: no-repeat;
@@ -97,14 +92,12 @@ nav ul li a {
     transition: background-size 1s;
 }
 
-nav ul li a:hover {
-    font-size: 2.2rem;
-    color: rgb(44, 158, 197);
+#navbar ul li a:hover {
     font-weight: bold;
+    color: rgb(44, 158, 197);
     transition: all 0.25s;
     background-size: 100% 2px;
 }
-
 
 .header__img {
     width: 100%;
@@ -554,18 +547,18 @@ footer {
 }
 
 @media (max-width: 1024px) {
-    nav {
-        flex-direction: column;
+    /*#navbar {
+        flex-direction: row;
         align-items: center;
     }
 
-    nav a {
+    #navbar a {
         justify-content: center;
     }
 
-    nav ul {
+    #navbar ul {
         margin: 0;
-    }
+    }*/
 
     .articulos {
         grid-template-columns: repeat(3, 1fr);

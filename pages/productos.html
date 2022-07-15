@@ -6,30 +6,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GameMarket</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="shortcut icon" href="../imgs/Favicon.png">
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 
 <body>
-    <nav id="navbar">
-        <a href="../index.html">
-            <img src="../imgs/Logo.png" alt="Logo GameMarket">
-        </a>
-        <ul>
-            <li>
-                <a href="productos.html">Productos</a>
-            </li>
-            <li>
-                <a href="ofertas.html">Ofertas</a>
-            </li>
-            <li>
-                <a href="nosotros.html">Nosotros</a>
-            </li>
-            <li>
-                <a href="contacto.html">Contacto</a>
-            </li>
-        </ul>
+    <!-- Inicio de NavBar-->
+    <nav class="navbar navbar-expand-lg sticky-top" id="navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../index.html" id="logoNavbar">
+                <img src="../imgs/Logo.png" alt="Logo GameMarket">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation" id="botonHamburguesa">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link fs-2" aria-current="page" href="../pages/productos.html">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fs-2" href="../pages/ofertas.html">Ofertas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fs-2" href="../pages/nosotros.html">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fs-2" href="../pages/contacto.html">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </nav>
+    <!-- Termina NavBar-->
 
     <header>
         <img src="../imgs/portada_general.jpg" alt="Foto de portada del sitio" width="1080px" height="500px"
@@ -154,6 +167,10 @@
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
