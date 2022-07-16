@@ -129,6 +129,7 @@ main h1 {
     background-color: white;
     text-align: center;
     box-shadow: 3px 5px 15px -1px rgba(0, 0, 0, 0.6);
+    padding: 0;
 }
 
 .articulos figure:hover {
