@@ -458,6 +458,8 @@ footer {
     flex-direction: column;
     align-items: flex-start;
     margin-right: 0;
+    padding-left: 0;
+    list-style: none;
 }
 
 #filtros ul li {
@@ -795,5 +797,22 @@ footer {
 
     footer #newsletter form #correo {
         margin-bottom: 20px;
+    }
+
+    #filtros ul {
+        align-self: center;
+        margin-left: 30px;
+    }
+}
+
+@media (max-width: 360px) {
+    #filtros ul li {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 250px) {
+    #filtros ul {
+        margin-right: 50px;
     }
 }
