@@ -271,6 +271,7 @@ footer {
 
 #redes h5 {
     text-align: center;
+    font-weight: bold;
 }
 
 #redesLinks {
@@ -304,48 +305,37 @@ footer {
 
 
 #newsletter {
+    width: 90%;
     color: white;
     font-size: 1.6em;
     display: flex;
     flex-direction: column;
+    margin: 0 auto 30px auto;
 }
 
 #newsletter h2 {
     width: 80%;
     text-align: center;
-}
-
-#newsletter form {
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    align-self: center;
     font-weight: bold;
 }
 
-#newsletter form label {
-    margin-top: 5px;
-}
 
 #newsletter form #name,
 #newsletter form #correo {
-    background-color: transparent;
-    color: white;
-    border: 0px;
-    border-bottom: 2px solid white;
-    margin-top: 5px;
+    font-size: 15px;
 }
 
 #newsletter .botones {
     display: flex;
     justify-content: space-between;
-    gap: 20px;
     margin-top: 10px;
+    font-size: 15px;
+    gap: 15px;
 }
 
 #newsletter .botones input {
     height: 30px;
-    width: 210px;
+    width: 235px;
     font-weight: bold;
 }
 
@@ -360,6 +350,7 @@ footer {
     width: 80%;
     text-align: center;
     margin-left: 0;
+    font-weight: bold;
 }
 
 #mapa iframe {
@@ -513,6 +504,7 @@ footer {
 
 
 /*-------------------------Media Queries------------------------------*/
+
 @media (max-width: 1200px) {
     .articulos {
         grid-template-columns: repeat(4, 1fr);
@@ -542,7 +534,10 @@ footer {
         column-gap: 20px;
         margin-left: 30px;
         margin-top: 30px;
+    }
 
+    footer #newsletter {
+        margin-left: auto;
     }
 
     #mediosContacto {
@@ -685,6 +680,10 @@ footer {
         margin-left: 0;
     }
 
+    footer #newsletter form .botones input {
+        width: 340px;
+    }
+
     footer #mapa {
         grid-column: 1 / -1;
     }
@@ -781,5 +780,20 @@ footer {
     .articulos .producto {
         height: 90%;
         width: 80%;
+    }
+
+    footer #newsletter form .botones {
+        flex-direction: column-reverse;
+
+    }
+
+    footer #newsletter form .botones input {
+        width: 100%;
+        margin-bottom: 0;
+        gap: 0;
+    }
+
+    footer #newsletter form #correo {
+        margin-bottom: 20px;
     }
 }

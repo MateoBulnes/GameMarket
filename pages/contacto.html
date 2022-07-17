@@ -104,15 +104,20 @@
         <div id="newsletter">
             <h2>Newsletter</h2>
             <form action="envio.php">
-                <label for="name">Nombre y Apellido</label>
-                <input type="text" id="name" placeholder="Nombre y Apellido">
-                <label for="correo">Email</label>
-                <input type="email" id="correo" placeholder="Dirección de Email">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nombre y Apellido</label>
+                    <input type="text" class="form-control" id="name" placeholder="Nombre y apellido">
+                </div>
+                <div class="mb-3">
+                    <label for="correo" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="correo" placeholder="Dirección de Email">
+                </div>
                 <div class="botones">
-                    <input type="reset" value="cancelar">
-                    <input type="submit" value="guardar">
+                    <input type="reset" value="Cancelar" class="btn btn-danger btn-lg">
+                    <input type="submit" value="Guardar" class="btn btn-primary btn-lg">
                 </div>
             </form>
+
         </div>
 
         <div id="mapa">
