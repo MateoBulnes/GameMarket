@@ -369,23 +369,11 @@ footer {
 }
 
 /*Contacto*/
-
-#mediosContacto {
-    width: 80%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 35vh;
-    gap: 30px;
-    margin: 40px 0 40px 150px;
-}
-
 #mainContacto h1 {
-    width: 80%;
-    text-align: center;
     font-size: 35px;
-    color: rgb(68, 67, 67);
-    margin-left: 150px;
+    font-weight: bold;
     border-bottom: 2px solid rgb(68, 67, 67);
+    margin: 30px auto 30px auto;
     padding-bottom: 10px;
 }
 
@@ -394,21 +382,7 @@ footer {
     margin-bottom: 10px;
 }
 
-#mediosContacto .contacto {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: rgb(68, 67, 67);
-    justify-content: space-between;
-}
-
-#mediosContacto .infoContacto {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#mediosContacto .contacto .contactoTitulo {
+#mediosContacto .infoContacto .contactoTitulo {
     font-size: 30px;
     font-weight: bold;
     margin-top: 15px;
@@ -417,7 +391,7 @@ footer {
     margin-top: auto;
 }
 
-#mediosContacto .contacto .contactoDescripcion {
+#mediosContacto .infoContacto .contactoDescripcion {
     font-size: 20px;
     text-align: center;
     margin-top: auto;
@@ -427,13 +401,15 @@ footer {
     width: 30%;
     height: 35px;
     border-radius: 10px;
-    background-color: rgb(221, 230, 243);
-    font-weight: 500;
+    background-color: rgb(208, 216, 226);
+    border: 2px solid black;
+    font-weight: 600;
+    font-size: 15px;
     margin-top: auto;
 }
 
 #mediosContacto .contacto button:hover {
-    background-color: rgb(192, 198, 207);
+    background-color: rgb(131, 200, 223);
     font-weight: bold;
     transition: all 0.25s;
 }
@@ -541,25 +517,9 @@ footer {
     .articulos {
         grid-template-columns: repeat(4, 1fr);
     }
-
-    #mediosContacto {
-        grid-template-rows: 40vh;
-    }
 }
 
-@media (max-width: 1024px) {
-    /*#navbar {
-        flex-direction: row;
-        align-items: center;
-    }
-
-    #navbar a {
-        justify-content: center;
-    }
-
-    #navbar ul {
-        margin: 0;
-    }*/
+@media (max-width: 1027px) {
 
     .articulos {
         grid-template-columns: repeat(3, 1fr);
@@ -590,10 +550,18 @@ footer {
         margin-right: auto;
     }
 
-    #mainContacto h1 {
-        margin-left: auto;
-        margin-right: auto;
+    #mediosContacto .infoContacto .contactoTitulo {
+        font-size: 25px;
+
     }
+
+    #mediosContacto .infoContacto .contactoDescripcion {
+        font-size: 15px;
+
+    }
+
+
+
 
     #productos {
         grid-template-columns: repeat(3, 1fr);
@@ -614,12 +582,11 @@ footer {
 
 @media (max-width: 950px) {
     #mediosContacto {
-        grid-template-columns: 1fr;
         margin-bottom: 30px;
     }
 
     #mediosContacto .contacto button {
-        margin-top: 30px;
+        font-size: 12.5px;
     }
 
     #contenedorProductos {
@@ -640,6 +607,18 @@ footer {
         width: 20%;
         margin-left: 10px;
         margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 779px) {
+    #mediosContacto .infoContacto .contactoTitulo {
+        font-size: 22.5px;
+
+    }
+
+    #mediosContacto .infoContacto .contactoDescripcion {
+        font-size: 14.5px;
+
     }
 }
 
@@ -756,6 +735,10 @@ footer {
     #ofertasConsolas .producto {
         width: 100%;
         height: 100%;
+    }
+
+    #mediosContacto .contacto {
+        margin-bottom: 20px;
     }
 }
 
