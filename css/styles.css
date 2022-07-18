@@ -90,6 +90,7 @@ article {
     background-repeat: no-repeat;
     background-size: 0% 2px;
     transition: background-size 1s;
+    font-size: 2rem;
 }
 
 #navbar ul li a:hover {
@@ -97,6 +98,11 @@ article {
     color: rgb(44, 158, 197);
     transition: all 0.25s;
     background-size: 100% 2px;
+    font-size: 2.2rem;
+}
+
+#botonHamburguesa {
+    border: 0;
 }
 
 .header__img {
