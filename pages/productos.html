@@ -45,85 +45,113 @@
     <!-- Termina NavBar-->
 
     <header>
-        <img src="../imgs/portada_general.jpg" alt="Foto de portada del sitio" width="1080px" height="500px"
-            class="header__img">
+        <img src="../imgs/portada_GOW.jpg" alt="Foto de portada del sitio" class="image-fluid header__img">
     </header>
 
     <div id="contenedorProductos">
         <nav id="filtros">
             <h3>Filtros</h3>
             <b class="textLeft">Género</b>
-            <ul>
-                <li>Acción</li>
-                <li>Aventura</li>
-                <li>Deportes</li>
-                <li>Musicales</li>
-                <li>Juegos de Rol</li>
-                <li>Casuales</li>
-                <li>Ingenio</li>
-                <li>Simulación</li>
-                <li>Juegos de Disparos</li>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Acción
+                    <span class="badge rounded-pill etiquetaFiltro">14</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Aventura
+                    <span class="badge rounded-pill etiquetaFiltro">10</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Deportes
+                    <span class="badge rounded-pill etiquetaFiltro">5</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Musicales
+                    <span class="badge rounded-pill etiquetaFiltro">3</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Juegos de Rol
+                    <span class="badge rounded-pill etiquetaFiltro">25</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Arcade
+                    <span class="badge rounded-pill etiquetaFiltro">15</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Ingenio
+                    <span class="badge rounded-pill etiquetaFiltro">8</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Juegos de Disparos
+                    <span class="badge rounded-pill etiquetaFiltro">32</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Simulación
+                    <span class="badge rounded-pill etiquetaFiltro">6</span>
+                </li>
             </ul>
         </nav>
 
         <main>
             <h1>Productos</h1>
             <div class="articulos" id="productos">
-                <figure class="producto">
-                    <img src="../imgs/Imgs_Productos/fifa 22_img.jpg" alt="">
-                    <div class="infoProducto">
-                        <figcaption>Fifa 22</figcaption>
-                        <p>$9.000</p>
+                <figure class="producto card text-center">
+                    <img src="../imgs/Imgs_Productos/fifa 22_img.jpg" class="card-img-top" alt="img Fifa 22">
+                    <div class="card-body">
+                        <figcaption class="card-title">Fifa 22</figcaption>
+                        <p class="card-text">$9.000</p>
                     </div>
                 </figure>
-                <figure class="producto">
-                    <img src="../imgs/Imgs_Productos/cod_img.jpg" alt="">
-                    <div class="infoProducto">
-                        <figcaption>Call of Duty: Vanguard</figcaption>
-                        <p>$11.000</p>
+                <figure class="producto card text-center">
+                    <img src="../imgs/Imgs_Productos/cod_img.jpg" class="card-img-top" alt="img COD">
+                    <div class="card-body">
+                        <figcaption class="card-title">Call of Duty: Vanguard</figcaption>
+                        <p class="card-text">$11.000</p>
                     </div>
                 </figure>
-                <figure class="producto">
-                    <img src="../imgs/Imgs_Productos/The_last_of_us_img.jpg" alt="">
-                    <div class="infoProducto">
-                        <figcaption>The Last of Us</figcaption>
-                        <p>$5.500</p>
+                <figure class="producto card text-center">
+                    <img src="../imgs/Imgs_Productos/The_last_of_us_img.jpg" class="card-img-top"
+                        alt="img the last of us">
+                    <div class="card-body">
+                        <figcaption class="card-title">The Last of Us</figcaption>
+                        <p class="card-text">$5.500</p>
                     </div>
                 </figure>
-                <figure class="producto">
-                    <img src="../imgs/Imgs_Productos/Fifa_16_img.jpg" alt="">
-                    <div class="infoProducto">
-                        <figcaption>Fifa 16</figcaption>
-                        <p>$1.999</p>
+                <figure class="producto card text-center">
+                    <img src="../imgs/Imgs_Productos/Fifa_16_img.jpg" class="card-img-top" alt="img Fifa 16">
+                    <div class="card-body">
+                        <figcaption class="card-title">Fifa 16</figcaption>
+                        <p class="card-text">$1.999</p>
                     </div>
                 </figure>
 
-                <figure class="producto">
-                    <img src="../imgs/Imgs_Productos/horizon_img.jpg" alt="">
-                    <div class="infoProducto">
-                        <figcaption>Horizon Forbidden West</figcaption>
-                        <p>$13.500</p>
+                <figure class="producto card text-center">
+                    <img src="../imgs/Imgs_Productos/horizon_img.jpg" class="card-img-top"
+                        alt="img horizon forbidden west">
+                    <div class="card-body">
+                        <figcaption class="card-title">Horizon Forbidden West</figcaption>
+                        <p class="card-text">$13.500</p>
                     </div>
                 </figure>
-                <figure class="producto">
-                    <img src="../imgs/Imgs_Productos/uncharted_4_img.jpg" alt="">
-                    <div class="infoProducto">
-                        <figcaption>Uncharted 4</figcaption>
-                        <p>$5.999</p>
+                <figure class="producto card text-center">
+                    <img src="../imgs/Imgs_Productos/uncharted_4_img.jpg" class="card-img-top" alt="img uncharted 4">
+                    <div class="card-body">
+                        <figcaption class="card-title">Uncharted 4</figcaption>
+                        <p class="card-text">$5.999</p>
                     </div>
                 </figure>
-                <figure class="producto">
-                    <img src="../imgs/Imgs_Productos/Gow_img.jpg" alt="">
-                    <div class="infoProducto">
-                        <figcaption>God of War</figcaption>
-                        <p>$1.499</p>
+                <figure class="producto card text-center">
+                    <img src="../imgs/Imgs_Productos/Gow_img.jpg" class="card-img-top" alt="img god of war">
+                    <div class="card-body">
+                        <figcaption class="card-title">God of War</figcaption>
+                        <p class="card-text">$1.499</p>
                     </div>
                 </figure>
-                <figure class="producto">
-                    <img src="../imgs/Imgs_Productos/crash_img.png" alt="">
-                    <div class="infoProducto">
-                        <figcaption>Crash Bandicoot</figcaption>
-                        <p>$3.500</p>
+                <figure class="producto card text-center">
+                    <img src="../imgs/Imgs_Productos/crash_img.png" class="card-img-top" alt="img crash bandicoot">
+                    <div class="card-body">
+                        <figcaption class="card-title">Crash Bandicoot</figcaption>
+                        <p class="card-text">$3.500</p>
                     </div>
                 </figure>
             </div>

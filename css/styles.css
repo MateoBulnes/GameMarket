@@ -472,15 +472,22 @@ footer {
 #filtros ul li {
     width: 100%;
     font-size: 15px;
-    border-radius: 10px;
+    
+    
     margin: 0;
     padding: 10px 0 10px 6px;
+    background-color: transparent;
+}
 
+.etiquetaFiltro{
+    background-color: rgb(208, 214, 223);
+    color: rgb(68, 67, 67);
 }
 
 #filtros ul li:hover {
     background-color: rgb(208, 214, 223);
     font-weight: bold;
+    border-radius: 10px;
 }
 
 /* Ofertas */
@@ -794,6 +801,12 @@ footer {
         grid-template-columns: 1fr;
         width: 60%;
     }
+    #productos .producto figcaption{
+        font-size: 15px;
+    }
+    #productos .producto p{
+        font-size: 10px;
+    }
 
     #ofertasJuegos,
     #ofertasConsolas {
@@ -848,6 +861,10 @@ footer {
     .articulos .producto p {
         font-size: 10px;
     }
+    #productos .producto figcaption{
+        font-size: 10px;
+    }
+    
 }
 
 @media (max-width: 250px) {
