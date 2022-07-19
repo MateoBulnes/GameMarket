@@ -20,13 +20,13 @@ body {
 h1 {
     text-align: left;
     font-size: 30px;
-    margin: 0 0 30px 15px;
+    margin: 0 0 20px 15px;
     color: rgb(68, 67, 67);
 }
 
 h2 {
     font-size: large;
-    margin: 20px 0 10px 40px;
+    margin: 20px 0 20px 40px;
 }
 
 .subtitulo {
@@ -136,6 +136,7 @@ main h1 {
     text-align: center;
     box-shadow: 3px 5px 15px -1px rgba(0, 0, 0, 0.6);
     padding: 0;
+
 }
 
 .articulos figure:hover {
@@ -482,21 +483,23 @@ footer {
     font-weight: bold;
 }
 
-#ofertasJuegos .producto .infoProducto .precio,
-#ofertasConsolas .producto .infoProducto .precio {
+/* Ofertas */
+
+#ofertasJuegos .producto .precio,
+#ofertasConsolas .producto .precio {
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
-#ofertasJuegos .producto .infoProducto .precio .precioTachado,
-#ofertasConsolas .producto .infoProducto .precio .precioTachado {
+#ofertasJuegos .producto .precio .precioTachado,
+#ofertasConsolas .producto .precio .precioTachado {
     text-decoration: line-through red;
     margin-right: 10px;
 }
 
-#ofertasJuegos .producto .infoProducto .precio .precioNuevo,
-#ofertasConsolas .producto .infoProducto .precio .precioNuevo {
+#ofertasJuegos .producto .precio .precioNuevo,
+#ofertasConsolas .producto .precio .precioNuevo {
     font-weight: bold;
     color: rgb(30, 67, 30);
 }
@@ -508,6 +511,11 @@ footer {
     border-bottom: 2px solid rgb(68, 67, 67);
     margin-left: 60px;
     margin-top: 40px;
+}
+
+#etiquetaOferta {
+    font-size: 15px;
+    z-index: 2;
 }
 
 
@@ -523,8 +531,15 @@ footer {
 
     .articulos {
         grid-template-columns: repeat(3, 1fr);
+        margin-left: auto;
+        margin-right: auto;
     }
 
+    #mainOfertas h1,
+    #mainOfertas h2 {
+        margin-left: auto;
+        margin-right: auto;
+    }
 
 
     #categorias {
@@ -579,7 +594,7 @@ footer {
         width: 90%;
         margin-left: auto;
         margin-right: auto;
-        text-align: center;
+        text-align: left;
     }
 }
 
@@ -644,6 +659,11 @@ footer {
         text-align: center;
         margin-left: auto;
         margin-right: auto;
+    }
+
+    #mainOfertas h1,
+    #mainOfertas h2 {
+        text-align: left;
     }
 
     #categorias {
@@ -762,6 +782,11 @@ footer {
         height: 100%;
     }
 
+    #mainOfertas h1,
+    #mainOfertas h2 {
+        text-align: center;
+    }
+
 }
 
 @media (max-width: 480px) {
@@ -813,6 +838,14 @@ footer {
 
 @media (max-width: 360px) {
     #filtros ul li {
+        font-size: 10px;
+    }
+
+    .articulos .producto figcaption {
+        font-size: 15px;
+    }
+
+    .articulos .producto p {
         font-size: 10px;
     }
 }
