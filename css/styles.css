@@ -472,14 +472,14 @@ footer {
 #filtros ul li {
     width: 100%;
     font-size: 15px;
-    
-    
+
+
     margin: 0;
     padding: 10px 0 10px 6px;
     background-color: transparent;
 }
 
-.etiquetaFiltro{
+.etiquetaFiltro {
     background-color: rgb(208, 214, 223);
     color: rgb(68, 67, 67);
 }
@@ -520,10 +520,25 @@ footer {
     margin-top: 40px;
 }
 
-#etiquetaOferta {
+.etiquetaOferta {
     font-size: 15px;
     z-index: 2;
 }
+
+#acordeon {
+    width: 90%;
+    margin-left: 60px;
+    font-size: 15px;
+}
+
+.accordion-button {
+    font-size: 20px;
+}
+
+.accordion-item h2 {
+    margin: 0
+}
+
 
 
 /*-------------------------Media Queries------------------------------*/
@@ -548,6 +563,10 @@ footer {
         margin-right: auto;
     }
 
+    .subtitulo {
+        margin-left: auto;
+        margin-right: auto;
+    }
 
     #categorias {
         grid-template-columns: repeat(2, 1fr);
@@ -585,9 +604,6 @@ footer {
 
     }
 
-
-
-
     #productos {
         grid-template-columns: repeat(3, 1fr);
     }
@@ -602,6 +618,11 @@ footer {
         margin-left: auto;
         margin-right: auto;
         text-align: left;
+    }
+
+    #acordeon {
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
@@ -801,10 +822,12 @@ footer {
         grid-template-columns: 1fr;
         width: 60%;
     }
-    #productos .producto figcaption{
+
+    #productos .producto figcaption {
         font-size: 15px;
     }
-    #productos .producto p{
+
+    #productos .producto p {
         font-size: 10px;
     }
 
@@ -861,10 +884,11 @@ footer {
     .articulos .producto p {
         font-size: 10px;
     }
-    #productos .producto figcaption{
+
+    #productos .producto figcaption {
         font-size: 10px;
     }
-    
+
 }
 
 @media (max-width: 250px) {
