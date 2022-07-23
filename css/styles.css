@@ -50,7 +50,7 @@ article {
     flex-direction: row;
     justify-content: space-between;
     background-color: rgb(221, 230, 243);
-
+    box-shadow: 0 3px 1rem rgba(0, 0, 0, .1);
 }
 
 #navbar img {
@@ -99,6 +99,7 @@ article {
     transition: all 0.25s;
     background-size: 100% 2px;
     font-size: 2.2rem;
+    cursor: pointer;
 }
 
 #botonHamburguesa {
@@ -142,6 +143,7 @@ main h1 {
 .articulos figure:hover {
     transform: scale(1.05);
     transition: all 0.35s;
+    cursor: pointer;
 }
 
 .articulos .producto .infoProducto {
@@ -195,6 +197,7 @@ main h1 {
 #categorias .tarjetaCategoria:hover {
     transform: scale(1.03);
     transition: all 0.35s;
+    cursor: pointer;
 }
 
 @keyframes animacionCategorias {
@@ -216,6 +219,7 @@ main h1 {
     animation-timing-function: linear;
     animation-duration: 0.75s;
     margin-left: 45px;
+    cursor: pointer;
 }
 
 #categorias .tarjetaCategoria h4 {
@@ -261,11 +265,11 @@ main h1 {
 /*Footer*/
 
 footer {
-    background-color: rgb(27, 24, 24);
+    background-color: black;
     margin-top: 150px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     column-gap: 30px;
 }
 
@@ -273,12 +277,20 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    margin-top: 20px;
+    align-items: center;
+
+    padding-top: 20px;
+    border-top: 1px solid rgb(113, 113, 113);
+    grid-column: 1 / 3;
+    grid-row: 2 / 3;
+    column-gap: 20px;
+    width: 90%;
+    margin: 30px auto 0 auto;
+
 }
 
 #redes h5 {
     text-align: center;
-    font-weight: bold;
 }
 
 #redesLinks {
@@ -291,10 +303,10 @@ footer {
 .pie__img {
     display: flex;
     align-self: center;
-    background-color: white;
+
     width: 50px;
     height: 50px;
-    border-radius: 25px;
+    border-radius: 50%;
     margin-left: 10px;
     margin-right: 10px;
 }
@@ -302,6 +314,7 @@ footer {
 .pie__img:hover {
     transform: scale(1.1);
     transition: all 0.25s;
+    cursor: pointer;
 }
 
 .pie__titulo {
@@ -312,12 +325,13 @@ footer {
 
 
 #newsletter {
-    width: 90%;
+    width: 80%;
     color: white;
     font-size: 1.6em;
     display: flex;
     flex-direction: column;
-    margin: 0 auto 30px auto;
+    margin: 30px auto 30px auto;
+
 }
 
 #newsletter h2 {
@@ -330,6 +344,11 @@ footer {
 #newsletter form #name,
 #newsletter form #correo {
     font-size: 15px;
+    background-color: transparent;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
 }
 
 #newsletter .botones {
@@ -342,28 +361,41 @@ footer {
 
 #newsletter .botones input {
     height: 30px;
-    width: 235px;
+    width: 50%;
     font-weight: bold;
 }
 
-#mapa {
+.btn-celeste {
+    border-color: rgb(112, 163, 182);
+    color: rgb(112, 163, 182);
+}
+
+.btn-celeste:hover {
+    background-color: rgb(112, 163, 182);
+}
+
+#listaFooter {
     color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#mapa h2 {
     width: 80%;
-    text-align: center;
-    margin-left: 0;
-    font-weight: bold;
+    margin: 30px auto 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
-#mapa iframe {
-    width: 70%;
-    height: 70%;
+#listaFooter ul {
+    list-style: none;
+    font-size: 15px;
+}
 
+#listaFooter ul li {
+    margin: 10px 0 10px 20px;
+}
+
+.iconoTick {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
 }
 
 /*Contacto*/
@@ -410,6 +442,7 @@ footer {
     background-color: rgb(131, 200, 223);
     font-weight: bold;
     transition: all 0.25s;
+    cursor: pointer;
 }
 
 /*Productos y ofertas*/
@@ -488,6 +521,7 @@ footer {
     background-color: rgb(208, 214, 223);
     font-weight: bold;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 /* Ofertas */
@@ -540,12 +574,38 @@ footer {
 }
 
 
+#fondo {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 400px;
+    margin-top: 100px;
+}
+
+#silueta {
+    position: absolute;
+    top: 236px;
+    right: 0;
+}
+
+#fondo:hover+#silueta {
+    transform: scale(1.3);
+    transition: all 1s;
+    top: 180px;
+    right: 50px;
+}
 
 /*-------------------------Media Queries------------------------------*/
 
 @media (max-width: 1200px) {
     .articulos {
         grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 1090px){
+    #listaFooter ul{
+        font-size: 12px;
     }
 }
 
@@ -572,7 +632,7 @@ footer {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    footer {
+    /*footer {
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(2, 1fr);
     }
@@ -583,7 +643,7 @@ footer {
         column-gap: 20px;
         margin-left: 30px;
         margin-top: 30px;
-    }
+    }*/
 
     footer #newsletter {
         margin-left: auto;
@@ -656,6 +716,12 @@ footer {
     }
 }
 
+@media (max-width: 885px){
+    #listaFooter ul{
+        font-size: 10px;
+    }
+}
+
 @media (max-width: 779px) {
     #mediosContacto .infoContacto .contactoTitulo {
         font-size: 22.5px;
@@ -716,15 +782,13 @@ footer {
 
     footer {
         grid-template-columns: 1fr;
-
         row-gap: 20px;
     }
 
     footer #redes {
         grid-column: 1 / -1;
         grid-row: 3 / 4;
-        margin-bottom: 10px;
-        margin-left: 0;
+        margin: 0 auto 50px auto;
     }
 
     footer #newsletter {
@@ -740,8 +804,11 @@ footer {
         width: 340px;
     }
 
-    footer #mapa {
+    footer #listaFooter {
         grid-column: 1 / -1;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     footer #newsletter .botones input {
@@ -815,6 +882,13 @@ footer {
         text-align: center;
     }
 
+    #navbar ul {
+        flex-direction: column;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
 }
 
 @media (max-width: 480px) {
@@ -872,7 +946,7 @@ footer {
     }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 367px) {
     #filtros ul li {
         font-size: 10px;
     }
@@ -888,11 +962,19 @@ footer {
     #productos .producto figcaption {
         font-size: 10px;
     }
+    #listaFooter{
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 0;
+    }
 
 }
 
 @media (max-width: 250px) {
     #filtros ul {
         margin-right: 50px;
+    }
+    #listaFooter ul{
+        font-size: 7.5px;
     }
 }

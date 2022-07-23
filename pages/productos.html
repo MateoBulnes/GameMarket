@@ -44,8 +44,13 @@
     </nav>
     <!-- Termina NavBar-->
 
-    <header>
+    <!--<header>
         <img src="../imgs/portada_GOW.jpg" alt="Foto de portada del sitio" class="image-fluid header__img">
+    </header>-->
+
+    <header>
+        <img src="../psBackground.png" alt="" height="500px" width="100%" id="fondo">
+        <img src="../img_ac.png" alt="" id="silueta">
     </header>
 
     <div id="contenedorProductos">
@@ -163,13 +168,13 @@
             <h5 class="pie__titulo">Seguinos en nuestras redes</h5>
             <div id="redesLinks">
                 <a href="https://instagram.com">
-                    <img src="../imgs/instagram_logo.png" alt="acceso a instagram" class="pie__img">
+                    <img src="../imgs/instagram_logo.jpg" alt="acceso a instagram" class="pie__img">
                 </a>
                 <a href="https://twitter.com">
-                    <img src="../imgs/twitter_logo.png" alt="acceso a twitter" class="pie__img">
+                    <img src="../imgs/twitter_logo.jpg" alt="acceso a twitter" class="pie__img">
                 </a>
                 <a href="https://facebook.com">
-                    <img src="../imgs/facebook_logo.png" alt="acceso a Facebook" class="pie__img">
+                    <img src="../imgs/facebook_logo.jpg" alt="acceso a Facebook" class="pie__img">
                 </a>
             </div>
         </div>
@@ -186,19 +191,45 @@
                     <input type="email" class="form-control" id="correo" placeholder="Dirección de Email">
                 </div>
                 <div class="botones">
-                    <input type="reset" value="Cancelar" class="btn btn-danger btn-lg">
-                    <input type="submit" value="Guardar" class="btn btn-primary btn-lg">
+                    <input type="reset" value="Cancelar" class="btn btn-outline-danger btn-lg">
+                    <input type="submit" value="Guardar" class="btn btn-outline-primary btn-lg btn-celeste">
                 </div>
             </form>
 
         </div>
 
-        <div id="mapa">
-            <h2>Locales</h2>
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3291.3619963528076!2d-58.711234285145125!3d-34.41755898050814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bca193e135e71f%3A0x25a5237b19a21168!2sAv.%20Benav%C3%ADdez%20907%2C%20Benavidez%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1655324624106!5m2!1ses!2sar"
-                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div id="listaFooter">
+            <div>
+                <h2>Porque comprar con nosotros?</h2>
+                <ul>
+                    <li>
+                        <img src="../imgs/tick_icono.png" alt="" class="iconoTick">
+                        Envíos gratis a todo el país
+                    </li>
+                    <li>
+                        <img src="../imgs/tick_icono.png" alt="" class="iconoTick">
+                        Soporte las 24hs
+                    </li>
+                    <li>
+                        <img src="../imgs/tick_icono.png" alt="" class="iconoTick">
+                        Compra protegida
+                    </li>
+                    <li>
+                        <img src="../imgs/tick_icono.png" alt="" class="iconoTick">
+                        Reembolso
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h2>Legales</h2>
+                <ul>
+                    <li>Términos y Condiciones</li>
+                    <li>Políticas de Privacidad</li>
+                    <li>Términos de Reembolso</li>
+                    <li>Trabaja con Nosotros</li>
+                </ul>
+            </div>
         </div>
     </footer>
 
