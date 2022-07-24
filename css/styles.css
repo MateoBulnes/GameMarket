@@ -967,10 +967,13 @@ footer {
     #silueta {
         visibility: hidden;
     }
+    #tituloContacto{
+        font-size: 50px;
+    }
 }
 
 @media (max-width: 500px){
-    #headerFondoOscuro{
+    #headerFondoOscuro, #tituloContacto{
         font-size: 45px;
     }
 }
@@ -1032,6 +1035,9 @@ footer {
     article {
         font-size: 13px;
     }
+    #tituloContacto{
+        font-size: 35px;
+    }
 }
 
 @media (max-width: 367px) {
@@ -1060,7 +1066,7 @@ footer {
     .tituloHeader {
         font-size: 45px;
     }
-    #headerFondoOscuro{
+    #headerFondoOscuro, #tituloContacto{
         font-size: 30px;
     }
 }
@@ -1077,7 +1083,7 @@ footer {
     .tituloHeader {
         font-size: 30px;
     }
-    #headerFondoOscuro{
+    #headerFondoOscuro, #tituloContacto{
         font-size: 25px;
     }
 }
