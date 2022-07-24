@@ -23,6 +23,7 @@ h1 {
     font-size: 30px;
     margin: 0 0 20px 15px;
     color: rgb(68, 67, 67);
+    font-family: 'Oswald', sans-serif;
 }
 
 h2 {
@@ -36,6 +37,7 @@ h2 {
     margin-left: 60px;
     border-bottom: 2px solid rgb(68, 67, 67);
     color: rgb(68, 67, 67);
+    font-family: 'Oswald', sans-serif;
 }
 
 article {
@@ -43,6 +45,7 @@ article {
     margin: 0 15px 0 15px;
     width: 90%;
     margin-left: 60px;
+    text-align: justify;
 }
 
 /*NavBar*/
@@ -92,6 +95,8 @@ article {
     background-size: 0% 2px;
     transition: background-size 1s;
     font-size: 2rem;
+    font-weight: 500;
+
 }
 
 #navbar ul li a:hover {
@@ -318,10 +323,11 @@ footer {
     cursor: pointer;
 }
 
-.pie__titulo {
-    color: white;
+.tituloFooter {
+    color: rgb(216, 202, 202);
     font-size: 20px;
     margin-bottom: 10px;
+    font-family: 'Oswald', sans-serif;
 }
 
 
@@ -339,7 +345,6 @@ footer {
     width: 80%;
     text-align: center;
 }
-
 
 #newsletter form #name,
 #newsletter form #correo {
@@ -375,7 +380,7 @@ footer {
 }
 
 #listaFooter {
-    color: white;
+    color: rgb(216, 202, 202);
     width: 80%;
     margin: 30px auto 0 auto;
     display: flex;
@@ -565,6 +570,12 @@ footer {
     font-size: 15px;
 }
 
+.accordion-button,
+.accordion-header,
+.accordion-item {
+    background-color: transparent;
+}
+
 .accordion-button {
     font-size: 20px;
 }
@@ -573,27 +584,30 @@ footer {
     margin: 0
 }
 
+.accordion-item {
+    border-bottom: 1px solid rgb(68, 67, 67);
+}
+
 /*Animaciones Header*/
 .fondo {
     position: relative;
     top: 0;
     left: 0;
     height: 400px;
-    margin-top: 100px;
     width: 100%;
 }
 
 #silueta {
     position: absolute;
-    top: 236px;
+    top: 136px;
     right: 0;
 }
 
 .fondo:hover+#silueta {
-    transform: scale(1.1);
+    transform: scale(1.05);
     transition: all 0.5s;
-    top: 217px;
-    right: 20px;
+    top: 126px;
+    right: 9px;
 }
 
 .tituloHeader {
@@ -623,6 +637,10 @@ footer {
     animation-timing-function: linear;
     animation-duration: 0.5s;
     left: 70px;
+}
+
+.headerFondoOscuro {
+    color: rgb(255, 205, 205);
 }
 
 /*-------------------------Media Queries------------------------------*/
@@ -701,11 +719,19 @@ footer {
         margin-left: auto;
         margin-right: auto;
     }
+
+    article,
+    .subtitulo,
+    #mainNosotros {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
 }
 
 @media (max-width: 992px) {
     #silueta {
-        top: 199px;
+        top: 99px;
     }
 }
 
@@ -745,7 +771,7 @@ footer {
     }
 
     #silueta {
-        top: 197px;
+        top: 95px;
     }
 }
 
@@ -761,7 +787,7 @@ footer {
     }
 
     #silueta {
-        top: 193px;
+        top: 90px;
     }
 }
 
@@ -921,7 +947,7 @@ footer {
     }
 
     #silueta {
-        top: 190px;
+        top: 90px;
     }
 }
 
@@ -983,6 +1009,10 @@ footer {
     #filtros ul {
         align-self: center;
         margin-left: 30px;
+    }
+
+    article {
+        font-size: 13px;
     }
 }
 
