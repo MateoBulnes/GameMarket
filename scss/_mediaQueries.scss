@@ -1,0 +1,503 @@
+/*Media queries*/
+@media (max-width: 1200px) {
+    .articulos {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 1090px) {
+    #listaFooter {
+        ul {
+            font-size: 12px;
+        }
+    }
+}
+
+@media (max-width: 1027px) {
+    .articulos {
+        grid-template-columns: repeat(3, 1fr);
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #mainOfertas {
+
+        h1,
+        h2 {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        h2 {
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+        }
+    }
+
+    .subtitulo {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #categorias {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    footer {
+        #newsletter {
+            margin-left: auto;
+        }
+    }
+
+    #mediosContacto {
+        margin-left: auto;
+        margin-right: auto;
+
+        .infoContacto {
+            .contactoTitulo {
+                font-size: 25px;
+            }
+
+            .contactoDescripcion {
+                font-size: 15px;
+            }
+        }
+    }
+
+    #productos {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    #ofertasJuegos,
+    #ofertasConsolas {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    #acordeon {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    article,
+    .subtitulo,
+    #mainNosotros {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 992px) {
+    #silueta {
+        top: 99px;
+    }
+
+    .fondo:hover+#silueta {
+        top: 89px;
+    }
+}
+
+@media (max-width: 950px) {
+    #mediosContacto {
+        margin-bottom: 30px;
+
+        .contacto {
+            button {
+                font-size: 12.5px;
+            }
+        }
+    }
+
+    #contenedorProductos {
+        grid-template-columns: 1fr;
+    }
+
+    #filtros {
+        width: 100%;
+
+        ul {
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            li {
+                width: 20%;
+                margin-left: 10px;
+                margin-bottom: 10px;
+            }
+        }
+    }
+}
+
+@media (max-width: 885px) {
+    #listaFooter {
+        ul {
+            font-size: 10px;
+        }
+    }
+
+    #silueta {
+        top: 95px;
+    }
+
+    .fondo:hover+#silueta {
+        top: 85px;
+    }
+}
+
+@media (max-width: 779px) {
+    #mediosContacto {
+        .infoContacto {
+            .contactoTitulo {
+                font-size: 22.5px;
+            }
+
+            .contactoDescripcion {
+                font-size: 14.5px;
+            }
+        }
+    }
+
+    #silueta {
+        top: 90px;
+    }
+
+    .fondo:hover+#silueta {
+        top: 83px;
+    }
+}
+
+@media (max-width: 768px) {
+    .articulos {
+        grid-template-columns: repeat(2, 1fr);
+        margin-left: auto;
+        margin-right: auto;
+
+        .producto {
+            width: 80%;
+            margin: auto;
+        }
+    }
+
+    main h1,
+    .subtitulo,
+    article {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #mainOfertas {
+
+        h1,
+        h2 {
+            text-align: left;
+        }
+    }
+
+    #categorias {
+        grid-template-columns: 1fr;
+        margin-left: auto;
+        margin-right: auto;
+
+        .tarjetaCategoria {
+            align-items: center;
+
+            h4 {
+                margin-left: 0;
+            }
+        }
+    }
+
+    #tituloCategorias {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    footer {
+        grid-template-columns: 1fr;
+        row-gap: 20px;
+
+        #redes {
+            grid-column: 1 / -1;
+            grid-row: 3 / 4;
+            margin: 0 auto 50px auto;
+        }
+
+        #newsletter {
+            grid-column: 1 / -1;
+
+            h2 {
+                align-self: center;
+                margin-left: 0;
+            }
+
+            form {
+                .botones {
+                    input {
+                        width: 340px;
+                    }
+                }
+            }
+
+            .botones {
+                input {
+                    width: 300px;
+                    height: 35px;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+            }
+        }
+
+        #listaFooter {
+            grid-column: 1 / -1;
+            justify-content: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    body {
+        width: fit-content;
+    }
+
+    #productos {
+        grid-template-columns: repeat(2, 1fr);
+        margin-left: auto;
+        margin-right: auto;
+
+        .producto {
+            width: 80%;
+            height: 90%;
+        }
+    }
+
+    #filtros {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+
+        ul {
+            margin-left: 40px;
+        }
+
+        h3,
+        b {
+            width: 100%;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    #ofertasJuegos,
+    #ofertasConsolas {
+        .producto {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    #mediosContacto {
+        .contacto {
+            margin-bottom: 20px;
+        }
+    }
+}
+
+@media (max-width: 695px) {
+
+    #ofertasJuegos,
+    #ofertasConsolas {
+        grid-template-columns: repeat(2, 1fr);
+
+        .producto {
+            width: 90%;
+            height: 100%;
+        }
+    }
+
+    #mainOfertas {
+
+        h1,
+        h2 {
+            text-align: center;
+        }
+    }
+
+    #navbar {
+        ul {
+            flex-direction: column;
+            align-items: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    #silueta {
+        top: 90px;
+    }
+
+    .fondo:hover+#silueta {
+        top: 80px;
+    }
+}
+
+@media (max-width: 690px) {
+    #silueta {
+        visibility: hidden;
+    }
+
+    #tituloContacto {
+        font-size: 50px;
+    }
+}
+
+@media (max-width: 510px) {
+
+    #headerFondoOscuro,
+    #tituloContacto {
+        font-size: 45px;
+    }
+}
+
+@media (max-width: 480px) {
+    #productos {
+        grid-template-columns: 1fr;
+        width: 60%;
+
+        .producto {
+            figcaption {
+                font-size: 15px;
+            }
+
+            p {
+                font-size: 10px;
+            }
+        }
+    }
+
+    #ofertasJuegos,
+    #ofertasConsolas {
+        grid-template-columns: 1fr;
+
+        .producto {
+            width: 60%;
+            height: 100%;
+        }
+    }
+
+    .articulos {
+        grid-template-columns: 1fr;
+
+        .producto {
+            height: 90%;
+            width: 80%;
+        }
+    }
+
+    footer {
+        #newsletter {
+            form {
+                .botones {
+                    flex-direction: column-reverse;
+
+                    input {
+                        width: 100%;
+                        margin-bottom: 0;
+                        gap: 0;
+                    }
+                }
+
+                #correo {
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+
+    #filtros {
+        ul {
+            align-self: center;
+            margin-left: 30px;
+        }
+    }
+
+    article {
+        font-size: 13px;
+    }
+
+    #tituloContacto {
+        font-size: 35px;
+    }
+}
+
+@media (max-width: 367px) {
+    #filtros {
+        ul {
+            li {
+                font-size: 10px;
+            }
+        }
+    }
+
+    .articulos {
+        .producto {
+            figcaption {
+                font-size: 15px;
+            }
+
+            p {
+                font-size: 10px;
+            }
+        }
+    }
+
+    #productos {
+        .producto {
+            figcaption {
+                font-size: 10px;
+            }
+        }
+    }
+
+    #listaFooter {
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 0;
+    }
+
+    .tituloHeader {
+        font-size: 45px;
+    }
+
+    #headerFondoOscuro,
+    #tituloContacto {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 250px) {
+    #filtros {
+        ul {
+            margin-right: 50px;
+        }
+    }
+
+    #listaFooter {
+        ul {
+            font-size: 7.5px;
+        }
+    }
+
+    .tituloHeader {
+        font-size: 30px;
+    }
+
+    #headerFondoOscuro,
+    #tituloContacto {
+        font-size: 25px;
+    }
+}

@@ -1,0 +1,29 @@
+h1 {
+    text-align: left;
+    font-size: 30px;
+    margin: 0 0 20px 15px;
+    color: $colorLetra;
+    font-family: 'Oswald', sans-serif;
+}
+
+h2 {
+    font-size: large;
+    margin: 20px 0 20px 40px;
+}
+
+.subtitulo {
+    width: 90%;
+    font-size: 25px;
+    margin-left: 60px;
+    border-bottom: 2px solid $colorLetra;
+    color: $colorLetra;
+    font-family: 'Oswald', sans-serif;
+}
+
+article {
+    font-size: 20px;
+    margin: 0 15px 0 15px;
+    width: 90%;
+    margin-left: 60px;
+    text-align: justify;
+}

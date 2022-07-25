@@ -1,0 +1,161 @@
+.articulos {
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: auto;
+    gap: 20px;
+    margin-left: 60px;
+
+    .producto {
+        background-color: $colorProductos;
+        text-align: center;
+        box-shadow: 3px 5px 15px -1px rgba(0, 0, 0, 0.6);
+        padding: 0;
+
+        .infoProducto {
+            height: 29%;
+            display: flex;
+            flex-direction: column;
+
+            button {
+                height: 35px;
+                margin-top: auto;
+                font-weight: bold;
+            }
+        }
+
+        figcaption {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 15px;
+        }
+    }
+
+    figure {
+        &:hover {
+            transform: scale(1.05);
+            transition: all 0.35s;
+            cursor: pointer;
+        }
+    }
+
+    img {
+        width: 100%;
+        height: 70%;
+        z-index: 1;
+    }
+
+}
+
+#contenedorProductos {
+    display: grid;
+    grid-template-columns: 20vw 80vw;
+}
+
+#productos {
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    gap: 20px;
+    margin-left: 60px;
+}
+
+#filtros {
+    width: 80%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 60px;
+    margin-top: 70px;
+    background-color: transparent;
+    position: static;
+
+    h3 {
+        width: 90%;
+        color: $colorLetra;
+        font-size: 25px;
+        margin: 10px 0 10px 0;
+        border-bottom: 2px solid $colorLetra;
+    }
+
+    b {
+        font-size: 20px;
+        color: $colorLetra;
+        margin-bottom: 5px;
+    }
+
+    ul {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-right: 0;
+        padding-left: 0;
+        list-style: none;
+
+        li {
+            width: 100%;
+            font-size: 15px;
+            margin: 0;
+            padding: 10px 0 10px 6px;
+            background-color: transparent;
+
+            &:hover {
+                background-color: $colorFiltros;
+                font-weight: bold;
+                border-radius: 10px;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.etiquetaFiltro {
+    background-color: $colorFiltros;
+    color: $colorLetra;
+}
+
+//OFERTAS
+#ofertasJuegos,
+#ofertasConsolas {
+    .producto {
+        .precio {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+
+            .precioTachado {
+                text-decoration: line-through red;
+                margin-right: 10px;
+            }
+
+            .precioNuevo {
+                font-weight: bold;
+                color: rgb(30, 67, 30);
+            }
+        }
+    }
+}
+
+#mainOfertas {
+    h2 {
+        width: 90%;
+        font-size: 30px;
+        color: $colorLetra;
+        border-bottom: 2px solid $colorLetra;
+        margin-left: 60px;
+        margin-top: 40px;
+    }
+}
+
+.etiquetaOferta {
+    font-size: 15px;
+    z-index: 2;
+}

@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Quintessential&family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-color: $colorFondo;
+    background-attachment: fixed;
+    overflow-x: hidden;
+
+}
+
+main {
+    width: 100%;
+
+    h1 {
+        width: 90%;
+        border-bottom: 2px solid $colorLetra;
+        margin-top: 40px;
+        margin-left: 60px;
+    }
+}
+
+//ACORDION
+#acordeon {
+    width: 90%;
+    margin-left: 60px;
+    font-size: 15px;
+}
+
+.accordion-button,
+.accordion-header,
+.accordion-item {
+    background-color: transparent;
+}
+
+.accordion-button {
+    font-size: 20px;
+}
+
+.accordion-item {
+    border-bottom: 1px solid $colorLetra;
+
+    h2 {
+        margin: 0;
+    }
+}
+
+//HEADERS ANIMADOS
+@keyframes animacionTituloProductos {
+    0% {
+        left: 30px;
+    }
+
+    50% {
+        left: 50px;
+    }
+
+    100% {
+        left: 70px;
+    }
+}
+
+.fondo {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: $alturaFondos;
+    width: 100%;
+
+    &:hover+#silueta {
+        transform: scale(1.05);
+        transition: all 0.5s;
+        top: 126px;
+        right: 9px;
+    }
+
+    &:hover~.tituloHeader {
+        animation-name: animacionTituloProductos;
+        animation-timing-function: linear;
+        animation-duration: 0.5s;
+        left: 70px;
+    }
+}
+
+#silueta {
+    position: absolute;
+    top: 136px;
+    right: 0;
+}
+
+.tituloHeader {
+    font-size: 65px;
+    position: absolute;
+    top: 350px;
+    left: 30px;
+    font-family: 'Oswald', sans-serif;
+}
+
+#headerFondoOscuro {
+    color: $colorLetraClara;
+}
+
+.header__img {
+    width: 100%;
+    height: auto;
+}

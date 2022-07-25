@@ -1,0 +1,54 @@
+//CONTACTO
+#mainContacto {
+    h1 {
+        font-size: 35px;
+        font-weight: bold;
+        border-bottom: 2px solid $colorLetra;
+        margin: 30px auto 30px auto;
+        padding-bottom: 10px;
+    }
+}
+
+.icono {
+    width: $anchoIconos;
+    margin-bottom: 10px;
+}
+
+#mediosContacto {
+    .infoContacto {
+        .contactoTitulo {
+            font-size: 30px;
+            font-weight: bold;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .contactoDescripcion {
+            font-size: 20px;
+            text-align: center;
+            margin-top: auto;
+        }
+    }
+
+    .contacto {
+        button {
+            width: 30%;
+            height: 35px;
+            border-radius: 10px;
+            background-color: $colorFondoBotonContacto;
+            border: 2px solid $colorLetra;
+            font-weight: 600;
+            font-size: 15px;
+            margin-top: auto;
+
+            &:hover {
+                background-color: $colorFondoBotonContactoResaltado;
+                font-weight: bold;
+                transition: all 0.25s;
+                cursor: pointer;
+            }
+        }
+    }
+}

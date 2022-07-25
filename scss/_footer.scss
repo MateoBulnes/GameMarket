@@ -1,0 +1,132 @@
+footer {
+    background-color: black;
+    margin-top: 150px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    column-gap: 30px;
+}
+
+#redes {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    padding-top: 20px;
+    border-top: 1px solid rgb(113, 113, 113);
+    grid-column: 1 / 3;
+    grid-row: 2 / 3;
+    column-gap: 20px;
+    width: 90%;
+    margin: 30px auto 0 auto;
+
+    h5 {
+        text-align: center;
+    }
+}
+
+#redesLinks {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pie__img {
+    display: flex;
+    align-self: center;
+
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 10px;
+    margin-right: 10px;
+
+    &:hover {
+        transform: scale(1.1);
+        transition: all 0.25s;
+        cursor: pointer;
+    }
+}
+
+.tituloFooter {
+    color: $colorLetraFooter;
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-family: 'Oswald', sans-serif;
+}
+
+#newsletter {
+    width: 80%;
+    color: $colorLetraFooter;
+    font-size: 1.6em;
+    display: flex;
+    flex-direction: column;
+    margin: 30px auto 30px auto;
+
+    h2 {
+        width: 80%;
+        text-align: center;
+    }
+
+    form {
+
+        #name,
+        #correo {
+            font-size: 15px;
+            background-color: transparent;
+            border-top: 0;
+            border-left: 0;
+            border-right: 0;
+            border-radius: 0;
+        }
+    }
+
+    .botones {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+        font-size: 15px;
+        gap: 15px;
+
+        input {
+            height: 30px;
+            width: 50%;
+            font-weight: bold;
+        }
+    }
+}
+
+.btn-celeste {
+    border-color: $colorBotonFooter;
+    color: $colorBotonFooter;
+
+    &:hover {
+        background-color: $colorBotonFooter;
+    }
+}
+
+#listaFooter {
+    color: $colorLetraFooter;
+    width: 80%;
+    margin: 30px auto 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    ul {
+        list-style: none;
+        font-size: 15px;
+
+        li {
+            margin: 10px 0 10px 20px;
+        }
+    }
+}
+
+.iconoTick {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}

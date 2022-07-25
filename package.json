@@ -1,0 +1,24 @@
+{
+  "name": "gamemarket",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass",
+    "sass:watch": "sass --watch scss/styles.scss css/styles.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MateoBulnes/GameMarket.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MateoBulnes/GameMarket/issues"
+  },
+  "homepage": "https://github.com/MateoBulnes/GameMarket#readme",
+  "dependencies": {
+    "sass": "^1.54.0"
+  }
+}
