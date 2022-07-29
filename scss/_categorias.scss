@@ -22,9 +22,7 @@
     margin: auto;
 
     .tarjetaCategoria {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        @include d-flex(center, none, column);
         border-radius: 15px;
         background-size: cover;
         background-position: center center;
@@ -54,8 +52,8 @@
 
 #tituloCategorias {
     width: 90%;
-    border-bottom: 2px solid $colorLetra;
-    color: $colorLetra;
+    border-bottom: 2px solid map-get($map: $paletaColores, $key: 'colorLetra');
+    color: map-get($map: $paletaColores, $key: 'colorLetra');
     font-size: 25px;
     margin: 40px 0 40px 60px;
 }

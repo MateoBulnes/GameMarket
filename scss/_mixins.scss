@@ -1,0 +1,15 @@
+@mixin d-flex($justify, $align, $direc) {
+    display: flex;
+
+    @if $justify  !=none {
+        justify-content: $justify;
+    }
+
+    @if $align  !=none {
+        align-items: $align;
+    }
+
+    @if $direc  !=none {
+        flex-direction: $direc;
+    }
+}

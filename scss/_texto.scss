@@ -2,7 +2,7 @@ h1 {
     text-align: left;
     font-size: 30px;
     margin: 0 0 20px 15px;
-    color: $colorLetra;
+    color: map-get($map: $paletaColores, $key: 'colorLetra');
     font-family: 'Oswald', sans-serif;
 }
 
@@ -15,8 +15,8 @@ h2 {
     width: 90%;
     font-size: 25px;
     margin-left: 60px;
-    border-bottom: 2px solid $colorLetra;
-    color: $colorLetra;
+    border-bottom: 2px solid map-get($map: $paletaColores, $key: 'colorLetra');
+    color: map-get($map: $paletaColores, $key: 'colorLetra');
     font-family: 'Oswald', sans-serif;
 }
 

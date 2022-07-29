@@ -3,7 +3,7 @@
     h1 {
         font-size: 35px;
         font-weight: bold;
-        border-bottom: 2px solid $colorLetra;
+        border-bottom: 2px solid map-get($map: $paletaColores, $key: 'colorLetra');
         margin: 30px auto 30px auto;
         padding-bottom: 10px;
     }
@@ -37,14 +37,14 @@
             width: 30%;
             height: 35px;
             border-radius: 10px;
-            background-color: $colorFondoBotonContacto;
-            border: 2px solid $colorLetra;
+            background-color: map-get($map: $paletaColores, $key: 'colorFondoBotonContacto');
+            border: 2px solid map-get($map: $paletaColores, $key: 'colorLetra');
             font-weight: 600;
             font-size: 15px;
             margin-top: auto;
 
             &:hover {
-                background-color: $colorFondoBotonContactoResaltado;
+                background-color: map-get($map: $paletaColores, $key: 'colorFondoBotonContactoResaltado');
                 font-weight: bold;
                 transition: all 0.25s;
                 cursor: pointer;

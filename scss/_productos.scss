@@ -1,21 +1,25 @@
-.articulos {
+#productos {
     width: 90%;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto;
     gap: 20px;
     margin-left: 60px;
+}
+
+.articulos {
+    @extend #productos;
+    grid-template-columns: repeat(5, 1fr);
 
     .producto {
-        background-color: $colorProductos;
+        background-color: map-get($map: $paletaColores, $key: 'colorProductos');
         text-align: center;
         box-shadow: 3px 5px 15px -1px rgba(0, 0, 0, 0.6);
         padding: 0;
 
         .infoProducto {
             height: 29%;
-            display: flex;
-            flex-direction: column;
+            @include d-flex(none, none, column);
 
             button {
                 height: 35px;
@@ -57,21 +61,10 @@
     grid-template-columns: 20vw 80vw;
 }
 
-#productos {
-    width: 90%;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: auto;
-    gap: 20px;
-    margin-left: 60px;
-}
-
 #filtros {
     width: 80%;
     height: 40%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    @include d-flex(none, flex-start, column);
     margin-left: 60px;
     margin-top: 70px;
     background-color: transparent;
@@ -79,23 +72,21 @@
 
     h3 {
         width: 90%;
-        color: $colorLetra;
+        color: map-get($map: $paletaColores, $key: 'colorLetra');
         font-size: 25px;
         margin: 10px 0 10px 0;
-        border-bottom: 2px solid $colorLetra;
+        border-bottom: 2px solid map-get($map: $paletaColores, $key: 'colorLetra');
     }
 
     b {
         font-size: 20px;
-        color: $colorLetra;
+        color: map-get($map: $paletaColores, $key: 'colorLetra');
         margin-bottom: 5px;
     }
 
     ul {
         width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+        @include d-flex(none, flex-start, column);
         margin-right: 0;
         padding-left: 0;
         list-style: none;
@@ -108,7 +99,7 @@
             background-color: transparent;
 
             &:hover {
-                background-color: $colorFiltros;
+                background-color: map-get($map: $paletaColores, $key: 'colorFiltros');
                 font-weight: bold;
                 border-radius: 10px;
                 cursor: pointer;
@@ -118,8 +109,8 @@
 }
 
 .etiquetaFiltro {
-    background-color: $colorFiltros;
-    color: $colorLetra;
+    background-color: map-get($map: $paletaColores, $key: 'colorFiltros');
+    color: map-get($map: $paletaColores, $key: 'colorLetra');
 }
 
 //OFERTAS
@@ -127,9 +118,7 @@
 #ofertasConsolas {
     .producto {
         .precio {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
+            @include d-flex(center, none, row);
 
             .precioTachado {
                 text-decoration: line-through red;
@@ -148,8 +137,8 @@
     h2 {
         width: 90%;
         font-size: 30px;
-        color: $colorLetra;
-        border-bottom: 2px solid $colorLetra;
+        color: map-get($map: $paletaColores, $key: 'colorLetra');
+        border-bottom: 2px solid map-get($map: $paletaColores, $key: 'colorLetra');
         margin-left: 60px;
         margin-top: 40px;
     }

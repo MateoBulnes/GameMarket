@@ -8,11 +8,7 @@ footer {
 }
 
 #redes {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-
+    @include d-flex(flex-start, center, column);
     padding-top: 20px;
     border-top: 1px solid rgb(113, 113, 113);
     grid-column: 1 / 3;
@@ -27,9 +23,7 @@ footer {
 }
 
 #redesLinks {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+    @include d-flex(center, none, row);
     margin-top: 20px;
 }
 
@@ -51,7 +45,7 @@ footer {
 }
 
 .tituloFooter {
-    color: $colorLetraFooter;
+    color: map-get($map: $paletaColores, $key: 'colorLetraFooter');
     font-size: 20px;
     margin-bottom: 10px;
     font-family: 'Oswald', sans-serif;
@@ -59,10 +53,9 @@ footer {
 
 #newsletter {
     width: 80%;
-    color: $colorLetraFooter;
+    color: map-get($map: $paletaColores, $key: 'colorLetraFooter');
     font-size: 1.6em;
-    display: flex;
-    flex-direction: column;
+    @include d-flex(none, none, column);
     margin: 30px auto 30px auto;
 
     h2 {
@@ -84,8 +77,7 @@ footer {
     }
 
     .botones {
-        display: flex;
-        justify-content: space-between;
+        @include d-flex(space-between, none, none);
         margin-top: 10px;
         font-size: 15px;
         gap: 15px;
@@ -99,21 +91,19 @@ footer {
 }
 
 .btn-celeste {
-    border-color: $colorBotonFooter;
-    color: $colorBotonFooter;
+    border-color: map-get($map: $paletaColores, $key: 'colorBotonFooter');
+    color: map-get($map: $paletaColores, $key: 'colorBotonFooter');
 
     &:hover {
-        background-color: $colorBotonFooter;
+        background-color: map-get($map: $paletaColores, $key: 'colorBotonFooter');
     }
 }
 
 #listaFooter {
-    color: $colorLetraFooter;
+    color: map-get($map: $paletaColores, $key: 'colorLetraFooter');
     width: 80%;
     margin: 30px auto 0 auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    @include d-flex(space-around, none, row);
 
     ul {
         list-style: none;

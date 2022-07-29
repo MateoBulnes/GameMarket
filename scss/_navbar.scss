@@ -1,9 +1,7 @@
 //NAVBAR
 #navbar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    background-color: $colorFondo;
+    @include d-flex(space-between, none, row);
+    background-color: map-get($map: $paletaColores, $key: 'colorFondo');
     box-shadow: 0 3px 1rem rgba(0, 0, 0, .1);
 
     img {
@@ -12,14 +10,11 @@
     }
 
     a {
-        display: flex;
-        align-items: center;
+        @include d-flex(none, center, none);
     }
 
     ul {
-        display: flex;
-        flex-direction: row;
-        align-items: flex-end;
+        @include d-flex(none, flex-end, row);
         padding-bottom: 10px;
         margin-right: 30px;
 
@@ -29,7 +24,7 @@
 
             a {
                 text-decoration: none;
-                color: $colorLetra;
+                color: map-get($map: $paletaColores, $key: 'colorLetra');
                 margin: 30px 10px 0 10px;
                 background-image: linear-gradient(currentColor, currentColor);
                 background-position: 0% 100%;
@@ -41,7 +36,7 @@
 
                 &:hover {
                     font-weight: bold;
-                    color: $colorLetraResaltado;
+                    color: map-get($map: $paletaColores, $key: 'colorLetraResaltado');
                     transition: all 0.25s;
                     background-size: 100% 2px;
                     font-size: 2.2rem;
