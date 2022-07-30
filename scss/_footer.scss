@@ -58,9 +58,11 @@ footer {
     @include d-flex(none, none, column);
     margin: 30px auto 30px auto;
 
-    h2 {
+    h5 {
         width: 80%;
         text-align: center;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     form {
@@ -112,6 +114,11 @@ footer {
         li {
             margin: 10px 0 10px 20px;
         }
+    }
+    h5 {
+        text-align: left;
+        margin-left: 40px;
+        
     }
 }
 

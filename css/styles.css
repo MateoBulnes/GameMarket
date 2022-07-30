@@ -465,9 +465,11 @@ footer {
   flex-direction: column;
   margin: 30px auto 30px auto;
 }
-#newsletter h2 {
+#newsletter h5 {
   width: 80%;
   text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 #newsletter form #name,
 #newsletter form #correo {
@@ -513,6 +515,10 @@ footer {
 }
 #listaFooter ul li {
   margin: 10px 0 10px 20px;
+}
+#listaFooter h5 {
+  text-align: left;
+  margin-left: 40px;
 }
 
 .iconoTick {
@@ -735,9 +741,8 @@ article {
   footer #newsletter {
     grid-column: 1/-1;
   }
-  footer #newsletter h2 {
+  footer #newsletter h5 {
     align-self: center;
-    margin-left: 0;
   }
   footer #newsletter form .botones input {
     width: 340px;
