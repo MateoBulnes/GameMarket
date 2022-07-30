@@ -1,9 +1,6 @@
 #productos {
     width: 90%;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: auto;
-    gap: 20px;
+    @include grid-layout(4, none, 1fr, none, 20px);
     margin-left: 60px;
 }
 

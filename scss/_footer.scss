@@ -1,9 +1,7 @@
 footer {
     background-color: black;
     margin-top: 150px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    @include grid-layout(2, 2, 1fr, 1fr, none);
     column-gap: 30px;
 }
 
@@ -115,10 +113,11 @@ footer {
             margin: 10px 0 10px 20px;
         }
     }
+
     h5 {
         text-align: left;
         margin-left: 40px;
-        
+
     }
 }
 

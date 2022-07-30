@@ -13,3 +13,23 @@
         flex-direction: $direc;
     }
 }
+
+
+@mixin grid-layout($columnas, $filas, $anchoCol, $altoFilas, $gap) {
+    display: grid;
+
+    @if $columnas  !=none {
+        grid-template-columns: repeat($columnas, $anchoCol);
+    }
+
+    @if $filas  !=none {
+        grid-template-rows: repeat($filas, $altoFilas);
+    }
+
+    @else {
+        grid-template-rows: auto;
+    }
+    @if $gap != none {
+        gap: $gap;
+    }
+}
