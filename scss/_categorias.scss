@@ -15,10 +15,7 @@
 #categorias {
     width: 80%;
     height: 60vh;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto;
-    gap: 20px;
+    @include grid-layout(3, none, 1fr, none, 20px);
     margin: auto;
 
     .tarjetaCategoria {
@@ -59,26 +56,26 @@
 }
 
 #tarjetaAventura {
-    background-image: url(../imgs/imgs_categorias/fondo_aventura.jpg);
+    background-image: map-get($map: $fondosCategorias, $key: 'aventura');
 
 }
 
 #tarjetaAccion {
-    background-image: url(../imgs/imgs_categorias/fondo_accion.jpg);
+    background-image: map-get($map: $fondosCategorias, $key: 'accion');
 }
 
 #tarjetaDeporte {
-    background-image: url(../imgs/imgs_categorias/fondo_deporte.jpg);
+    background-image: map-get($map: $fondosCategorias, $key: 'deportes');
 }
 
 #tarjetaArcade {
-    background-image: url(../imgs/imgs_categorias/fondo_arcade.jpg);
+    background-image: map-get($map: $fondosCategorias, $key: 'arcade');
 }
 
 #tarjetaRol {
-    background-image: url(../imgs/imgs_categorias/fondo_rol.jpg);
+    background-image: map-get($map: $fondosCategorias, $key: 'juegosRol');
 }
 
 #tarjetaDisparos {
-    background-image: url(../imgs/imgs_categorias/fondo_disparos.jpg);
+    background-image: map-get($map: $fondosCategorias, $key: 'juegosDisparos');
 }

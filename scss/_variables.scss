@@ -11,5 +11,13 @@ $paletaColores: (
     'colorProductos': white,
     'colorFiltros': rgb(208, 214, 223)
 );
+$fondosCategorias: (
+    'accion': url(../imgs/imgs_categorias/fondo_accion.jpg),
+    'aventura': url(../imgs/imgs_categorias/fondo_aventura.jpg), 
+    'deportes': url(../imgs/imgs_categorias/fondo_deporte.jpg),
+    'arcade': url(../imgs/imgs_categorias/fondo_arcade.jpg),
+    'juegosRol': url(../imgs/imgs_categorias/fondo_rol.jpg),
+    'juegosDisparos': url(../imgs/imgs_categorias/fondo_disparos.jpg)
+);
 $alturaFondos: 400px;
 $anchoIconos: 20%;
