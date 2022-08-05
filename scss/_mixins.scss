@@ -1,3 +1,4 @@
+//MIXINS
 @mixin d-flex($justify, $align, $direc) {
     display: flex;
 
@@ -29,7 +30,8 @@
     @else {
         grid-template-rows: auto;
     }
-    @if $gap != none {
+
+    @if $gap  !=none {
         gap: $gap;
     }
 }

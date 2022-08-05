@@ -48,25 +48,23 @@
     <!-- Termina NavBar-->
 
     <!--Comienza carousel-->
-    <header id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <header id="carouselHeader" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
-            <div class="carousel-item active" data-bs-interval="10000">
+            <div class="carousel-item active" data-bs-interval="5000">
                 <img src="imgs/PortadaStarWars.jpg" class="d-block w-100" alt="Portada Star Wars: Jedi Fallen Order">
             </div>
-            <div class="carousel-item" data-bs-interval="10000">
+            <div class="carousel-item" data-bs-interval="5000">
                 <img src="imgs/portada_tlou_img.png" class="d-block w-100" alt="Portada The last of Us">
             </div>
-            <div class="carousel-item" data-bs-interval="10000">
+            <div class="carousel-item" data-bs-interval="5000">
                 <img src="imgs/portada_cod_img.jpg" class="d-block w-100" alt="Portada Call of Duty: Vanguard">
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-            data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselHeader" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-            data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselHeader" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
@@ -74,6 +72,7 @@
     <!--Termina carousel-->
 
     <main id="mainPrincipal">
+        <!--Comienzan tarjetas de novedades-->
         <h1>Novedades</h1>
         <div class="articulos" id="novedades">
             <figure class="producto card text-center">
@@ -114,7 +113,9 @@
                 </div>
             </figure>
         </div>
+        <!--Terminan tarjetas de novedades-->
 
+        <!--Comienzan tarjetas de categorias-->
         <h2 id="tituloCategorias" class="subtitulo">Categorias</h2>
         <div id="categorias">
             <div class="tarjetaCategoria" id="tarjetaAccion">
@@ -137,9 +138,11 @@
                 <h4>Juegos de Disparos</h4>
             </div>
         </div>
+        <!--Terminan tarjetas de categorias-->
 
     </main>
 
+    <!--Comienza Footer-->
     <footer id="footer">
         <div id="redes">
             <h5 class="tituloFooter">Seguinos en nuestras redes</h5>
@@ -209,6 +212,7 @@
             </div>
         </div>
     </footer>
+    <!--Termina Footer-->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"

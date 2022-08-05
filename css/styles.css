@@ -350,6 +350,7 @@ article {
   border-radius: 15px;
   background-size: cover;
   background-position: center center;
+  box-shadow: 3px 5px 15px -1px rgba(0, 0, 0, 0.6);
 }
 #categorias .tarjetaCategoria:hover {
   transform: scale(1.03);
@@ -570,7 +571,6 @@ footer {
   cursor: pointer;
 }
 
-/*Media queries*/
 @media (max-width: 1200px) {
   .articulos {
     grid-template-columns: repeat(4, 1fr);

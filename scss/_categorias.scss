@@ -1,3 +1,4 @@
+//CATEGORIAS
 @keyframes animacionCategorias {
     0% {
         margin-left: 30px;
@@ -23,6 +24,7 @@
         border-radius: 15px;
         background-size: cover;
         background-position: center center;
+        box-shadow: 3px 5px 15px -1px rgba(0, 0, 0, 0.6);
 
         &:hover {
             transform: scale(1.03);
