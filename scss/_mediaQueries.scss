@@ -131,7 +131,8 @@
 
     #filtros {
         width: 90%;
-
+        margin-left: auto;
+        margin-right: auto;
         ul {
             flex-direction: row;
             flex-wrap: wrap;
@@ -145,6 +146,11 @@
             }
         }
     }
+    #contenedorProductos h1, #productos{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
 }
 
 @media (max-width: 885px) {

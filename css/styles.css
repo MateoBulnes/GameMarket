@@ -660,6 +660,8 @@ footer {
   }
   #filtros {
     width: 90%;
+    margin-left: auto;
+    margin-right: auto;
   }
   #filtros ul {
     flex-direction: row;
@@ -671,6 +673,10 @@ footer {
     width: 20%;
     margin-left: 10px;
     margin-bottom: 10px;
+  }
+  #contenedorProductos h1, #productos, .articulos {
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 @media (max-width: 885px) {
