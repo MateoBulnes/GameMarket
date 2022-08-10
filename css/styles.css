@@ -253,16 +253,11 @@ article {
   position: static;
 }
 #filtros h3 {
-  width: 90%;
+  width: 100%;
   color: rgb(68, 67, 67);
   font-size: 25px;
   margin: 10px 0 10px 0;
   border-bottom: 2px solid rgb(68, 67, 67);
-}
-#filtros b {
-  font-size: 20px;
-  color: rgb(68, 67, 67);
-  margin-bottom: 5px;
 }
 #filtros ul {
   width: 100%;
@@ -635,6 +630,15 @@ footer {
     margin-left: auto;
     margin-right: auto;
   }
+  #mainNosotros h1 {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #mainPrincipal h1,
+#mainPrincipal #tituloCategorias {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 @media (max-width: 992px) {
   #silueta {
@@ -655,11 +659,13 @@ footer {
     grid-template-columns: 1fr;
   }
   #filtros {
-    width: 100%;
+    width: 90%;
   }
   #filtros ul {
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: space-between;
+    padding-right: 10px;
   }
   #filtros ul li {
     width: 20%;
@@ -776,11 +782,7 @@ article {
     margin-left: auto;
     margin-right: auto;
   }
-  #filtros ul {
-    margin-left: 40px;
-  }
-  #filtros h3,
-#filtros b {
+  #filtros h3 {
     width: 100%;
     text-align: center;
     margin-left: auto;
@@ -876,7 +878,6 @@ article {
   }
   #filtros ul {
     align-self: center;
-    margin-left: 30px;
   }
   article {
     font-size: 13px;
@@ -913,7 +914,11 @@ article {
 }
 @media (max-width: 250px) {
   #filtros ul {
-    margin-right: 50px;
+    font-size: 5px;
+    margin-right: 10px;
+  }
+  #filtros ul span {
+    visibility: hidden;
   }
   #listaFooter ul {
     font-size: 7.5px;

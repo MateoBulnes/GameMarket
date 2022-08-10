@@ -69,17 +69,11 @@
     position: static;
 
     h3 {
-        width: 90%;
+        width: 100%;
         color: map-get($map: $paletaColores, $key: 'colorLetra');
         font-size: 25px;
         margin: 10px 0 10px 0;
         border-bottom: 2px solid map-get($map: $paletaColores, $key: 'colorLetra');
-    }
-
-    b {
-        font-size: 20px;
-        color: map-get($map: $paletaColores, $key: 'colorLetra');
-        margin-bottom: 5px;
     }
 
     ul {
