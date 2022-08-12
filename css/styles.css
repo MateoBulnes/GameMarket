@@ -364,6 +364,8 @@ article {
   color: white;
   font-weight: bold;
   margin-left: 30px;
+  font-family: "Oswald", sans-serif;
+  font-weight: lighter;
 }
 
 #tituloCategorias {
@@ -375,27 +377,27 @@ article {
 }
 
 #tarjetaAventura {
-  background-image: url(../imgs/imgs_categorias/fondo_aventura.jpg);
+  background-image: url(../imgs/imgs_categorias/fondo_aventura.webp);
 }
 
 #tarjetaAccion {
-  background-image: url(../imgs/imgs_categorias/fondo_accion.jpg);
+  background-image: url(../imgs/imgs_categorias/fondo_accion.webp);
 }
 
 #tarjetaDeporte {
-  background-image: url(../imgs/imgs_categorias/fondo_deporte.jpg);
+  background-image: url(../imgs/imgs_categorias/fondo_deporte.webp);
 }
 
 #tarjetaArcade {
-  background-image: url(../imgs/imgs_categorias/fondo_arcade.jpg);
+  background-image: url(../imgs/imgs_categorias/fondo_arcade.webp);
 }
 
 #tarjetaRol {
-  background-image: url(../imgs/imgs_categorias/fondo_rol.jpg);
+  background-image: url(../imgs/imgs_categorias/fondo_rol.webp);
 }
 
 #tarjetaDisparos {
-  background-image: url(../imgs/imgs_categorias/fondo_disparos.jpg);
+  background-image: url(../imgs/imgs_categorias/fondo_disparos.webp);
 }
 
 footer {
