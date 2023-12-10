@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Quintessential&family=Roboto:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+
 * {
   font-family: "Roboto", sans-serif;
   padding: 0;
@@ -19,6 +20,7 @@ body {
 main {
   width: 100%;
 }
+
 main h1 {
   width: 90%;
   border-bottom: 2px solid rgb(68, 67, 67);
@@ -45,6 +47,7 @@ main h1 {
 .accordion-item {
   border-bottom: 1px solid rgb(68, 67, 67);
 }
+
 .accordion-item h2 {
   margin: 0;
 }
@@ -53,13 +56,16 @@ main h1 {
   0% {
     left: 30px;
   }
+
   50% {
     left: 50px;
   }
+
   100% {
     left: 70px;
   }
 }
+
 .fondo {
   position: relative;
   top: 0;
@@ -67,13 +73,15 @@ main h1 {
   height: 400px;
   width: 100%;
 }
-.fondo:hover + #silueta {
+
+.fondo:hover+#silueta {
   transform: scale(1.05);
   transition: all 0.5s;
   top: 126px;
   right: 9px;
 }
-.fondo:hover ~ .tituloHeader {
+
+.fondo:hover~.tituloHeader {
   animation-name: animacionTituloProductos;
   animation-timing-function: linear;
   animation-duration: 0.5s;
@@ -140,14 +148,17 @@ article {
   background-color: rgb(221, 230, 243);
   box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
 }
+
 #navbar img {
   width: 30%;
   margin: 10px 0 10px 20px;
 }
+
 #navbar a {
   display: flex;
   align-items: center;
 }
+
 #navbar ul {
   display: flex;
   align-items: flex-end;
@@ -155,10 +166,12 @@ article {
   padding-bottom: 10px;
   margin-right: 30px;
 }
+
 #navbar ul li {
   list-style: none;
   margin: 6px;
 }
+
 #navbar ul li a {
   text-decoration: none;
   color: rgb(68, 67, 67);
@@ -171,6 +184,7 @@ article {
   font-size: 2rem;
   font-weight: 500;
 }
+
 #navbar ul li a:hover {
   font-weight: bold;
   color: rgb(44, 158, 197);
@@ -178,6 +192,19 @@ article {
   background-size: 100% 2px;
   font-size: 2.2rem;
   cursor: pointer;
+}
+
+#navbar ul #shoppingCart {
+  padding-left: 22%;
+  margin-bottom: 0;
+}
+
+#shoppingCart .btn {
+  font-size: 15px;
+}
+
+#shoppingCart img {
+  width: 20%;
 }
 
 #logoNavbar {
@@ -188,7 +215,8 @@ article {
   border: 0;
 }
 
-#productos, .articulos {
+#productos,
+.articulos {
   width: 90%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -200,36 +228,43 @@ article {
 .articulos {
   grid-template-columns: repeat(5, 1fr);
 }
+
 .articulos .producto {
   background-color: white;
   text-align: center;
   box-shadow: 3px 5px 15px -1px rgba(0, 0, 0, 0.6);
   padding: 0;
 }
+
 .articulos .producto .infoProducto {
   height: 29%;
   display: flex;
   flex-direction: column;
 }
+
 .articulos .producto .infoProducto button {
   height: 35px;
   margin-top: auto;
   font-weight: bold;
 }
+
 .articulos .producto figcaption {
   font-size: 20px;
   font-weight: bold;
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
 .articulos .producto p {
   font-size: 15px;
 }
+
 .articulos figure:hover {
   transform: scale(1.05);
   transition: all 0.35s;
   cursor: pointer;
 }
+
 .articulos img {
   width: 100%;
   height: 70%;
@@ -252,6 +287,7 @@ article {
   background-color: transparent;
   position: static;
 }
+
 #filtros h3 {
   width: 100%;
   color: rgb(68, 67, 67);
@@ -259,6 +295,7 @@ article {
   margin: 10px 0 10px 0;
   border-bottom: 2px solid rgb(68, 67, 67);
 }
+
 #filtros ul {
   width: 100%;
   display: flex;
@@ -268,6 +305,7 @@ article {
   padding-left: 0;
   list-style: none;
 }
+
 #filtros ul li {
   width: 100%;
   font-size: 15px;
@@ -275,6 +313,7 @@ article {
   padding: 10px 0 10px 6px;
   background-color: transparent;
 }
+
 #filtros ul li:hover {
   background-color: rgb(208, 214, 223);
   font-weight: bold;
@@ -293,11 +332,13 @@ article {
   justify-content: center;
   flex-direction: row;
 }
+
 #ofertasJuegos .producto .precio .precioTachado,
 #ofertasConsolas .producto .precio .precioTachado {
   text-decoration: line-through red;
   margin-right: 10px;
 }
+
 #ofertasJuegos .producto .precio .precioNuevo,
 #ofertasConsolas .producto .precio .precioNuevo {
   font-weight: bold;
@@ -322,13 +363,16 @@ article {
   0% {
     margin-left: 30px;
   }
+
   50% {
     margin-left: 40px;
   }
+
   100% {
     margin-left: 45px;
   }
 }
+
 #categorias {
   width: 80%;
   height: 60vh;
@@ -338,6 +382,7 @@ article {
   gap: 20px;
   margin: auto;
 }
+
 #categorias .tarjetaCategoria {
   display: flex;
   justify-content: center;
@@ -347,18 +392,21 @@ article {
   background-position: center center;
   box-shadow: 3px 5px 15px -1px rgba(0, 0, 0, 0.6);
 }
+
 #categorias .tarjetaCategoria:hover {
   transform: scale(1.03);
   transition: all 0.35s;
   cursor: pointer;
 }
-#categorias .tarjetaCategoria:hover > h4 {
+
+#categorias .tarjetaCategoria:hover>h4 {
   animation-name: animacionCategorias;
   animation-timing-function: linear;
   animation-duration: 0.75s;
   margin-left: 45px;
   cursor: pointer;
 }
+
 #categorias .tarjetaCategoria h4 {
   font-size: 30px;
   color: white;
@@ -422,6 +470,7 @@ footer {
   width: 90%;
   margin: 30px auto 0 auto;
 }
+
 #redes h5 {
   text-align: center;
 }
@@ -442,6 +491,7 @@ footer {
   margin-left: 10px;
   margin-right: 10px;
 }
+
 .pie__img:hover {
   transform: scale(1.1);
   transition: all 0.25s;
@@ -463,12 +513,14 @@ footer {
   flex-direction: column;
   margin: 30px auto 30px auto;
 }
+
 #newsletter h5 {
   width: 80%;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
 }
+
 #newsletter form #name,
 #newsletter form #correo {
   font-size: 15px;
@@ -478,6 +530,7 @@ footer {
   border-right: 0;
   border-radius: 0;
 }
+
 #newsletter .botones {
   display: flex;
   justify-content: space-between;
@@ -485,6 +538,7 @@ footer {
   font-size: 15px;
   gap: 15px;
 }
+
 #newsletter .botones input {
   height: 30px;
   width: 50%;
@@ -495,6 +549,7 @@ footer {
   border-color: rgb(112, 163, 182);
   color: rgb(112, 163, 182);
 }
+
 .btn-celeste:hover {
   background-color: rgb(112, 163, 182);
 }
@@ -507,13 +562,16 @@ footer {
   justify-content: space-around;
   flex-direction: row;
 }
+
 #listaFooter ul {
   list-style: none;
   font-size: 15px;
 }
+
 #listaFooter ul li {
   margin: 10px 0 10px 20px;
 }
+
 #listaFooter h5 {
   text-align: left;
   margin-left: 40px;
@@ -546,11 +604,13 @@ footer {
   text-align: center;
   margin-top: auto;
 }
+
 #mediosContacto .infoContacto .contactoDescripcion {
   font-size: 20px;
   text-align: center;
   margin-top: auto;
 }
+
 #mediosContacto .contacto button {
   width: 30%;
   height: 35px;
@@ -561,6 +621,7 @@ footer {
   font-size: 15px;
   margin-top: auto;
 }
+
 #mediosContacto .contacto button:hover {
   background-color: rgb(131, 200, 223);
   font-weight: bold;
@@ -573,369 +634,469 @@ footer {
     grid-template-columns: repeat(4, 1fr);
   }
 }
+
 @media (max-width: 1090px) {
   #listaFooter ul {
     font-size: 12px;
   }
 }
+
 @media (max-width: 1027px) {
   .articulos {
     grid-template-columns: repeat(3, 1fr);
     margin-left: auto;
     margin-right: auto;
   }
+
   #mainOfertas h1,
-#mainOfertas h2 {
+  #mainOfertas h2 {
     margin-left: auto;
     margin-right: auto;
   }
+
   #mainOfertas h2 {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
     text-align: left;
   }
+
   .subtitulo {
     margin-left: auto;
     margin-right: auto;
   }
+
   #categorias {
     grid-template-columns: repeat(2, 1fr);
   }
+
   footer #newsletter {
     margin-left: auto;
   }
+
   #mediosContacto {
     margin-left: auto;
     margin-right: auto;
   }
+
   #mediosContacto .infoContacto .contactoTitulo {
     font-size: 25px;
   }
+
   #mediosContacto .infoContacto .contactoDescripcion {
     font-size: 15px;
   }
-  #productos, .articulos {
+
+  #productos,
+  .articulos {
     grid-template-columns: repeat(3, 1fr);
   }
+
   #ofertasJuegos,
-#ofertasConsolas {
+  #ofertasConsolas {
     grid-template-columns: repeat(3, 1fr);
   }
+
   #acordeon {
     margin-left: auto;
     margin-right: auto;
   }
+
   article,
-.subtitulo,
-#mainNosotros {
+  .subtitulo,
+  #mainNosotros {
     margin-left: auto;
     margin-right: auto;
   }
+
   #mainNosotros h1 {
     margin-left: auto;
     margin-right: auto;
   }
+
   #mainPrincipal h1,
-#mainPrincipal #tituloCategorias {
+  #mainPrincipal #tituloCategorias {
     margin-left: auto;
     margin-right: auto;
   }
 }
+
 @media (max-width: 992px) {
   #silueta {
     top: 99px;
   }
-  .fondo:hover + #silueta {
+
+  .fondo:hover+#silueta {
     top: 89px;
   }
 }
+
 @media (max-width: 950px) {
   #mediosContacto {
     margin-bottom: 30px;
   }
+
   #mediosContacto .contacto button {
     font-size: 12.5px;
   }
+
   #contenedorProductos {
     grid-template-columns: 1fr;
   }
+
   #filtros {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
   }
+
   #filtros ul {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
     padding-right: 10px;
   }
+
   #filtros ul li {
     width: 20%;
     margin-left: 10px;
     margin-bottom: 10px;
   }
-  #contenedorProductos h1, #productos, .articulos {
+
+  #contenedorProductos h1,
+  #productos,
+  .articulos {
     margin-left: auto;
     margin-right: auto;
   }
 }
+
 @media (max-width: 885px) {
   #listaFooter ul {
     font-size: 10px;
   }
+
   #silueta {
     top: 95px;
   }
-  .fondo:hover + #silueta {
+
+  .fondo:hover+#silueta {
     top: 85px;
   }
 }
+
 @media (max-width: 779px) {
   #mediosContacto .infoContacto .contactoTitulo {
     font-size: 22.5px;
   }
+
   #mediosContacto .infoContacto .contactoDescripcion {
     font-size: 14.5px;
   }
+
   #silueta {
     top: 90px;
   }
-  .fondo:hover + #silueta {
+
+  .fondo:hover+#silueta {
     top: 83px;
   }
 }
+
 @media (max-width: 768px) {
   .articulos {
     grid-template-columns: repeat(2, 1fr);
     margin-left: auto;
     margin-right: auto;
   }
+
   .articulos .producto {
     width: 80%;
     margin: auto;
   }
+
   main h1,
-.subtitulo,
-article {
+  .subtitulo,
+  article {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
   }
+
   #mainOfertas h1,
-#mainOfertas h2 {
+  #mainOfertas h2 {
     text-align: left;
   }
+
   #categorias {
     grid-template-columns: 1fr;
     margin-left: auto;
     margin-right: auto;
   }
+
   #categorias .tarjetaCategoria {
     align-items: center;
   }
+
   #categorias .tarjetaCategoria h4 {
     margin-left: 0;
   }
+
   #tituloCategorias {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
   }
+
   footer {
     grid-template-columns: 1fr;
     row-gap: 20px;
   }
+
   footer #redes {
     grid-column: 1/-1;
     grid-row: 3/4;
     margin: 0 auto 50px auto;
   }
+
   footer #newsletter {
     grid-column: 1/-1;
   }
+
   footer #newsletter h5 {
     align-self: center;
   }
+
   footer #newsletter form .botones input {
     width: 340px;
   }
+
   footer #newsletter .botones input {
     width: 300px;
     height: 35px;
     margin-left: auto;
     margin-right: auto;
   }
+
   footer #listaFooter {
     grid-column: 1/-1;
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
   }
+
   body {
     width: fit-content;
   }
-  #productos, .articulos {
+
+  #productos,
+  .articulos {
     grid-template-columns: repeat(2, 1fr);
     margin-left: auto;
     margin-right: auto;
   }
-  #productos .producto, .articulos .producto {
+
+  #productos .producto,
+  .articulos .producto {
     width: 80%;
     height: 90%;
   }
+
   #filtros {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
   }
+
   #filtros h3 {
     width: 100%;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
   }
+
   #ofertasJuegos .producto,
-#ofertasConsolas .producto {
+  #ofertasConsolas .producto {
     width: 100%;
     height: 100%;
   }
+
   #mediosContacto .contacto {
     margin-bottom: 20px;
   }
 }
+
 @media (max-width: 695px) {
+
   #ofertasJuegos,
-#ofertasConsolas {
+  #ofertasConsolas {
     grid-template-columns: repeat(2, 1fr);
   }
+
   #ofertasJuegos .producto,
-#ofertasConsolas .producto {
+  #ofertasConsolas .producto {
     width: 90%;
     height: 100%;
   }
+
   #mainOfertas h1,
-#mainOfertas h2 {
+  #mainOfertas h2 {
     text-align: center;
   }
+
   #navbar ul {
     flex-direction: column;
     align-items: center;
     margin-left: auto;
     margin-right: auto;
   }
+
   #silueta {
     top: 90px;
   }
-  .fondo:hover + #silueta {
+
+  .fondo:hover+#silueta {
     top: 80px;
   }
 }
+
 @media (max-width: 690px) {
   #silueta {
     visibility: hidden;
   }
+
   #tituloContacto {
     font-size: 50px;
   }
 }
+
 @media (max-width: 510px) {
+
   #headerFondoOscuro,
-#tituloContacto {
+  #tituloContacto {
     font-size: 45px;
   }
 }
+
 @media (max-width: 480px) {
-  #productos, .articulos {
+
+  #productos,
+  .articulos {
     grid-template-columns: 1fr;
     width: 60%;
   }
-  #productos .producto figcaption, .articulos .producto figcaption {
+
+  #productos .producto figcaption,
+  .articulos .producto figcaption {
     font-size: 15px;
   }
-  #productos .producto p, .articulos .producto p {
+
+  #productos .producto p,
+  .articulos .producto p {
     font-size: 10px;
   }
+
   #ofertasJuegos,
-#ofertasConsolas {
+  #ofertasConsolas {
     grid-template-columns: 1fr;
   }
+
   #ofertasJuegos .producto,
-#ofertasConsolas .producto {
+  #ofertasConsolas .producto {
     width: 60%;
     height: 100%;
   }
+
   .articulos {
     grid-template-columns: 1fr;
   }
+
   .articulos .producto {
     height: 90%;
     width: 80%;
   }
+
   footer #newsletter form .botones {
     flex-direction: column-reverse;
   }
+
   footer #newsletter form .botones input {
     width: 100%;
     margin-bottom: 0;
     gap: 0;
   }
+
   footer #newsletter form #correo {
     margin-bottom: 20px;
   }
+
   #filtros ul {
     align-self: center;
   }
+
   article {
     font-size: 13px;
   }
+
   #tituloContacto {
     font-size: 35px;
   }
 }
+
 @media (max-width: 367px) {
   #filtros ul li {
     font-size: 10px;
   }
+
   .articulos .producto figcaption {
     font-size: 15px;
   }
+
   .articulos .producto p {
     font-size: 10px;
   }
-  #productos .producto figcaption, .articulos .producto figcaption {
+
+  #productos .producto figcaption,
+  .articulos .producto figcaption {
     font-size: 10px;
   }
+
   #listaFooter {
     flex-direction: column;
     justify-content: center;
     margin-top: 0;
   }
+
   .tituloHeader {
     font-size: 45px;
   }
+
   #headerFondoOscuro,
-#tituloContacto {
+  #tituloContacto {
     font-size: 30px;
   }
 }
+
 @media (max-width: 250px) {
   #filtros ul {
     font-size: 5px;
     margin-right: 10px;
   }
+
   #filtros ul span {
     visibility: hidden;
   }
+
   #listaFooter ul {
     font-size: 7.5px;
   }
+
   .tituloHeader {
     font-size: 30px;
   }
+
   #headerFondoOscuro,
-#tituloContacto {
+  #tituloContacto {
     font-size: 25px;
   }
 }
