@@ -30,7 +30,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item" id="shoppingCart">
-                        <img src="imgs/imgs_Iconos_y_Logos/shopping_cart_icon.png" alt="Carrito de compras">
+                        <img src="imgs/imgs_Iconos_y_Logos/shopping_cart_icon.png" alt="Carrito de compras" onclick="ver_carrito()">
                         <button class="btn btn-secondary" onclick="calcular_total()">Calcular Total<span
                                 class="badge badge-secondary" id="cant_productos">0</span></button>
                     </li>
@@ -86,7 +86,7 @@
             <figure class="producto card text-center">
                 <img src="imgs/Imgs_Productos/fifa 22_img.webp" alt="imagen de portada Fifa 22" class="card-img-top">
                 <div class="infoProducto card-body">
-                    <figcaption class="card-title">Fifa 22</figcaption>
+                    <figcaption class="card-title" id="nombre_prod_1">Fifa 22</figcaption>
                     <p class="card-text" id="precio_1">$9.000</p>
                     <button class="btn btn-primary" id="prod_1" onclick="agregar_producto(this.id)">Agregar</button>
                 </div>
@@ -94,7 +94,7 @@
             <figure class="producto card text-center">
                 <img src="imgs/Imgs_Productos/cod_img.webp" alt="Imagen de portada Call of Duty" class="card-img-top">
                 <div class="infoProducto card-body">
-                    <figcaption class="card-title">Call of Duty: Vanguard</figcaption>
+                    <figcaption class="card-title" id="nombre_prod_2">Call of Duty: Vanguard</figcaption>
                     <p class="card-text" id="precio_2">$11.000</p>
                     <button class="btn btn-primary" id="prod_2" onclick="agregar_producto(this.id)">Agregar</button>
                 </div>
@@ -103,7 +103,7 @@
                 <img src="imgs/Imgs_Productos/The_last_of_us_img.webp" alt="Imagen de portada The last of us"
                     class="card-img-top">
                 <div class="infoProducto card-body">
-                    <figcaption class="card-title">The Last of Us</figcaption>
+                    <figcaption class="card-title" id="nombre_prod_3">The Last of Us</figcaption>
                     <p class="card-text" id="precio_3">$5.500</p>
                     <button class="btn btn-primary" id="prod_3" onclick="agregar_producto(this.id)">Agregar</button>
                 </div>
@@ -111,7 +111,7 @@
             <figure class="producto card text-center">
                 <img src="imgs/Imgs_Productos/Fifa_16_img.webp" alt="Imagen de portada Fifa 16" class="card-img-top">
                 <div class="infoProducto card-body">
-                    <figcaption class="card-title">Fifa 16</figcaption>
+                    <figcaption class="card-title" id="nombre_prod_4">Fifa 16</figcaption>
                     <p class="card-text" id="precio_4">$1.999</p>
                     <button class="btn btn-primary" id="prod_4" onclick="agregar_producto(this.id)">Agregar</button>
                 </div>
@@ -120,7 +120,7 @@
                 <img src="imgs/Imgs_Productos/ACValhalla_img.webp" alt="Imagen de portada Assassins Creed Valhalla"
                     class="card-img-top">
                 <div class="infoProducto card-body">
-                    <figcaption class="card-title">Assassins Creed Valhalla</figcaption>
+                    <figcaption class="card-title" id="nombre_prod_5">Assassins Creed Valhalla</figcaption>
                     <p class="card-text" id="precio_5">$14.000</p>
                     <button class="btn btn-primary" id="prod_5" onclick="agregar_producto(this.id)">Agregar</button>
                 </div>
