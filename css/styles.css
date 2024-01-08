@@ -215,6 +215,14 @@ article {
   border: 0;
 }
 
+#btn_aplicar_filtros{
+  width: 10%;
+  font-weight: bold;
+  font-size: 15px;
+  margin-left: 4%;
+  margin-bottom: 0.75%;
+}
+
 #productos,
 .articulos {
   width: 90%;

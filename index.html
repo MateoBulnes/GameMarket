@@ -30,7 +30,8 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item" id="shoppingCart">
-                        <img src="imgs/imgs_Iconos_y_Logos/shopping_cart_icon.png" alt="Carrito de compras" onclick="ver_carrito()">
+                        <img src="imgs/imgs_Iconos_y_Logos/shopping_cart_icon.png" alt="Carrito de compras"
+                            onclick="ver_carrito()">
                         <button class="btn btn-secondary" onclick="calcular_total()">Calcular Total<span
                                 class="badge badge-secondary" id="cant_productos">0</span></button>
                     </li>
@@ -82,6 +83,8 @@
     <main id="mainPrincipal">
         <!--Comienzan tarjetas de novedades-->
         <h1>Novedades</h1>
+        <button class="btn btn-lg btn-primary" id="btn_aplicar_filtros" onclick="filtrar_productos()">Aplicar
+            Filtros</button>
         <div class="articulos" id="novedades">
             <figure class="producto card text-center">
                 <img src="imgs/Imgs_Productos/fifa 22_img.webp" alt="imagen de portada Fifa 22" class="card-img-top">
