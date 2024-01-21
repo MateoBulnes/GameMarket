@@ -215,7 +215,7 @@ article {
   border: 0;
 }
 
-#btn_aplicar_filtros{
+#btn_aplicar_filtros {
   width: 10%;
   font-weight: bold;
   font-size: 15px;
@@ -242,6 +242,22 @@ article {
   text-align: center;
   box-shadow: 3px 5px 15px -1px rgba(0, 0, 0, 0.6);
   padding: 0;
+}
+
+.articulos .input-group {
+  width: 30%;
+}
+
+.articulos .row button {
+  margin-left: 1.5%;
+}
+
+.articulos .row input {
+  width: 20%;
+  margin-left: 2%;
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center;
 }
 
 .articulos .producto .infoProducto {

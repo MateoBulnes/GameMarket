@@ -91,7 +91,11 @@
                 <div class="infoProducto card-body">
                     <figcaption class="card-title" id="nombre_prod_1">Fifa 22</figcaption>
                     <p class="card-text" id="precio_1">$9.000</p>
-                    <button class="btn btn-primary" id="prod_1" onclick="agregar_producto(this.id)">Agregar</button>
+                    <div class="row">
+                        <button class="btn btn-primary col-md-9 btn_agregar" id="prod_1">Agregar</button>
+                        <input type="number" name="" id="cant_prod_1" class="form-control" value="1" min="1">
+                    </div>
+
                 </div>
             </figure>
             <figure class="producto card text-center">
@@ -99,7 +103,10 @@
                 <div class="infoProducto card-body">
                     <figcaption class="card-title" id="nombre_prod_2">Call of Duty: Vanguard</figcaption>
                     <p class="card-text" id="precio_2">$11.000</p>
-                    <button class="btn btn-primary" id="prod_2" onclick="agregar_producto(this.id)">Agregar</button>
+                    <div class="row">
+                        <button class="btn btn-primary col-md-9 btn_agregar" id="prod_2">Agregar</button>
+                        <input type="number" name="" id="cant_prod_2" class="form-control" value="1" min="1">
+                    </div>
                 </div>
             </figure>
             <figure class="producto card text-center">
@@ -108,7 +115,10 @@
                 <div class="infoProducto card-body">
                     <figcaption class="card-title" id="nombre_prod_3">The Last of Us</figcaption>
                     <p class="card-text" id="precio_3">$5.500</p>
-                    <button class="btn btn-primary" id="prod_3" onclick="agregar_producto(this.id)">Agregar</button>
+                    <div class="row">
+                        <button class="btn btn-primary col-md-9 btn_agregar" id="prod_3">Agregar</button>
+                        <input type="number" name="" id="cant_prod_3" class="form-control" value="1" min="1">
+                    </div>
                 </div>
             </figure>
             <figure class="producto card text-center">
@@ -116,7 +126,10 @@
                 <div class="infoProducto card-body">
                     <figcaption class="card-title" id="nombre_prod_4">Fifa 16</figcaption>
                     <p class="card-text" id="precio_4">$1.999</p>
-                    <button class="btn btn-primary" id="prod_4" onclick="agregar_producto(this.id)">Agregar</button>
+                    <div class="row">
+                        <button class="btn btn-primary col-md-9 btn_agregar" id="prod_4">Agregar</button>
+                        <input type="number" name="" id="cant_prod_4" class="form-control" value="1" min="1">
+                    </div>
                 </div>
             </figure>
             <figure class="producto card text-center">
@@ -125,7 +138,10 @@
                 <div class="infoProducto card-body">
                     <figcaption class="card-title" id="nombre_prod_5">Assassins Creed Valhalla</figcaption>
                     <p class="card-text" id="precio_5">$14.000</p>
-                    <button class="btn btn-primary" id="prod_5" onclick="agregar_producto(this.id)">Agregar</button>
+                    <div class="row">
+                        <button class="btn btn-primary col-md-9 btn_agregar" id="prod_5">Agregar</button>
+                        <input type="number" name="" id="cant_prod_5" class="form-control" value="1" min="1">
+                    </div>
                 </div>
             </figure>
         </div>
@@ -155,6 +171,20 @@
             </div>
         </div>
         <!--Terminan tarjetas de categorias-->
+
+        <div class="modal fade" id="modal_alerta" tabindex="-1" aria-labelledby="titulo_modal_alerta" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="titulo_modal_alerta"></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p id="texto_alerta"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </main>
 

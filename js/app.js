@@ -1,5 +1,6 @@
 var productos_carrito = [];
 var productos_disponibles = [];
+var modal_alerta = new bootstrap.Modal(document.getElementById('modal_alerta'), {});
 
 class Producto {
     constructor(nombre, precio, cantidad) {
@@ -10,22 +11,29 @@ class Producto {
 }
 
 //MANEJO DE PRODUCTOS CON EL CARRITO
+
+let botones_agregar = document.querySelectorAll('.btn_agregar');
+
+botones_agregar.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+        let id = btn.id;
+
+        agregar_producto(id);
+    });
+});
+
 function buscar_producto(nombre) {
     return productos_carrito.find(producto => producto.nombre === nombre);
 }
 
 function agregar_producto(id) {
     let cant_prod_carrito = parseInt(document.getElementById('cant_productos').innerText);
-    let cant_a_agregar = Number(prompt("Ingrese la cantidad de unidades de este juego que desea agregar"));
+    let cant_a_agregar = parseInt(document.querySelector(`#cant_${id}`).value);
 
-    while(isNaN(cant_a_agregar) || cant_a_agregar == ''){
-        cant_a_agregar = Number(prompt('El valor ingresado no es numérico o esta vacío, intentelo nuevamente'));
-    }
+    let nombre_prod = document.querySelector(`#nombre_${id}`).innerText;
+    let precio_prod = formatear_precio(document.querySelector(`#precio_${id.split("_")[1]}`).innerText);
 
-    let nombre_prod = document.getElementById('nombre_prod_' + id.split("_")[1]).innerText;
-    let precio_prod = formatear_precio(document.getElementById('precio_' + id.split("_")[1]).innerText);
-
-    document.getElementById('cant_productos').innerText = cant_prod_carrito + cant_a_agregar;
+    document.querySelector('#cant_productos').innerText = cant_prod_carrito + cant_a_agregar;
 
     let producto_seleccionado = buscar_producto(nombre_prod);
 
@@ -61,7 +69,9 @@ function calcular_total() {
     let cant_prod_carrito = cantidad_carrito();
 
     if (cant_prod_carrito == 0) {
-        alert("No tiene productos seleccionados en su carrito");
+        document.querySelector('#titulo_modal_alerta').innerHTML = 'Atención';
+        document.querySelector('#texto_alerta').textContent = 'No hay ningun producto en el carrito';
+        modal_alerta.show();
     } else {
         let total = 0;
         for (let i = 0; i < productos_carrito.length; i++) {
@@ -75,7 +85,9 @@ function calcular_total() {
             aviso_descuento += " (Se le aplico un 30% de descuento por comprar más de 2 juegos)";
         }
 
-        alert("El total en su carrito es de: $" + total + aviso_descuento);
+        document.querySelector('#titulo_modal_alerta').innerHTML = 'Exito';
+        document.querySelector('#texto_alerta').textContent = `El total en su carrito es de: $${total}. ${aviso_descuento}`;
+        modal_alerta.show();
     }
 }
 
