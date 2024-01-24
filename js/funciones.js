@@ -78,21 +78,33 @@ function calcular_total() {
     }
 }
 
+function eliminar_producto(id) {
+    let id_producto = id.split("_")[2]
+
+    let fila_producto = document.querySelector('#fila_producto_' + id_producto);
+
+    if (fila_producto) {
+        productos_carrito = productos_carrito.filter(producto => producto.id !== id_producto);
+        localStorage.setItem('carrito', JSON.stringify(productos_carrito));
+        fila_producto.parentNode.removeChild(fila_producto);
+        document.querySelector('#cant_productos').innerText = cantidad_carrito();
+    }
+}
+
 function mostrar_carrito() {
     let html_tabla = `
-        <h3>Resultados</h3>
         <table class="table">
             <tbody>
         `;
 
     productos_carrito.forEach(producto => {
         html_tabla += `
-                <tr>
+                <tr id="fila_producto_${producto.id}">
                     <td class="w-25 img_carrito"><img src="imgs/Imgs_Productos/${producto.url_img_portada}"></td>
                     <td class="align-middle">${producto.nombre}</td>
                     <td class="align-middle">${producto.precio}</td>
                     <td class="align-middle">${producto.cantidad_agregada}</td>
-                    <td class="align-middle"><button id="prod_carrito_${producto.id}">Eliminar</button></td>
+                    <td class="align-middle"><button class="btn_eliminar_prod" id="prod_carrito_${producto.id}" onclick="eliminar_producto(id)">Eliminar</button></td>
                 </tr>
         `;
     });
@@ -123,14 +135,27 @@ function llenar_productos_disponibles() {
 };
 
 function filtrar_por_precio(precio_desde, precio_hasta) {
+    console.log(precio_desde);
+    console.log(precio_hasta);
     return productos_disponibles.filter(producto => {
-        return producto.precio >= precio_desde && producto.precio <= precio_hasta;
+        if (precio_desde && precio_hasta) {
+            // Filtrar si ambos límites están definidos
+            return producto.precio >= precio_desde && producto.precio <= precio_hasta;
+        } else if (precio_desde) {
+            // Filtrar si solo hay precio_desde definido
+            return producto.precio >= precio_desde;
+        } else if (precio_hasta) {
+            // Filtrar si solo hay precio_hasta definido
+            return producto.precio <= precio_hasta;
+        }
+        // Si no hay límites definidos, no aplicar filtro de precios
+        return true;
     });
 }
 
 
-function filtrar_por_nombre(nombre) {
-    return productos_disponibles.filter(producto => {
+function filtrar_por_nombre(nombre, productos) {
+    return productos.filter(producto => {
         return producto.nombre.toLowerCase().includes(nombre.toLowerCase());
     });
 }
@@ -140,7 +165,8 @@ function mostrar_filtrados(productos) {
     let container_filtros = document.querySelector('#modal_filtros .modal-body');
 
     let html_tabla = `
-        <table class="table">
+        <h3 id="titulo_resultados_filtros">Resultados</h3>
+        <table class="table" id="tabla_resultados_filtros">
             <tbody>
         `;
 
@@ -182,49 +208,57 @@ function definir_categoria() {
     else { return 'PRECIO Y NOMBRE' };
 }
 
-function mostrar_alerta_filtros() {
-    let alerta = document.querySelector('#btn_cerrar_alert_filtros');
-    if (alerta) {
-        alerta.remove();
-    }
-}
-
 const ocultar_alerta = () => {
-    alerta_filtros.classList.remove('show')
+    let alerta_filtros = document.querySelector('#modal_filtros .alerta');
     alerta_filtros.hidden = true;
 };
 
 function filtrar_productos() {
     let categoria = definir_categoria();
     let productos_filtrados = [];
+    let precio_desde = document.querySelector('#precio_desde').value;
+    let precio_hasta = document.querySelector('#precio_hasta').value;
+    let nombre_producto = document.querySelector('#nombre_prod_filtro').value;
 
     if (categoria == 'NINGUNO') {
-        alerta_filtros.classList.add('show');
+        let alerta_filtros = document.querySelector('#modal_filtros .alerta');
         alerta_filtros.hidden = false;
-
     }
     else if (categoria == 'PRECIO') {
-        let precio_desde = document.querySelector('#precio_desde').value;
-        let precio_hasta = document.querySelector('#precio_desde').value;
-
         productos_filtrados = filtrar_por_precio(precio_desde, precio_hasta);
-    } else {
-        let nombre_producto = document.querySelector('#nombre_prod_filtro').value;
-
-        console.log(nombre_producto);
-
-        productos_filtrados = filtrar_por_nombre(nombre_producto);
     }
+    else if (categoria == 'NOMBRE') {
+        productos_filtrados = filtrar_por_nombre(nombre_producto, productos_disponibles);
+    } else {
+        productos_filtrados = filtrar_por_precio(precio_desde, precio_hasta);
+        productos_filtrados = filtrar_por_nombre(nombre_producto, productos_filtrados)
+    }
+
 
     if (productos_filtrados.length <= 0 && categoria != 'NINGUNO') {
         let container_filtros = document.querySelector('#modal_filtros .modal-body');
-
         container_filtros.innerHTML += `<div id="cartel_sin_resultados">No se encontraron resultados para los filtros ingresados</div>`;
     } else {
         if (document.querySelector('#cartel_sin_resultados')) {
             document.querySelector('#cartel_sin_resultados').remove();
         }
 
-        mostrar_filtrados(productos_filtrados);
+        if (categoria != 'NINGUNO') { mostrar_filtrados(productos_filtrados); }
+    }
+}
+
+function limpiar_filtros() {
+    let tabla_resultados = document.querySelector('#tabla_resultados_filtros');
+    let titulo_resultados = document.querySelector('#titulo_resultados_filtros');
+    let cartel_sin_resultados = document.querySelector('#cartel_sin_resultados');
+
+    if (tabla_resultados) {
+        tabla_resultados.parentNode.removeChild(tabla_resultados);
+    }
+    if (titulo_resultados) {
+        titulo_resultados.parentNode.removeChild(titulo_resultados);
+    }
+    if (cartel_sin_resultados) {
+        cartel_sin_resultados.parentNode.removeChild(cartel_sin_resultados);
     }
 }

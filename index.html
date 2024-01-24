@@ -216,12 +216,12 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="titulo_modal_filtros">Filtros</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="limpiar_filtros()"></button>
                     </div>
                     <div class="modal-body">
-                        <div class="alert alert-danger alert-dismissible fade" role="alert" hidden>
-                            Debe ingresar al menos 1 filtro para realizar la búsqueda
-                            <button type="button" class="btn-close" aria-label="Close" id="btn_cerrar_alerta"></button>
+                        <div class="alerta" hidden>
+                            <button class="btn_cerrar_alerta" onclick="ocultar_alerta()">X</button>
+                            <p>Debe ingresar al menos 1 filtro para realizar la búsqueda</p>
                         </div>
 
                         <div class="row">
@@ -244,8 +244,13 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-2 offset-md-11">
-                                <button class="btn btn-lg btn-primary" id="btn_filtrar">Filtrar</button>
+                            <div class="col-md-1 offset-md-10">
+                                <button class="btn btn-lg btn-secondary" id="btn_limpiar_filtros"
+                                    onclick="limpiar_filtros()">Limpiar</button>
+                            </div>
+                            <div class="col-md-1">
+                                <button class="btn btn-lg btn-primary" id="btn_filtrar"
+                                    onclick="filtrar_productos()">Filtrar</button>
                             </div>
                         </div>
                     </div>

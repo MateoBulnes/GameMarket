@@ -12,10 +12,9 @@ botones_agregar.forEach(function (btn) {
 });
 
 btn_carrito.addEventListener('click', mostrar_carrito);
-
 btn_filtrar.onclick = filtrar_productos;
-
-alerta_filtros.onclick = ocultar_alerta;
+btn_cerrar_alerta.onclick = ocultar_alerta;
+btn_limpiar_filtros.onclick = limpiar_filtros();
 
 
 

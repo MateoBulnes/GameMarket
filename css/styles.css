@@ -230,6 +230,18 @@ article {
   max-height: 15%;
 }
 
+#modal_carrito .btn_eliminar_prod {
+  padding: 5px 15px;
+  border-radius: 10px;
+  background-color: rgb(230, 230, 240);
+  font-weight: bold;
+  margin-left: 5%;
+}
+
+#modal_carrito .btn_eliminar_prod:hover {
+  background-color: rgb(198, 198, 240);
+}
+
 .table td {
   font-size: 15px;
 }
@@ -333,15 +345,44 @@ article {
 }
 
 #btn_filtrar {
-  margin-top: 7%;
+  margin-top: 16%;
+}
+
+#cartel_sin_resultados {
+  width: 50%;
+  margin-left: 25%;
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+#btn_limpiar_filtros {
+  margin-top: 16%;
 }
 
 #btn_cerrar_alert_filtros {
   margin-left: 65%;
 }
 
-#modal_filtros .alert-danger {
+#modal_filtros .alerta {
   font-size: 12px;
+  background-color: rgb(251, 196, 196);
+  padding: 4px 7px 1px 7px;
+  margin-bottom: 1%;
+  border-radius: 6px;
+}
+
+#modal_filtros .alerta p {
+  font-weight: bold;
+  margin-left: 1%;
+}
+
+#modal_filtros .alerta .btn_cerrar_alerta {
+  border: none;
+  background-color: rgb(251, 196, 196);
+  font-weight: bold;
+  margin-left: 99%;
 }
 
 .form-label {

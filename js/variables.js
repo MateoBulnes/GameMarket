@@ -20,6 +20,5 @@ var modal_alerta = new bootstrap.Modal(document.getElementById('modal_alerta'), 
 var botones_agregar = document.querySelectorAll('.btn_agregar');
 var btn_carrito = document.querySelector('#shoppingCart img');
 var btn_filtrar = document.querySelector('#btn_filtrar');
-var btn_alerta_filtro = document.querySelector('#btn_cerrar_alert_filtros');
-
-var alerta_filtros = document.querySelector('#modal_filtros .alert-danger');
+var btn_cerrar_alerta = document.querySelector('#modal_filtros .alerta .btn_cerrar_alerta');
+var btn_limpiar_filtros = document.querySelector('#modal_filtros #btn_limpiar_filtros');
