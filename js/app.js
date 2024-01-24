@@ -1,5 +1,6 @@
 //Al cargar la página cargo los productos disponibles para los filtros
-//document.addEventListener('DOMContentLoaded', llenar_productos_disponibles);
+document.addEventListener('DOMContentLoaded', obtener_carrito_storage);
+document.addEventListener('DOMContentLoaded', llenar_productos_disponibles);
 
 //Le agrego un evento click a cada boton "agregar" de los productos en novedades
 botones_agregar.forEach(function (btn) {
@@ -10,7 +11,12 @@ botones_agregar.forEach(function (btn) {
     });
 });
 
-btn_carrito.addEventListener('click', ver_carrito);
+btn_carrito.addEventListener('click', mostrar_carrito);
+
+btn_filtrar.onclick = filtrar_productos;
+
+alerta_filtros.onclick = ocultar_alerta;
+
 
 
 

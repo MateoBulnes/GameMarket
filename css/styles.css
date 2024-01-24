@@ -215,6 +215,33 @@ article {
   border: 0;
 }
 
+#modal_carrito .modal-content {
+  background-color: rgb(221, 230, 243);
+}
+
+#modal_carrito #container_carrito {
+  margin-left: 3%;
+  background-color: rgb(239 239 239);
+}
+
+#modal_carrito #container_resumen {
+  background-color: rgb(239 239 239);
+  margin-left: 2.3%;
+  max-height: 15%;
+}
+
+.table td {
+  font-size: 15px;
+}
+
+.table .img_carrito {
+  text-align: center;
+}
+
+.table .img_carrito img {
+  height: 10rem;
+}
+
 #btn_aplicar_filtros {
   width: 10%;
   font-weight: bold;
@@ -298,6 +325,27 @@ article {
 #contenedorProductos {
   display: grid;
   grid-template-columns: 20vw 80vw;
+}
+
+#modal_filtros .tag_filtro {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+#btn_filtrar {
+  margin-top: 7%;
+}
+
+#btn_cerrar_alert_filtros {
+  margin-left: 65%;
+}
+
+#modal_filtros .alert-danger {
+  font-size: 12px;
+}
+
+.form-label {
+  font-size: 13px;
 }
 
 #filtros {

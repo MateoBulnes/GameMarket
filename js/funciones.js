@@ -1,4 +1,11 @@
 //FUNCIONES DE PRODUCTOS
+const obtener_carrito_storage = () => {
+    if (localStorage.length > 0) {
+        productos_carrito = JSON.parse(localStorage.getItem('carrito'));
+        document.querySelector('#cant_productos').innerText = cantidad_carrito();
+    }
+};
+
 function buscar_producto(nombre) {
     return productos_carrito.find(producto => producto.nombre === nombre);
 }
@@ -22,6 +29,8 @@ function agregar_producto(id) {
     } else {
         producto_seleccionado.cantidad_agregada += cant_a_agregar;
     }
+
+    localStorage.setItem('carrito', JSON.stringify(productos_carrito));
 }
 
 function formatear_precio(precio_sin_formato) {
@@ -69,36 +78,21 @@ function calcular_total() {
     }
 }
 
-function ver_carrito() {
-    /*let subtotal = 0;
-    console.log("Productos en el carrito: ");
-    for (let i = 0; i < productos_carrito.length; i++) {
-        console.log(`${productos_carrito[i].id}: ${productos_carrito[i].nombre}, $${productos_carrito[i].precio} x ${productos_carrito[i].cantidad_agregada} `);
-        subtotal += productos_carrito[i].precio * productos_carrito[i].cantidad_agregada;
-    }
-    console.log(`Subtotal: $${subtotal}`);*/
-
+function mostrar_carrito() {
     let html_tabla = `
+        <h3>Resultados</h3>
         <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
-                </tr>
-            </thead>
             <tbody>
         `;
 
     productos_carrito.forEach(producto => {
         html_tabla += `
                 <tr>
-                    <th scope="row">${producto.id}</th>
-                        <td><img src="imgs/Imgs_Productos/${producto.url_img_portada}" style="height: 10rem"></td>
-                        <td>${producto.nombre}</td>
-                        <td>${producto.precio}</td>
-                        <td>${producto.cantidad_agregada}</td>
+                    <td class="w-25 img_carrito"><img src="imgs/Imgs_Productos/${producto.url_img_portada}"></td>
+                    <td class="align-middle">${producto.nombre}</td>
+                    <td class="align-middle">${producto.precio}</td>
+                    <td class="align-middle">${producto.cantidad_agregada}</td>
+                    <td class="align-middle"><button id="prod_carrito_${producto.id}">Eliminar</button></td>
                 </tr>
         `;
     });
@@ -109,26 +103,28 @@ function ver_carrito() {
     `;
 
     contenedor_carrito.innerHTML += html_tabla;
-
-    console.log(contenedor_carrito);
 };
 
 //FILTRADO DE PRODUCTOS
 function llenar_productos_disponibles() {
     let nombre_prod;
     let precio_prod;
+    let url_img;
 
     for (let i = 1; i <= 5; i++) {
         nombre_prod = document.getElementById('nombre_prod_' + i).innerText;
-        precio_prod = formatear_precio(document.getElementById('precio_' + i).innerText);
-        const prod = new Producto(nombre_prod, precio_prod, 0);
+        precio_prod = formatear_precio(document.getElementById('precio_prod_' + i).innerText);
+        url_img = document.querySelector(`#novedades_prod_${i} img`).src;
+        url_img = url_img.substring(url_img.lastIndexOf('/') + 1);
+
+        const prod = new Producto(i, nombre_prod, precio_prod, 0, url_img);
         productos_disponibles.push(prod);
     }
 };
 
-function filtrar_por_precio(precio, operador) {
+function filtrar_por_precio(precio_desde, precio_hasta) {
     return productos_disponibles.filter(producto => {
-        return operador === '<' ? producto.precio < precio : producto.precio > precio;
+        return producto.precio >= precio_desde && producto.precio <= precio_hasta;
     });
 }
 
@@ -140,45 +136,95 @@ function filtrar_por_nombre(nombre) {
 }
 
 function mostrar_filtrados(productos) {
-    console.log("Productos Filtrados: ");
-    for (let i = 0; i < productos.length; i++) {
-        console.log(`${i + 1}: ${productos[i].nombre}, $${productos[i].precio}`);
+
+    let container_filtros = document.querySelector('#modal_filtros .modal-body');
+
+    let html_tabla = `
+        <table class="table">
+            <tbody>
+        `;
+
+    productos.forEach(producto => {
+        html_tabla += `
+                <tr>
+                    <td class="w-25 img_carrito"><img src="imgs/Imgs_Productos/${producto.url_img_portada}"></td>
+                    <td class="align-middle">${producto.nombre}</td>
+                    <td class="align-middle">${producto.precio}</td>
+                </tr>
+        `;
+    });
+
+    html_tabla += `
+            </tbody>
+        </table>
+    `;
+
+    container_filtros.innerHTML += html_tabla;
+}
+
+function definir_categoria() {
+    let precio_desde = document.querySelector('#precio_desde').value;
+    let precio_hasta = document.querySelector('#precio_hasta').value;
+    let nombre = document.querySelector('#nombre_prod_filtro').value;
+
+    if (precio_desde && precio_hasta && nombre) {
+        return 'PRECIO Y NOMBRE';
+    }
+    else if (!nombre && (precio_desde || precio_hasta)) {
+        return 'PRECIO';
+    }
+    else if (nombre && !precio_desde && !precio_hasta) {
+        return 'NOMBRE';
+    }
+    else if (!nombre && !precio_desde && !precio_hasta) {
+        return 'NINGUNO';
+    }
+    else { return 'PRECIO Y NOMBRE' };
+}
+
+function mostrar_alerta_filtros() {
+    let alerta = document.querySelector('#btn_cerrar_alert_filtros');
+    if (alerta) {
+        alerta.remove();
     }
 }
 
+const ocultar_alerta = () => {
+    alerta_filtros.classList.remove('show')
+    alerta_filtros.hidden = true;
+};
+
 function filtrar_productos() {
-    let categoria = prompt("Ingrese alguna de las siguientes categorías para filtrar los productos: PRECIO o NOMBRE").toUpperCase();
-
-    while (categoria != 'PRECIO' && categoria != 'NOMBRE') {
-        categoria = prompt('La categoría ingresada no corresponde con alguna de las disponibles. Vuelva a ingresar una de las siguientes opciones: PRECIO o NOMBRE').toUpperCase();
-    }
-
+    let categoria = definir_categoria();
     let productos_filtrados = [];
 
-    if (categoria == 'PRECIO') {
-        let precio_limite = Number(prompt('Ingrese el precio límite por el que desea filtrar'));
-        while (isNaN(precio_limite) || precio_limite == '') {
-            precio_limite = Number(prompt('Solo puede ingresar valores numéricos para este campo, ingrese el precio nuevamente'));
-        }
+    if (categoria == 'NINGUNO') {
+        alerta_filtros.classList.add('show');
+        alerta_filtros.hidden = false;
 
-        let signo_desigual = prompt('Ingrese "<" si desea buscar precios menores al indicado, o ">" si desea buscar precios mayores al indicado');
-        while (signo_desigual != '<' && signo_desigual != '>') {
-            signo_desigual = prompt('El signo ingresado no corresponde con "<" ni con ">", intentelo nuevamente');
-        }
+    }
+    else if (categoria == 'PRECIO') {
+        let precio_desde = document.querySelector('#precio_desde').value;
+        let precio_hasta = document.querySelector('#precio_desde').value;
 
-        productos_filtrados = filtrar_por_precio(precio_limite, signo_desigual);
+        productos_filtrados = filtrar_por_precio(precio_desde, precio_hasta);
     } else {
-        let nombre_producto = prompt('Ingrese el nombre del producto a buscar');
-        while (nombre_producto == '') {
-            nombre_producto = prompt('No puede ingresar un nombre vacío, intentelo nuevamente');
-        }
+        let nombre_producto = document.querySelector('#nombre_prod_filtro').value;
+
+        console.log(nombre_producto);
 
         productos_filtrados = filtrar_por_nombre(nombre_producto);
     }
 
-    if (productos_filtrados.length <= 0) {
-        alert('No se han encontrado productos para los filtros ingresados');
+    if (productos_filtrados.length <= 0 && categoria != 'NINGUNO') {
+        let container_filtros = document.querySelector('#modal_filtros .modal-body');
+
+        container_filtros.innerHTML += `<div id="cartel_sin_resultados">No se encontraron resultados para los filtros ingresados</div>`;
     } else {
+        if (document.querySelector('#cartel_sin_resultados')) {
+            document.querySelector('#cartel_sin_resultados').remove();
+        }
+
         mostrar_filtrados(productos_filtrados);
     }
 }
