@@ -93,7 +93,7 @@ function eliminar_producto(id) {
 
 function mostrar_carrito() {
     let html_tabla = `
-        <table class="table">
+        <table class="table" id="tabla_prod_carrito">
             <tbody>
         `;
 
@@ -116,6 +116,14 @@ function mostrar_carrito() {
 
     contenedor_carrito.innerHTML += html_tabla;
 };
+
+function limpiar_carrito() {
+    let tabla_carrito = document.querySelector('#tabla_prod_carrito');
+
+    if (tabla_carrito) {
+        tabla_carrito.parentNode.removeChild(tabla_carrito);
+    }
+}
 
 //FILTRADO DE PRODUCTOS
 function llenar_productos_disponibles() {
@@ -162,7 +170,7 @@ function filtrar_por_nombre(nombre, productos) {
 
 function mostrar_filtrados(productos) {
 
-    let container_filtros = document.querySelector('#modal_filtros .modal-body');
+    let container_filtros = document.querySelector('#modal_filtros .modal-body #container_resultados');
 
     let html_tabla = `
         <h3 id="titulo_resultados_filtros">Resultados</h3>
@@ -261,4 +269,8 @@ function limpiar_filtros() {
     if (cartel_sin_resultados) {
         cartel_sin_resultados.parentNode.removeChild(cartel_sin_resultados);
     }
+
+    let precio_desde = document.querySelector('#precio_desde').value = "";
+    let precio_hasta = document.querySelector('#precio_hasta').value = "";
+    let nombre_producto = document.querySelector('#nombre_prod_filtro').value = "";
 }
