@@ -88,33 +88,51 @@ function eliminar_producto(id) {
         localStorage.setItem('carrito', JSON.stringify(productos_carrito));
         fila_producto.parentNode.removeChild(fila_producto);
         document.querySelector('#cant_productos').innerText = cantidad_carrito();
+
+        if (productos_carrito.length <= 0) {
+            document.querySelector('#modal_carrito #container_resumen p').hidden = false;
+            document.querySelector('#modal_carrito #container_resumen').style['max-height'] = '30%';
+        }
     }
 }
 
 function mostrar_carrito() {
-    let html_tabla = `
-        <table class="table" id="tabla_prod_carrito">
-            <tbody>
-        `;
+    if (productos_carrito.length > 0) {
+        document.querySelector('#modal_carrito #container_resumen p').hidden = true;
+        document.querySelector('#modal_carrito #container_resumen').style['max-height'] = '75%';
+        let html_tabla = `
+            <table class="table" id="tabla_prod_carrito">
+                <tbody>
+            `;
 
-    productos_carrito.forEach(producto => {
+        productos_carrito.forEach(producto => {
+            html_tabla += `
+                    <tr id="fila_producto_${producto.id}">
+                        <td class="w-25 img_carrito"><img src="imgs/Imgs_Productos/${producto.url_img_portada}"></td>
+                        <td>
+                        <div class="header_prod_carrito">
+                                <span class="titulo_prod_carrito">${producto.nombre}</span>
+                                <div>
+                                    <button class="btn_eliminar_prod" id="prod_carrito_${producto.id}" onclick="eliminar_producto(id)">Eliminar</button>
+                                    <span>X${producto.cantidad_agregada}</span>
+                                </div>
+                        </div> 
+                        </td>
+                        <td class="align-middle"><span class="precio_carrito">$${producto.precio}</span></td>
+                    </tr>
+            `;
+        });
+
         html_tabla += `
-                <tr id="fila_producto_${producto.id}">
-                    <td class="w-25 img_carrito"><img src="imgs/Imgs_Productos/${producto.url_img_portada}"></td>
-                    <td class="align-middle">${producto.nombre}</td>
-                    <td class="align-middle">${producto.precio}</td>
-                    <td class="align-middle">${producto.cantidad_agregada}</td>
-                    <td class="align-middle"><button class="btn_eliminar_prod" id="prod_carrito_${producto.id}" onclick="eliminar_producto(id)">Eliminar</button></td>
-                </tr>
+                </tbody>
+            </table>
         `;
-    });
 
-    html_tabla += `
-            </tbody>
-        </table>
-    `;
-
-    contenedor_carrito.innerHTML += html_tabla;
+        contenedor_carrito.innerHTML += html_tabla;
+    } else {
+        document.querySelector('#modal_carrito #container_resumen p').hidden = false;
+        document.querySelector('#modal_carrito #container_resumen').style['max-height'] = '30%';
+    }
 };
 
 function limpiar_carrito() {

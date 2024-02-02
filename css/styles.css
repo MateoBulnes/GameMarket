@@ -215,27 +215,73 @@ article {
   border: 0;
 }
 
+/*Carrito*/
+
 #modal_carrito .modal-content {
   background-color: rgb(221, 230, 243);
+  height: 80vh;
+}
+
+#modal_carrito #titulo_modal_carrito {
+  font-size: 25px;
+  font-weight: bold;
+  margin-left: 2.3%;
+}
+
+#modal_carrito .modal-body .row {
+  height: 95%;
 }
 
 #modal_carrito #container_carrito {
   margin-left: 3%;
   background-color: rgb(239 239 239);
+  border-radius: 5px;
 }
 
 #modal_carrito #container_resumen {
   background-color: rgb(239 239 239);
   margin-left: 2.3%;
-  max-height: 15%;
+  max-height: 75%;
+  border-radius: 5px;
+  padding: 1%;
+}
+
+#modal_carrito #container_resumen h4 {
+  font-weight: bold;
+}
+
+#modal_carrito #container_resumen p {
+  font-size: 13px;
+}
+
+#modal_carrito img {
+  border-radius: 5px;
+}
+
+#modal_carrito .header_prod_carrito {
+  display: flex;
+  flex-direction: column;
+}
+
+#modal_carrito .header_prod_carrito .titulo_prod_carrito {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 2%;
+}
+
+#modal_carrito .precio_carrito {
+  font-size: 20px;
+  font-weight: bold;
 }
 
 #modal_carrito .btn_eliminar_prod {
+  width: 35%;
+  margin-top: 6%;
   padding: 5px 15px;
   border-radius: 10px;
   background-color: rgb(230, 230, 240);
   font-weight: bold;
-  margin-left: 5%;
+  border: 1px solid rgb(206, 206, 217)
 }
 
 #modal_carrito .btn_eliminar_prod:hover {
