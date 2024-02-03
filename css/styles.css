@@ -201,6 +201,9 @@ article {
 
 #shoppingCart .btn {
   font-size: 15px;
+  height: 50%;
+  margin-top: 7%;
+  width: 21%;
 }
 
 #shoppingCart img {
@@ -216,6 +219,11 @@ article {
 }
 
 /*Carrito*/
+
+#nav_carrito {
+  display: flex;
+  justify-content: flex-end;
+}
 
 #modal_carrito .modal-content {
   background-color: rgb(221, 230, 243);
@@ -241,7 +249,7 @@ article {
 #modal_carrito #container_resumen {
   background-color: rgb(239 239 239);
   margin-left: 2.3%;
-  max-height: 75%;
+  max-height: 55%;
   border-radius: 5px;
   padding: 1%;
 }
@@ -271,6 +279,26 @@ article {
 
 #modal_carrito .precio_carrito {
   font-size: 20px;
+  font-weight: bold;
+}
+
+#modal_carrito .precio_resumen,
+#modal_carrito #container_resumen .precio_total {
+  text-align: right;
+}
+
+#modal_carrito .nombre_resumen,
+#modal_carrito .precio_resumen {
+  font-size: 14px;
+}
+
+#modal_carrito .fila_resumen {
+  margin-top: 1%;
+}
+
+#modal_carrito #container_resumen #titulo_total_resumen,
+#modal_carrito #container_resumen .precio_total {
+  font-size: 16px;
   font-weight: bold;
 }
 

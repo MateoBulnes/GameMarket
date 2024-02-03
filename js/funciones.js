@@ -52,30 +52,37 @@ function cantidad_carrito() {
     return cantidad_carrito;
 }
 
-function calcular_total() {
-    let cant_prod_carrito = cantidad_carrito();
-
-    if (cant_prod_carrito == 0) {
-        document.querySelector('#titulo_modal_alerta').innerHTML = 'Atención';
-        document.querySelector('#texto_alerta').textContent = 'No hay ningun producto en el carrito';
-        modal_alerta.show();
-    } else {
-        let total = 0;
-        for (let i = 0; i < productos_carrito.length; i++) {
-            total += productos_carrito[i].precio * productos_carrito[i].cantidad_agregada;
-        }
-
-        let aviso_descuento = "";
-
-        if (cant_prod_carrito >= 3) {
-            total = aplicar_descuento(total);
-            aviso_descuento += " (Se le aplico un 30% de descuento por comprar más de 2 juegos)";
-        }
-
-        document.querySelector('#titulo_modal_alerta').innerHTML = 'Exito';
-        document.querySelector('#texto_alerta').textContent = `El total en su carrito es de: $${total}. ${aviso_descuento}`;
-        modal_alerta.show();
+function calcular_total_precio() {
+    let total = 0;
+    for (let i = 0; i < productos_carrito.length; i++) {
+        total += productos_carrito[i].precio * productos_carrito[i].cantidad_agregada;
     }
+
+    return total;
+}
+
+function calcular_total() {
+    let total = calcular_total_precio();
+    let container_resumen = document.createElement('div');
+    let html_resumen = '';
+    productos_carrito.forEach(producto => {
+        html_resumen += `
+            <div class="row fila_resumen">
+                <div class="col-md-6 nombre_resumen">${producto.nombre}</div>
+                <div class="col-md-6 precio_resumen">$${producto.precio * producto.cantidad_agregada}</div>
+            </div>
+        `;
+    });
+
+    html_resumen += `
+        <div class="row fila_resumen">
+            <div class="col-md-6" id="titulo_total_resumen">TOTAL:</div>
+            <div class="col-md-6 precio_total">$${total}</div>
+        </div>
+    `;
+
+    container_resumen.innerHTML += html_resumen;
+    document.querySelector('#modal_carrito #container_resumen').append(container_resumen);
 }
 
 function eliminar_producto(id) {
@@ -96,17 +103,14 @@ function eliminar_producto(id) {
     }
 }
 
-function mostrar_carrito() {
-    if (productos_carrito.length > 0) {
-        document.querySelector('#modal_carrito #container_resumen p').hidden = true;
-        document.querySelector('#modal_carrito #container_resumen').style['max-height'] = '75%';
-        let html_tabla = `
+function mostrar_productos() {
+    let html_tabla = `
             <table class="table" id="tabla_prod_carrito">
                 <tbody>
             `;
 
-        productos_carrito.forEach(producto => {
-            html_tabla += `
+    productos_carrito.forEach(producto => {
+        html_tabla += `
                     <tr id="fila_producto_${producto.id}">
                         <td class="w-25 img_carrito"><img src="imgs/Imgs_Productos/${producto.url_img_portada}"></td>
                         <td>
@@ -118,17 +122,26 @@ function mostrar_carrito() {
                                 </div>
                         </div> 
                         </td>
-                        <td class="align-middle"><span class="precio_carrito">$${producto.precio}</span></td>
+                        <td class="align-middle"><span class="precio_carrito">$${producto.precio * producto.cantidad_agregada}</span></td>
                     </tr>
             `;
-        });
+    });
 
-        html_tabla += `
+    html_tabla += `
                 </tbody>
             </table>
         `;
 
-        contenedor_carrito.innerHTML += html_tabla;
+    contenedor_carrito.innerHTML += html_tabla;
+}
+
+function mostrar_carrito() {
+    if (productos_carrito.length > 0) {
+        document.querySelector('#modal_carrito #container_resumen p').hidden = true;
+        document.querySelector('#modal_carrito #container_resumen').style['max-height'] = '75%';
+        mostrar_productos();
+        calcular_total();
+
     } else {
         document.querySelector('#modal_carrito #container_resumen p').hidden = false;
         document.querySelector('#modal_carrito #container_resumen').style['max-height'] = '30%';
