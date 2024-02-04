@@ -1,5 +1,3 @@
-//Al cargar la página cargo los productos disponibles para los filtros
-//document.addEventListener('DOMContentLoaded', obtener_carrito_storage);
 document.addEventListener('DOMContentLoaded', async function () {
     await traer_juegos();
 

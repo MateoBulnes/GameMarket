@@ -63,6 +63,7 @@ function calcular_total_precio() {
 function calcular_total() {
     let total = calcular_total_precio();
     let container_resumen = document.createElement('div');
+    container_resumen.id = 'subtotal_carrito';
     let html_resumen = '';
     productos_carrito.forEach(producto => {
         html_resumen += `
@@ -74,14 +75,32 @@ function calcular_total() {
     });
 
     html_resumen += `
-        <div class="row fila_resumen">
-            <div class="col-md-6" id="titulo_total_resumen">TOTAL:</div>
-            <div class="col-md-6 precio_total">$${total}</div>
-        </div>
+            <div class="row fila_resumen">
+                <div class="col-md-6" id="titulo_total_resumen">TOTAL:</div>
+                <div class="col-md-6 precio_total">$${total}</div>
+            </div>
     `;
 
     container_resumen.innerHTML += html_resumen;
     document.querySelector('#modal_carrito #container_resumen').append(container_resumen);
+}
+
+function mostrar_carrito_vacio() {
+    let container_prod_carrito = document.querySelector('#modal_carrito #container_carrito');
+    let div = document.createElement('div');
+
+    div.id = 'container_carrito_vacio';
+    div.innerHTML = `
+                <img src="./imgs/imgs_Iconos_y_Logos/empty_shopping_cart.png" id="img_carrito_vacio" alt="Carrito de compras vacío">
+                <p>Empieza un carrito de compras!</p>
+                <button class="btn btn-lg btn-primary" data-bs-dismiss="modal" onclick=limpiar_carrito()>Descubrir Juegos</button>
+            `
+    container_prod_carrito.append(div);
+
+    document.querySelector('#modal_carrito #container_resumen p').hidden = false;
+    document.querySelector('#modal_carrito #container_resumen').style['max-height'] = '30%';
+    let total_resumen = document.querySelector('.fila_resumen');
+    if(total_resumen){total_resumen.parentNode.removeChild(total_resumen)}
 }
 
 function eliminar_producto(id) {
@@ -95,21 +114,26 @@ function eliminar_producto(id) {
         fila_producto.parentNode.removeChild(fila_producto);
         document.querySelector('#cant_productos').innerText = cantidad_carrito();
 
+        let subtotal_carrito = document.querySelector('#subtotal_carrito');
+        if (subtotal_carrito) {
+            subtotal_carrito.parentNode.removeChild(subtotal_carrito);
+        }
+        calcular_total();
+
         if (productos_carrito.length <= 0) {
-            document.querySelector('#modal_carrito #container_resumen p').hidden = false;
-            document.querySelector('#modal_carrito #container_resumen').style['max-height'] = '30%';
+            mostrar_carrito_vacio();
         }
     }
 }
 
 function mostrar_productos() {
+
     let html_tabla = `
             <table class="table" id="tabla_prod_carrito">
                 <tbody>
             `;
 
     productos_carrito.forEach(producto => {
-        console.log(producto.url_img_portada)
         html_tabla += `
                     <tr id="fila_producto_${producto.id}">
                         <td class="w-25 img_carrito"><img src="${producto.url_img_portada}"></td>
@@ -133,26 +157,36 @@ function mostrar_productos() {
         `;
 
     contenedor_carrito.innerHTML += html_tabla;
+
 }
 
 function mostrar_carrito() {
     if (productos_carrito.length > 0) {
         document.querySelector('#modal_carrito #container_resumen p').hidden = true;
-        document.querySelector('#modal_carrito #container_resumen').style['max-height'] = '75%';
+        document.querySelector('#modal_carrito #container_resumen').style['max-height'] = '60%';
         mostrar_productos();
         calcular_total();
 
     } else {
-        document.querySelector('#modal_carrito #container_resumen p').hidden = false;
-        document.querySelector('#modal_carrito #container_resumen').style['max-height'] = '30%';
+        mostrar_carrito_vacio()
     }
 };
 
 function limpiar_carrito() {
     let tabla_carrito = document.querySelector('#tabla_prod_carrito');
+    let subtotal_carrito = document.querySelector('#subtotal_carrito');
+    let carrito_vacio = document.querySelector('#container_carrito_vacio');
 
     if (tabla_carrito) {
         tabla_carrito.parentNode.removeChild(tabla_carrito);
+    }
+
+    if (subtotal_carrito) {
+        subtotal_carrito.parentNode.removeChild(subtotal_carrito);
+    }
+
+    if (carrito_vacio) {
+        carrito_vacio.parentNode.removeChild(carrito_vacio);
     }
 }
 
@@ -173,8 +207,6 @@ function llenar_productos_disponibles() {
 };
 
 function filtrar_por_precio(precio_desde, precio_hasta) {
-    console.log(precio_desde);
-    console.log(precio_hasta);
     return productos_disponibles.filter(producto => {
         if (precio_desde && precio_hasta) {
             // Filtrar si ambos límites están definidos
@@ -334,6 +366,5 @@ async function traer_juegos() {
         document.querySelector('#novedades').append(figure);
 
     }
-    console.log('agrego botones');
     botones_agregar = document.querySelectorAll('.btn_agregar');
 } 

@@ -246,6 +246,23 @@ article {
   border-radius: 5px;
 }
 
+#modal_carrito #img_carrito_vacio {
+  width: 25%;
+}
+
+#container_carrito_vacio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15%;
+  font-size: 17px;
+}
+
+#container_carrito_vacio p{
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
 #modal_carrito #container_resumen {
   background-color: rgb(239 239 239);
   margin-left: 2.3%;
@@ -326,6 +343,7 @@ article {
 
 .table .img_carrito img {
   height: 10rem;
+  width: 100%;
 }
 
 #btn_aplicar_filtros {
