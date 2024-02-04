@@ -17,7 +17,6 @@ function agregar_producto(id) {
     let nombre_prod = document.querySelector(`#nombre_${id.substring(4)}`).innerText;
     let precio_prod = formatear_precio(document.querySelector(`#precio_${id.substring(4)}`).innerText);
     let img_portada_prod = document.querySelector(`#novedades_${id.substring(4)} img`).src;
-    img_portada_prod = img_portada_prod.substring(img_portada_prod.lastIndexOf('/') + 1);
 
     document.querySelector('#cant_productos').innerText = cant_prod_carrito + cant_a_agregar;
 
@@ -110,9 +109,10 @@ function mostrar_productos() {
             `;
 
     productos_carrito.forEach(producto => {
+        console.log(producto.url_img_portada)
         html_tabla += `
                     <tr id="fila_producto_${producto.id}">
-                        <td class="w-25 img_carrito"><img src="imgs/Imgs_Productos/${producto.url_img_portada}"></td>
+                        <td class="w-25 img_carrito"><img src="${producto.url_img_portada}"></td>
                         <td>
                         <div class="header_prod_carrito">
                                 <span class="titulo_prod_carrito">${producto.nombre}</span>
@@ -166,7 +166,6 @@ function llenar_productos_disponibles() {
         nombre_prod = document.getElementById('nombre_prod_' + i).innerText;
         precio_prod = formatear_precio(document.getElementById('precio_prod_' + i).innerText);
         url_img = document.querySelector(`#novedades_prod_${i} img`).src;
-        url_img = url_img.substring(url_img.lastIndexOf('/') + 1);
 
         const prod = new Producto(i, nombre_prod, precio_prod, 0, url_img);
         productos_disponibles.push(prod);
@@ -305,3 +304,36 @@ function limpiar_filtros() {
     let precio_hasta = document.querySelector('#precio_hasta').value = "";
     let nombre_producto = document.querySelector('#nombre_prod_filtro').value = "";
 }
+
+/*API*/
+async function traer_juegos() {
+    const resp = await fetch(url_api);
+
+    const data = await resp.json();
+
+    juegos = data.results;
+
+    for (let i = 1; i <= 5; i++) {
+        let juego_api = data.results[i];
+
+        let figure = document.createElement('figure');
+        figure.classList.add('producto', 'card', 'text-center');
+        figure.id = `novedades_prod_${i}`;
+
+        figure.innerHTML = `
+            <img src="${juego_api.background_image}" alt="Imagen de portada ${juego_api.name}" class="card-img-top">
+            <div class="infoProducto card-body"> 
+                <figcaption class="card-title" id="nombre_prod_${i}">${juego_api.name}</figcaption> 
+                <p class="card-text" id="precio_prod_${i}">$11.000</p>  
+                <div class="row">
+                    <button class="btn btn-primary col-md-9 btn_agregar" id="btn_prod_${i}">Agregar</button>
+                    <input type="number" name="" id="cant_prod_${i}" class="form-control" value="1" min="1">
+                </div>
+            </div>`;
+
+        document.querySelector('#novedades').append(figure);
+
+    }
+    console.log('agrego botones');
+    botones_agregar = document.querySelectorAll('.btn_agregar');
+} 

@@ -374,7 +374,7 @@ article {
 }
 
 .articulos .producto .infoProducto {
-  height: 29%;
+  height: 55%;
   display: flex;
   flex-direction: column;
 }
@@ -386,7 +386,7 @@ article {
 }
 
 .articulos .producto figcaption {
-  font-size: 20px;
+  font-size: 17px;
   font-weight: bold;
   margin-top: 10px;
   margin-bottom: 10px;

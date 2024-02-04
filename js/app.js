@@ -1,7 +1,10 @@
 //Al cargar la página cargo los productos disponibles para los filtros
-document.addEventListener('DOMContentLoaded', obtener_carrito_storage);
-document.addEventListener('DOMContentLoaded', llenar_productos_disponibles);
-document.addEventListener('DOMContentLoaded', function () {
+//document.addEventListener('DOMContentLoaded', obtener_carrito_storage);
+document.addEventListener('DOMContentLoaded', async function () {
+    await traer_juegos();
+
+    obtener_carrito_storage();
+    llenar_productos_disponibles();
     //Le agrego un evento click a cada boton "agregar" de los productos en novedades
     botones_agregar.forEach(function (btn) {
         btn.addEventListener('click', function () {
