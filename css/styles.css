@@ -258,9 +258,27 @@ article {
   font-size: 17px;
 }
 
-#container_carrito_vacio p{
+#container_carrito_vacio p {
   margin-top: 2%;
   margin-bottom: 2%;
+}
+
+#modal_carrito .control_cantidad {
+  width: 18%;
+  height: 50%;
+  margin: 6.3% 0 0 3%;
+  font-size: 10px;
+}
+
+#modal_carrito .control_cantidad input {
+  font-size: 15px;
+  text-align: center;
+  font-weight: bold;
+}
+
+#modal_carrito .subheader_prod_carrito {
+  display: flex;
+  flex-direction: row;
 }
 
 #modal_carrito #container_resumen {

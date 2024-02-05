@@ -75,6 +75,7 @@ function calcular_total() {
     });
 
     html_resumen += `
+            <hr>
             <div class="row fila_resumen">
                 <div class="col-md-6" id="titulo_total_resumen">TOTAL:</div>
                 <div class="col-md-6 precio_total">$${total}</div>
@@ -100,7 +101,7 @@ function mostrar_carrito_vacio() {
     document.querySelector('#modal_carrito #container_resumen p').hidden = false;
     document.querySelector('#modal_carrito #container_resumen').style['max-height'] = '30%';
     let total_resumen = document.querySelector('.fila_resumen');
-    if(total_resumen){total_resumen.parentNode.removeChild(total_resumen)}
+    if (total_resumen) { total_resumen.parentNode.removeChild(total_resumen) }
 }
 
 function eliminar_producto(id) {
@@ -126,6 +127,28 @@ function eliminar_producto(id) {
     }
 }
 
+function actualizar_cantidad(id, operador) {
+    let prod_actual = productos_carrito.find(prod => prod.id == id);
+
+    if (prod_actual) {
+        if (operador == '+') {
+            prod_actual.cantidad_agregada++;
+        } else {
+            if (prod_actual.cantidad_agregada > 1) {
+                prod_actual.cantidad_agregada--;
+            }
+        }
+
+        document.querySelector(`#cant_carrito_prod_${id}`).value = prod_actual.cantidad_agregada;
+        document.querySelector('#cant_productos').innerText = cantidad_carrito();
+        let subtotal_carrito = document.querySelector('#subtotal_carrito');
+        if (subtotal_carrito) {
+            subtotal_carrito.parentNode.removeChild(subtotal_carrito);
+        }
+        calcular_total();
+    }
+}
+
 function mostrar_productos() {
 
     let html_tabla = `
@@ -140,9 +163,13 @@ function mostrar_productos() {
                         <td>
                         <div class="header_prod_carrito">
                                 <span class="titulo_prod_carrito">${producto.nombre}</span>
-                                <div>
+                                <div class="subheader_prod_carrito">
                                     <button class="btn_eliminar_prod" id="prod_carrito_${producto.id}" onclick="eliminar_producto(id)">Eliminar</button>
-                                    <span>X${producto.cantidad_agregada}</span>
+                                    <div class="control_cantidad input-group">
+                                        <button class="btn btn-secondary btn_restar_cant" onclick="actualizar_cantidad(${producto.id}, '-')">-</button>
+                                        <input id="cant_carrito_prod_${producto.id}" class="form-control input_cant" value="${producto.cantidad_agregada}">
+                                        <button class="btn btn-secondary btn_sumar_cant" onclick="actualizar_cantidad(${producto.id}, '+')">+</button>
+                                    </div>
                                 </div>
                         </div> 
                         </td>
