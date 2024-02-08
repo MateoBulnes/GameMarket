@@ -16,7 +16,14 @@ function agregar_producto(id) {
 
     let nombre_prod = document.querySelector(`#nombre_${id.substring(4)}`).innerText;
     let precio_prod = formatear_precio(document.querySelector(`#precio_${id.substring(4)}`).innerText);
-    let img_portada_prod = document.querySelector(`#novedades_${id.substring(4)} img`).src;
+    let img_portada_prod;
+
+    if (pagina_actual == 'index') {
+        img_portada_prod = document.querySelector(`#novedades_${id.substring(4)} img`).src;
+    }
+    else if (pagina_actual == 'productos') {
+        img_portada_prod = document.querySelector(`#producto_${id.substring(9)} img`).src;
+    }
 
     document.querySelector('#cant_productos').innerText = cant_prod_carrito + cant_a_agregar;
 
@@ -89,10 +96,18 @@ function calcular_total() {
 function mostrar_carrito_vacio() {
     let container_prod_carrito = document.querySelector('#modal_carrito #container_carrito');
     let div = document.createElement('div');
+    let comienzo_ruta_foto_carrito;
+
+    if (pagina_actual == 'index') {
+        comienzo_ruta_foto_carrito = './';
+    }
+    else if (pagina_actual == 'productos') {
+        comienzo_ruta_foto_carrito = '../'
+    }
 
     div.id = 'container_carrito_vacio';
     div.innerHTML = `
-                <img src="./imgs/imgs_Iconos_y_Logos/empty_shopping_cart.png" id="img_carrito_vacio" alt="Carrito de compras vacío">
+                <img src="${comienzo_ruta_foto_carrito}imgs/imgs_Iconos_y_Logos/empty_shopping_cart.png" id="img_carrito_vacio" alt="Carrito de compras vacío">
                 <p>Empieza un carrito de compras!</p>
                 <button class="btn btn-lg btn-primary" data-bs-dismiss="modal" onclick=limpiar_carrito()>Descubrir Juegos</button>
             `
@@ -216,6 +231,13 @@ function limpiar_carrito() {
         carrito_vacio.parentNode.removeChild(carrito_vacio);
     }
 }
+
+
+//Pagina Productos
+function cargar_productos() {
+    pagina_actual = 'productos';
+}
+
 
 //FILTRADO DE PRODUCTOS
 function llenar_productos_disponibles() {
@@ -372,26 +394,52 @@ async function traer_juegos() {
 
     juegos = data.results;
 
-    for (let i = 1; i <= 5; i++) {
-        let juego_api = data.results[i];
+    if (pagina_actual == 'index') {
+        for (let i = 1; i <= 5; i++) {
+            let juego_api = data.results[i];
 
-        let figure = document.createElement('figure');
-        figure.classList.add('producto', 'card', 'text-center');
-        figure.id = `novedades_prod_${i}`;
+            let figure = document.createElement('figure');
+            figure.classList.add('producto', 'card', 'text-center');
+            figure.id = `novedades_prod_${i}`;
 
-        figure.innerHTML = `
-            <img src="${juego_api.background_image}" alt="Imagen de portada ${juego_api.name}" class="card-img-top">
-            <div class="infoProducto card-body"> 
-                <figcaption class="card-title" id="nombre_prod_${i}">${juego_api.name}</figcaption> 
-                <p class="card-text" id="precio_prod_${i}">$11.000</p>  
-                <div class="row">
-                    <button class="btn btn-primary col-md-9 btn_agregar" id="btn_prod_${i}">Agregar</button>
-                    <input type="number" name="" id="cant_prod_${i}" class="form-control" value="1" min="1">
-                </div>
-            </div>`;
+            figure.innerHTML = `
+                <img src="${juego_api.background_image}" alt="Imagen de portada ${juego_api.name}" class="card-img-top">
+                <div class="infoProducto card-body"> 
+                    <figcaption class="card-title" id="nombre_prod_${i}">${juego_api.name}</figcaption> 
+                    <p class="card-text" id="precio_prod_${i}">$11.000</p>  
+                    <div class="row">
+                        <button class="btn btn-primary col-md-9 btn_agregar" id="btn_prod_${i}">Agregar</button>
+                        <input type="number" name="" id="cant_prod_${i}" class="form-control" value="1" min="1">
+                    </div>
+                </div>`;
 
-        document.querySelector('#novedades').append(figure);
+            document.querySelector('#novedades').append(figure);
 
+        }
+        botones_agregar = document.querySelectorAll('.btn_agregar');
     }
-    botones_agregar = document.querySelectorAll('.btn_agregar');
+    else if (pagina_actual == 'productos') {
+        for (let i = 1; i <= 8; i++) {
+            let juego_api = data.results[i + 9];
+
+            let figure = document.createElement('figure');
+            figure.classList.add('producto', 'card', 'text-center');
+            figure.id = `producto_${i}`;
+
+            figure.innerHTML = `
+                <img src="${juego_api.background_image}" alt="Imagen de portada ${juego_api.name}" class="card-img-top">
+                <div class="infoProducto card-body"> 
+                    <figcaption class="card-title" id="nombre_prod_${i}">${juego_api.name}</figcaption> 
+                    <p class="card-text" id="precio_prod_${i}">$11.000</p>  
+                    <div class="row">
+                        <button class="btn btn-primary col-md-9 btn_agregar" id="btn_prod_${i}">Agregar</button>
+                        <input type="number" name="" id="cant_prod_${i}" class="form-control" value="1" min="1">
+                    </div>
+                </div>`;
+
+            document.querySelector('#productos').append(figure);
+
+        }
+        botones_agregar = document.querySelectorAll('.btn_agregar');
+    }
 } 
