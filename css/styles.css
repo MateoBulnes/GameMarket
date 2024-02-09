@@ -519,7 +519,52 @@ article {
   border-bottom: 2px solid rgb(68, 67, 67);
 }
 
-#filtros ul {
+#container-buscar-productos {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#container-buscar-productos input {
+  width: 77%;
+}
+
+#container-buscar-productos button {
+  font-weight: bold;
+}
+
+#acordeon-filtros {
+  width: 100%;
+}
+
+#acordeon-filtros h2 button {
+  padding-left: 0;
+}
+
+#lista_filtros_categoria,
+#lista_filtros_plataforma {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-right: 0;
+  padding-left: 0;
+  list-style: none;
+  font-size: 17px;
+}
+
+#filtro_precio {
+  display: flex;
+  padding-left: 0;
+}
+
+#filtro_precio .col-md-3 {
+  margin-top: 10%;
+  margin-left: 10%;
+}
+
+/*#filtros ul {
   width: 100%;
   display: flex;
   align-items: flex-start;
@@ -542,7 +587,7 @@ article {
   font-weight: bold;
   border-radius: 10px;
   cursor: pointer;
-}
+}*/
 
 .etiquetaFiltro {
   background-color: rgb(208, 214, 223);

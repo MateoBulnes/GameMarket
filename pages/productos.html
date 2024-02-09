@@ -67,7 +67,80 @@
         <!--Comienzan Filtros-->
         <nav id="filtros">
             <h3 class="subtitulo">Filtros</h3>
-            <ul class="list-group list-group-flush">
+            <div id="container-buscar-productos">
+                <input class="form-control form-control-lg" type="text" placeholder="Buscar" aria-label=""
+                    id="input-busqueda">
+                <button class="btn btn-primary">Buscar</button>
+            </div>
+
+            <div class="accordion accordion-flush" id="acordeon-filtros">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            Categorías
+                        </button>
+                    </h2>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                        data-bs-parent="#acordeon-filtros">
+                        <div class="accordion-body">
+                            <ul id="lista_filtros_categoria">
+                                <li>Acción</li>
+                                <li>Aventura</li>
+                                <li>Shooter</li>
+                                <li>Platformer</li>
+                                <li>Indie</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                            Precio
+                        </button>
+                    </h2>
+                    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+                        data-bs-parent="#acordeon-filtros">
+                        <div class="accordion-body" id="filtro_precio">
+                            <div class="col-md-4">
+                                <label for="precio_desde" class="form-label">Desde</label>
+                                <input type="text" class="form-control form-input" id="precio_desde">
+                            </div>
+                            <div class="col-md-4 offset-md-1">
+                                <label for="precio_hasta" class="form-label">Hasta</label>
+                                <input type="text" class="form-control form-input" id="precio_hasta">
+                            </div>
+                            <div class="col-md-3">
+                                <button class="btn btn-secondary">Buscar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseThree" aria-expanded="false"
+                            aria-controls="flush-collapseThree">
+                            Plataforma
+                        </button>
+                    </h2>
+                    <div id="flush-collapseThree" class="accordion-collapse collapse"
+                        aria-labelledby="flush-headingThree" data-bs-parent="#acordeon-filtros">
+                        <div class="accordion-body">
+                            <ul id="lista_filtros_plataforma">
+                                <li>Playstation 5</li>
+                                <li>Playstation 4</li>
+                                <li>Xbox X</li>
+                                <li>Xbox One</li>
+                                <li>PC</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--<ul class="list-group list-group-flush">
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     Acción
                     <span class="badge rounded-pill etiquetaFiltro">14</span>
@@ -104,7 +177,7 @@
                     Simulación
                     <span class="badge rounded-pill etiquetaFiltro">6</span>
                 </li>
-            </ul>
+            </ul>-->
         </nav>
         <!--Terminan Filtros-->
 
