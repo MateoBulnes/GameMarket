@@ -1,10 +1,12 @@
 class Producto {
-    constructor(id, nombre, precio, cantidad, img) {
+    constructor(id, nombre, precio, cantidad, img, categorias, plataformas) {
         this.id = id;
         this.nombre = nombre;
         this.precio = precio;
         this.cantidad_agregada = cantidad;
         this.url_img_portada = img;
+        this.categorias = categorias;
+        this.plataformas = plataformas;
     }
 }
 
@@ -16,7 +18,6 @@ var juegos;
 
 //Productos en carrito y disponibles
 var productos_carrito = [];
-var productos_disponibles = [];
 var contenedor_carrito = document.querySelector('#container_carrito');
 
 //Modal para mostrar alertas o errores
@@ -25,8 +26,11 @@ var contenedor_carrito = document.querySelector('#container_carrito');
 //botones que disparan eventos
 var botones_agregar;
 var btn_carrito = document.querySelector('#shoppingCart img');
-var btn_filtrar = document.querySelector('#btn_filtrar');
-var btn_cerrar_alerta = document.querySelector('#modal_filtros .alerta .btn_cerrar_alerta');
-var btn_limpiar_filtros = document.querySelector('#btn_limpiar_filtros');
 
 var link_nav_productos = document.querySelector('#nav_productos');
+
+var buscar_filtros = document.querySelector('#btn_buscar_filtros');
+var busqueda_ingresada = document.querySelector('#input-busqueda');
+var categorias_filtros = document.querySelectorAll('.filtro_categoria');
+var plataformas_filtros = document.querySelectorAll('.filtro_plataforma');
+var btn_limpiar = document.querySelector('#btn_limpiar');

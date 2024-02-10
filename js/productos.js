@@ -12,7 +12,24 @@ document.addEventListener('DOMContentLoaded', async function () {
         });
     });
 
+    buscar_filtros.onclick = busqueda_filtros;
+    btn_limpiar.onclick = limpiar_filtros;
+
+    categorias_filtros.forEach(function (categoria) {
+        categoria.addEventListener('click', function(){
+            filtrar_por_categoria(categoria.getAttribute('value'));
+        })
+    });
+
+    plataformas_filtros.forEach(function (plataforma) {
+        plataforma.addEventListener('click', function(){
+            filtrar_por_plataforma(plataforma.getAttribute('value'));
+        })
+    });
+
     btn_carrito.onclick = mostrar_carrito;
     document.querySelector('#modal_carrito .modal-header button').onclick = limpiar_carrito;
+
+
 
 });

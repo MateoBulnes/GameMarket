@@ -542,6 +542,12 @@ article {
   padding-left: 0;
 }
 
+#btn_limpiar {
+  width: 100%;
+  margin-top: 8%;
+  font-weight: bold;
+}
+
 #lista_filtros_categoria,
 #lista_filtros_plataforma {
   width: 100%;

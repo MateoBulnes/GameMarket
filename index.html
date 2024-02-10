@@ -85,9 +85,6 @@
     <main id="mainPrincipal">
         <!--Comienzan tarjetas de novedades-->
         <h1>Novedades</h1>
-        <button class="btn btn-lg btn-primary" id="btn_aplicar_filtros" data-bs-toggle="modal"
-            data-bs-target="#modal_filtros">Aplicar
-            Filtros</button>
         <div class="articulos" id="novedades">
 
         </div>
@@ -159,55 +156,6 @@
             </div>
         </div>
         <!--Terminan Carrito-->
-
-        <!--Comienza filtros novedades-->
-        <div class="modal fade" id="modal_filtros" data-bs-backdrop="static" tabindex="-1"
-            aria-labelledby="titulo_modal_filtros" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="titulo_modal_filtros">Filtros</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="alerta" hidden>
-                            <button class="btn_cerrar_alerta">X</button>
-                            <p>Debe ingresar al menos 1 filtro para realizar la búsqueda</p>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-1"><span class="tag_filtro">Precio</span></div>
-                            <div class="col-md-1 offset-md-5"><span class="tag_filtro">Descripción</span></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-2">
-                                <label for="precio_desde" class="form-label">Desde</label>
-                                <input type="text" class="form-control form-input" id="precio_desde">
-                            </div>
-                            <div class="col-md-2">
-                                <label for="precio_hasta" class="form-label">Hasta</label>
-                                <input type="text" class="form-control form-input" id="precio_hasta">
-                            </div>
-
-                            <div class="col-md-6 offset-md-2">
-                                <label for="nombre_prod_filtro" class="form-label">Nombre</label>
-                                <input type="text" class="form-control form-input" id="nombre_prod_filtro">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-1 offset-md-10">
-                                <button class="btn btn-lg btn-secondary" id="btn_limpiar_filtros">Limpiar</button>
-                            </div>
-                            <div class="col-md-1">
-                                <button class="btn btn-lg btn-primary" id="btn_filtrar">Filtrar</button>
-                            </div>
-                        </div>
-                        <div id="container_resultados"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--Termina filtro novedades-->
 
     </main>
 

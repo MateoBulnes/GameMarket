@@ -10,6 +10,10 @@ function buscar_producto(nombre) {
     return productos_carrito.find(producto => producto.nombre === nombre);
 }
 
+function buscar_juego_base(nombre) {
+    return juegos.find(juego => juego.name == nombre);
+}
+
 function agregar_producto(id) {
     let cant_prod_carrito = parseInt(document.getElementById('cant_productos').innerText);
     let cant_a_agregar = parseInt(document.querySelector(`#cant_${id.substring(4)}`).value);
@@ -28,9 +32,10 @@ function agregar_producto(id) {
     document.querySelector('#cant_productos').innerText = cant_prod_carrito + cant_a_agregar;
 
     let producto_seleccionado = buscar_producto(nombre_prod);
+    let juego_base = buscar_juego_base(nombre_prod);
 
     if (!producto_seleccionado) {
-        const producto = new Producto(id.split("_")[2], nombre_prod, precio_prod, cant_a_agregar, img_portada_prod);
+        const producto = new Producto(id.split("_")[2], nombre_prod, precio_prod, cant_a_agregar, img_portada_prod, juego_base.genres, juego_base.platforms);
         productos_carrito.push(producto);
     } else {
         producto_seleccionado.cantidad_agregada += cant_a_agregar;
@@ -205,7 +210,7 @@ function mostrar_productos() {
 function mostrar_carrito() {
     if (productos_carrito.length > 0) {
         document.querySelector('#modal_carrito #container_resumen p').hidden = true;
-        document.querySelector('#modal_carrito #container_resumen').style['max-height'] = '60%';
+        document.querySelector('#modal_carrito #container_resumen').style['max-height'] = '70%';
         mostrar_productos();
         calcular_total();
 
@@ -239,22 +244,6 @@ function cargar_productos() {
 }
 
 
-//FILTRADO DE PRODUCTOS
-function llenar_productos_disponibles() {
-    let nombre_prod;
-    let precio_prod;
-    let url_img;
-
-    for (let i = 1; i <= 5; i++) {
-        nombre_prod = document.getElementById('nombre_prod_' + i).innerText;
-        precio_prod = formatear_precio(document.getElementById('precio_prod_' + i).innerText);
-        url_img = document.querySelector(`#novedades_prod_${i} img`).src;
-
-        const prod = new Producto(i, nombre_prod, precio_prod, 0, url_img);
-        productos_disponibles.push(prod);
-    }
-};
-
 function filtrar_por_precio(precio_desde, precio_hasta) {
     return productos_disponibles.filter(producto => {
         if (precio_desde && precio_hasta) {
@@ -273,117 +262,113 @@ function filtrar_por_precio(precio_desde, precio_hasta) {
 }
 
 
-function filtrar_por_nombre(nombre, productos) {
-    return productos.filter(producto => {
-        return producto.nombre.toLowerCase().includes(nombre.toLowerCase());
+
+function busqueda_filtros() {
+    let nombre_buscado = busqueda_ingresada.value.toLowerCase();
+    let productos_filtrados = juegos.filter(juego => juego.name.toLowerCase().includes(nombre_buscado));
+
+    let div_productos = document.getElementById("productos");
+
+    while (div_productos.firstChild) {
+        div_productos.removeChild(div_productos.firstChild);
+    }
+    console.log(productos_filtrados)
+
+    let i = 0
+    while (i < 8 && i < productos_filtrados.length) {
+        crear_producto(productos_filtrados[i], i);
+        i++;
+    }
+
+    let btns_agregar = document.querySelectorAll('.btn_agregar');
+
+    btns_agregar.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            let id = btn.id;
+
+            agregar_producto(id);
+        });
     });
 }
 
-function mostrar_filtrados(productos) {
+function limpiar_filtros(){
+    
+}
 
-    let container_filtros = document.querySelector('#modal_filtros .modal-body #container_resultados');
+function filtrar_por_categoria(categoria) {
+    let productos_filtrados = juegos.filter(juego => juego.genres.some(genero => genero.slug == categoria));
 
-    let html_tabla = `
-        <h3 id="titulo_resultados_filtros">Resultados</h3>
-        <table class="table" id="tabla_resultados_filtros">
-            <tbody>
-        `;
+    let div_productos = document.getElementById("productos");
 
-    productos.forEach(producto => {
-        html_tabla += `
-                <tr>
-                    <td class="w-25 img_carrito"><img src="imgs/Imgs_Productos/${producto.url_img_portada}"></td>
-                    <td class="align-middle">${producto.nombre}</td>
-                    <td class="align-middle">${producto.precio}</td>
-                </tr>
-        `;
+    while (div_productos.firstChild) {
+        div_productos.removeChild(div_productos.firstChild);
+    }
+    console.log(productos_filtrados)
+
+    let i = 0
+    while (i < 8 && i < productos_filtrados.length) {
+        crear_producto(productos_filtrados[i], i);
+        i++;
+    }
+
+    let btns_agregar = document.querySelectorAll('.btn_agregar');
+
+    btns_agregar.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            let id = btn.id;
+
+            agregar_producto(id);
+        });
     });
 
-    html_tabla += `
-            </tbody>
-        </table>
-    `;
 
-    container_filtros.innerHTML += html_tabla;
 }
 
-function definir_categoria() {
-    let precio_desde = document.querySelector('#precio_desde').value;
-    let precio_hasta = document.querySelector('#precio_hasta').value;
-    let nombre = document.querySelector('#nombre_prod_filtro').value;
+function filtrar_por_plataforma(plataforma) {
+    let productos_filtrados = juegos.filter(juego => juego.platforms.some(p => p.platform.slug == plataforma));
 
-    if (precio_desde && precio_hasta && nombre) {
-        return 'PRECIO Y NOMBRE';
+    let div_productos = document.getElementById("productos");
+
+    while (div_productos.firstChild) {
+        div_productos.removeChild(div_productos.firstChild);
     }
-    else if (!nombre && (precio_desde || precio_hasta)) {
-        return 'PRECIO';
+
+    let i = 0
+    while (i < 8 && i < productos_filtrados.length) {
+        crear_producto(productos_filtrados[i], i);
+        i++;
     }
-    else if (nombre && !precio_desde && !precio_hasta) {
-        return 'NOMBRE';
-    }
-    else if (!nombre && !precio_desde && !precio_hasta) {
-        return 'NINGUNO';
-    }
-    else { return 'PRECIO Y NOMBRE' };
+
+    let btns_agregar = document.querySelectorAll('.btn_agregar');
+
+    btns_agregar.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            let id = btn.id;
+
+            agregar_producto(id);
+        });
+    });
+
+
 }
 
-const ocultar_alerta = () => {
-    let alerta_filtros = document.querySelector('#modal_filtros .alerta');
-    alerta_filtros.hidden = true;
-};
+function crear_producto(juego, n_actual) {
+    let figure = document.createElement('figure');
+    figure.classList.add('producto', 'card', 'text-center');
+    figure.id = `producto_${n_actual}`;
 
-function filtrar_productos() {
-    let categoria = definir_categoria();
-    let productos_filtrados = [];
-    let precio_desde = document.querySelector('#precio_desde').value;
-    let precio_hasta = document.querySelector('#precio_hasta').value;
-    let nombre_producto = document.querySelector('#nombre_prod_filtro').value;
+    figure.innerHTML = `
+                <img src="${juego.background_image}" alt="Imagen de portada ${juego.name}" class="card-img-top">
+                <div class="infoProducto card-body"> 
+                    <figcaption class="card-title" id="nombre_prod_${n_actual}">${juego.name}</figcaption> 
+                    <p class="card-text" id="precio_prod_${n_actual}">$11.000</p>  
+                    <div class="row">
+                        <button class="btn btn-primary col-md-9 btn_agregar" id="btn_prod_${n_actual}">Agregar</button>
+                        <input type="number" name="" id="cant_prod_${n_actual}" class="form-control" value="1" min="1">
+                    </div>
+                </div>`;
 
-    if (categoria == 'NINGUNO') {
-        let alerta_filtros = document.querySelector('#modal_filtros .alerta');
-        alerta_filtros.hidden = false;
-    }
-    else if (categoria == 'PRECIO') {
-        productos_filtrados = filtrar_por_precio(precio_desde, precio_hasta);
-    }
-    else if (categoria == 'NOMBRE') {
-        productos_filtrados = filtrar_por_nombre(nombre_producto, productos_disponibles);
-    } else {
-        productos_filtrados = filtrar_por_precio(precio_desde, precio_hasta);
-        productos_filtrados = filtrar_por_nombre(nombre_producto, productos_filtrados)
-    }
-
-
-    if (productos_filtrados.length <= 0 && categoria != 'NINGUNO') {
-        let container_filtros = document.querySelector('#modal_filtros .modal-body');
-        container_filtros.innerHTML += `<div id="cartel_sin_resultados">No se encontraron resultados para los filtros ingresados</div>`;
-    } else {
-        if (document.querySelector('#cartel_sin_resultados')) {
-            document.querySelector('#cartel_sin_resultados').remove();
-        }
-
-        if (categoria != 'NINGUNO') { mostrar_filtrados(productos_filtrados); }
-    }
-}
-
-function limpiar_filtros() {
-    let tabla_resultados = document.querySelector('#tabla_resultados_filtros');
-    let titulo_resultados = document.querySelector('#titulo_resultados_filtros');
-    let cartel_sin_resultados = document.querySelector('#cartel_sin_resultados');
-
-    if (tabla_resultados) {
-        tabla_resultados.parentNode.removeChild(tabla_resultados);
-    }
-    if (titulo_resultados) {
-        titulo_resultados.parentNode.removeChild(titulo_resultados);
-    }
-    if (cartel_sin_resultados) {
-        cartel_sin_resultados.parentNode.removeChild(cartel_sin_resultados);
-    }
-
-    let precio_desde = document.querySelector('#precio_desde').value = "";
-    let precio_hasta = document.querySelector('#precio_hasta').value = "";
-    let nombre_producto = document.querySelector('#nombre_prod_filtro').value = "";
+    document.querySelector('#productos').append(figure);
 }
 
 /*API*/
@@ -422,23 +407,7 @@ async function traer_juegos() {
         for (let i = 1; i <= 8; i++) {
             let juego_api = data.results[i + 9];
 
-            let figure = document.createElement('figure');
-            figure.classList.add('producto', 'card', 'text-center');
-            figure.id = `producto_${i}`;
-
-            figure.innerHTML = `
-                <img src="${juego_api.background_image}" alt="Imagen de portada ${juego_api.name}" class="card-img-top">
-                <div class="infoProducto card-body"> 
-                    <figcaption class="card-title" id="nombre_prod_${i}">${juego_api.name}</figcaption> 
-                    <p class="card-text" id="precio_prod_${i}">$11.000</p>  
-                    <div class="row">
-                        <button class="btn btn-primary col-md-9 btn_agregar" id="btn_prod_${i}">Agregar</button>
-                        <input type="number" name="" id="cant_prod_${i}" class="form-control" value="1" min="1">
-                    </div>
-                </div>`;
-
-            document.querySelector('#productos').append(figure);
-
+            crear_producto(juego_api, i);
         }
         botones_agregar = document.querySelectorAll('.btn_agregar');
     }
