@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     });
 
     buscar_filtros.onclick = busqueda_filtros;
+    btn_buscar_precio.onclick = filtrar_por_precio;
     btn_limpiar.onclick = limpiar_filtros;
 
     categorias_filtros.forEach(function (categoria) {

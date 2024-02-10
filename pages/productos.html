@@ -11,6 +11,7 @@
     <meta name="keywords" content="Productos, Filtros, Generos, Juegos">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="shortcut icon" href="../imgs/imgs_Iconos_y_Logos/Favicon.png">
     <link rel="stylesheet" href="../css/styles.css">
 </head>
@@ -106,14 +107,14 @@
                         <div class="accordion-body" id="filtro_precio">
                             <div class="col-md-4">
                                 <label for="precio_desde" class="form-label">Desde</label>
-                                <input type="text" class="form-control form-input" id="precio_desde">
+                                <input type="text" class="form-control form-control-lg form-input" id="precio_desde">
                             </div>
                             <div class="col-md-4 offset-md-1">
                                 <label for="precio_hasta" class="form-label">Hasta</label>
-                                <input type="text" class="form-control form-input" id="precio_hasta">
+                                <input type="text" class="form-control form-control-lg form-input" id="precio_hasta">
                             </div>
-                            <div class="col-md-3">
-                                <button class="btn btn-secondary">Buscar</button>
+                            <div class="col-md-2">
+                                <button class="btn btn-lg btn-secondary" id="btn_buscar_precio">Buscar</button>
                             </div>
                         </div>
                     </div>
@@ -263,6 +264,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
         crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="../js/variables.js"></script>
     <script src="../js/funciones.js"></script>
     <script src="../js/productos.js"></script>

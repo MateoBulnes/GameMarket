@@ -548,6 +548,21 @@ article {
   font-weight: bold;
 }
 
+.filtro_seleccionado {
+  color: rgb(0 95 233);
+  width: 100%;
+}
+
+.filtro_categoria:hover,
+.filtro_plataforma:hover {
+  color: rgb(0 95 233);
+}
+
+#flush-collapseTwo .col-md-2{
+  margin-left: 4%;
+  margin-top: 10.5%;
+}
+
 #lista_filtros_categoria,
 #lista_filtros_plataforma {
   width: 100%;

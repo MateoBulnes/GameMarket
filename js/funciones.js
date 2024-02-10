@@ -49,10 +49,6 @@ function formatear_precio(precio_sin_formato) {
     return parseInt(nuevo_precio.replace(".", ""));
 }
 
-function aplicar_descuento(total_sin_desc) {
-    return total_sin_desc * 0.7;
-}
-
 function cantidad_carrito() {
     let cantidad_carrito = 0;
 
@@ -238,46 +234,59 @@ function limpiar_carrito() {
 }
 
 
-//Pagina Productos
-function cargar_productos() {
-    pagina_actual = 'productos';
-}
-
-
-function filtrar_por_precio(precio_desde, precio_hasta) {
-    return productos_disponibles.filter(producto => {
-        if (precio_desde && precio_hasta) {
-            // Filtrar si ambos límites están definidos
-            return producto.precio >= precio_desde && producto.precio <= precio_hasta;
-        } else if (precio_desde) {
-            // Filtrar si solo hay precio_desde definido
-            return producto.precio >= precio_desde;
-        } else if (precio_hasta) {
-            // Filtrar si solo hay precio_hasta definido
-            return producto.precio <= precio_hasta;
-        }
-        // Si no hay límites definidos, no aplicar filtro de precios
-        return true;
-    });
-}
-
-
+//FUNCIONES FILTROS
 
 function busqueda_filtros() {
-    let nombre_buscado = busqueda_ingresada.value.toLowerCase();
-    let productos_filtrados = juegos.filter(juego => juego.name.toLowerCase().includes(nombre_buscado));
+    if (busqueda_ingresada.value) {
+        let nombre_buscado = busqueda_ingresada.value.toLowerCase();
+        let productos_filtrados = juegos.filter(juego => juego.name.toLowerCase().includes(nombre_buscado));
 
+        let div_productos = document.getElementById("productos");
+
+        while (div_productos.firstChild) {
+            div_productos.removeChild(div_productos.firstChild);
+        }
+
+        let i = 0
+        while (i < 8 && i < productos_filtrados.length) {
+            crear_producto(productos_filtrados[i], i);
+            i++;
+        }
+
+        let btns_agregar = document.querySelectorAll('.btn_agregar');
+
+        btns_agregar.forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                let id = btn.id;
+
+                agregar_producto(id);
+            });
+        });
+    } else {
+        Toastify({
+            text: "Debe ingresar un título para realizar la búsqueda",
+            duration: 2000,
+            position: 'left',
+            style: {
+                background: 'linear-gradient(111.4deg, rgb(246, 4, 26) 0.4%, rgb(251, 139, 34) 100.2%)',
+                fontSize: '15px'
+            }
+
+        }).showToast();
+    }
+}
+
+function limpiar_filtros() {
     let div_productos = document.getElementById("productos");
 
     while (div_productos.firstChild) {
         div_productos.removeChild(div_productos.firstChild);
     }
-    console.log(productos_filtrados)
 
-    let i = 0
-    while (i < 8 && i < productos_filtrados.length) {
-        crear_producto(productos_filtrados[i], i);
-        i++;
+    for (let i = 1; i <= 8; i++) {
+        let juego_actual = juegos[i + 9];
+
+        crear_producto(juego_actual, i);
     }
 
     let btns_agregar = document.querySelectorAll('.btn_agregar');
@@ -289,10 +298,108 @@ function busqueda_filtros() {
             agregar_producto(id);
         });
     });
+
+    busqueda_ingresada.value = '';
+    precio_desde.value = '';
+    precio_hasta.value = '';
+    document.querySelector(`[value="action"]`).classList.remove('filtro_seleccionado');
+    document.querySelector(`[value="adventure"]`).classList.remove('filtro_seleccionado');
+    document.querySelector(`[value="shooter"]`).classList.remove('filtro_seleccionado');
+    document.querySelector(`[value="role-playing-games-rpg"]`).classList.remove('filtro_seleccionado');
+    document.querySelector(`[value="indie"]`).classList.remove('filtro_seleccionado');
+    document.querySelector(`[value="playstation5"]`).classList.remove('filtro_seleccionado');
+    document.querySelector(`[value="playstation4"]`).classList.remove('filtro_seleccionado');
+    document.querySelector(`[value="xbox-series-x"]`).classList.remove('filtro_seleccionado');
+    document.querySelector(`[value="xbox-one"]`).classList.remove('filtro_seleccionado');
+    document.querySelector(`[value="pc"]`).classList.remove('filtro_seleccionado');
+
 }
 
-function limpiar_filtros(){
-    
+function obtener_prod_entre_precio() {
+    return productos_iniciales.filter(producto => {
+        if (precio_desde.value && precio_hasta.value) {
+            return producto.precio >= precio_desde.value && producto.precio <= precio_hasta.value;
+        } else if (precio_desde.value) {
+            return producto.precio >= precio_desde.value;
+        } else if (precio_hasta.value) {
+            return producto.precio <= precio_hasta.value;
+        }
+        return true;
+    });
+}
+
+function filtrar_por_precio() {
+    let regex = /^$|^\d+$/;
+
+    if (!regex.test(precio_desde.value) || !regex.test(precio_hasta.value)) {
+        Toastify({
+            text: "Los valores en los filtros de Precio deben ser numéricos",
+            duration: 2000,
+            position: 'left',
+            style: {
+                background: 'linear-gradient(111.4deg, rgb(246, 4, 26) 0.4%, rgb(251, 139, 34) 100.2%)',
+                fontSize: '15px'
+            }
+
+        }).showToast();
+    } else {
+        let productos_filtrados = obtener_prod_entre_precio();
+
+        let div_productos = document.getElementById("productos");
+
+        while (div_productos.firstChild) {
+            div_productos.removeChild(div_productos.firstChild);
+        }
+
+        for (let i = 0; i < productos_filtrados.length; i++) {
+            let figure = document.createElement('figure');
+            figure.classList.add('producto', 'card', 'text-center');
+            figure.id = `producto_${i}`;
+
+            figure.innerHTML = `
+                <img src="${productos_filtrados[i].url_img_portada}" alt="Imagen de portada ${productos_filtrados[i].nombre}" class="card-img-top">
+                <div class="infoProducto card-body"> 
+                    <figcaption class="card-title" id="nombre_prod_${i}">${productos_filtrados[i].nombre}</figcaption> 
+                    <p class="card-text" id="precio_prod_${i}">$${productos_filtrados[i].precio}</p>  
+                    <div class="row">
+                        <button class="btn btn-primary col-md-9 btn_agregar" id="btn_prod_${i}">Agregar</button>
+                        <input type="number" name="" id="cant_prod_${i}" class="form-control" value="1" min="1">
+                    </div>
+                </div>`;
+
+            document.querySelector('#productos').append(figure);
+        }
+
+        let btns_agregar = document.querySelectorAll('.btn_agregar');
+
+        btns_agregar.forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                let id = btn.id;
+
+                agregar_producto(id);
+            });
+        });
+    }
+}
+
+const actualizar_seleccion = (tipo_filtro, valor_seleccionado) => {
+    let opcion_seleccionada = document.querySelector(`[value="${valor_seleccionado}"]`);
+
+    if (tipo_filtro == 'categoria') {
+        document.querySelector(`[value="action"]`).classList.remove('filtro_seleccionado');
+        document.querySelector(`[value="adventure"]`).classList.remove('filtro_seleccionado');
+        document.querySelector(`[value="shooter"]`).classList.remove('filtro_seleccionado');
+        document.querySelector(`[value="role-playing-games-rpg"]`).classList.remove('filtro_seleccionado');
+        document.querySelector(`[value="indie"]`).classList.remove('filtro_seleccionado');
+    } else {
+        document.querySelector(`[value="playstation5"]`).classList.remove('filtro_seleccionado');
+        document.querySelector(`[value="playstation4"]`).classList.remove('filtro_seleccionado');
+        document.querySelector(`[value="xbox-series-x"]`).classList.remove('filtro_seleccionado');
+        document.querySelector(`[value="xbox-one"]`).classList.remove('filtro_seleccionado');
+        document.querySelector(`[value="pc"]`).classList.remove('filtro_seleccionado');
+    }
+
+    opcion_seleccionada.classList.add('filtro_seleccionado');
 }
 
 function filtrar_por_categoria(categoria) {
@@ -303,7 +410,6 @@ function filtrar_por_categoria(categoria) {
     while (div_productos.firstChild) {
         div_productos.removeChild(div_productos.firstChild);
     }
-    console.log(productos_filtrados)
 
     let i = 0
     while (i < 8 && i < productos_filtrados.length) {
@@ -321,7 +427,7 @@ function filtrar_por_categoria(categoria) {
         });
     });
 
-
+    actualizar_seleccion('categoria', categoria);
 }
 
 function filtrar_por_plataforma(plataforma) {
@@ -349,7 +455,7 @@ function filtrar_por_plataforma(plataforma) {
         });
     });
 
-
+    actualizar_seleccion('plataforma', plataforma);
 }
 
 function crear_producto(juego, n_actual) {
@@ -357,11 +463,14 @@ function crear_producto(juego, n_actual) {
     figure.classList.add('producto', 'card', 'text-center');
     figure.id = `producto_${n_actual}`;
 
+    let precio = Math.floor(Math.random() * (20000 - 1000 + 1)) + 1000;
+    precio_aux = precio;
+
     figure.innerHTML = `
                 <img src="${juego.background_image}" alt="Imagen de portada ${juego.name}" class="card-img-top">
                 <div class="infoProducto card-body"> 
                     <figcaption class="card-title" id="nombre_prod_${n_actual}">${juego.name}</figcaption> 
-                    <p class="card-text" id="precio_prod_${n_actual}">$11.000</p>  
+                    <p class="card-text" id="precio_prod_${n_actual}">$${precio}</p>  
                     <div class="row">
                         <button class="btn btn-primary col-md-9 btn_agregar" id="btn_prod_${n_actual}">Agregar</button>
                         <input type="number" name="" id="cant_prod_${n_actual}" class="form-control" value="1" min="1">
@@ -371,7 +480,7 @@ function crear_producto(juego, n_actual) {
     document.querySelector('#productos').append(figure);
 }
 
-/*API*/
+//API
 async function traer_juegos() {
     const resp = await fetch(url_api);
 
@@ -387,11 +496,12 @@ async function traer_juegos() {
             figure.classList.add('producto', 'card', 'text-center');
             figure.id = `novedades_prod_${i}`;
 
+            let precio = Math.floor(Math.random() * (20000 - 1000 + 1)) + 1000;
             figure.innerHTML = `
                 <img src="${juego_api.background_image}" alt="Imagen de portada ${juego_api.name}" class="card-img-top">
                 <div class="infoProducto card-body"> 
                     <figcaption class="card-title" id="nombre_prod_${i}">${juego_api.name}</figcaption> 
-                    <p class="card-text" id="precio_prod_${i}">$11.000</p>  
+                    <p class="card-text" id="precio_prod_${i}">$${precio}</p>  
                     <div class="row">
                         <button class="btn btn-primary col-md-9 btn_agregar" id="btn_prod_${i}">Agregar</button>
                         <input type="number" name="" id="cant_prod_${i}" class="form-control" value="1" min="1">
@@ -408,6 +518,8 @@ async function traer_juegos() {
             let juego_api = data.results[i + 9];
 
             crear_producto(juego_api, i);
+
+            productos_iniciales.push(new Producto(i, juego_api.name, precio_aux, null, juego_api.background_image, juego_api.genres, juego_api.platforms));
         }
         botones_agregar = document.querySelectorAll('.btn_agregar');
     }
