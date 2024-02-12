@@ -2,7 +2,9 @@
 const obtener_carrito_storage = () => {
     if (localStorage.length > 0) {
         productos_carrito = JSON.parse(localStorage.getItem('carrito'));
-        document.querySelector('#cant_productos').innerText = cantidad_carrito();
+        if(productos_carrito){
+            document.querySelector('#cant_productos').innerText = cantidad_carrito();
+        }
     }
 };
 
