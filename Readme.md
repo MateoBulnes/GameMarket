@@ -9,5 +9,5 @@ El proyecto consiste en un sitio web para una tienda de videoJuegos, compuesto p
 - Contacto
 
 ## Links
-- Página en servidor: https://clever-brioche-6a36a6.netlify.app/
+- Página en servidor: https://games-market-site.netlify.app/
 - Página en Github Pages: https://mateobulnes.github.io/GameMarket/
